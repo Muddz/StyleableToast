@@ -228,14 +228,17 @@ public class StyleableToast implements OnToastFinished {
     private View getToastLayout() {
 
         getLayoutStyleAttr();
+        getImageViewStyleAttr();
 
         int horizontalPadding = (int) getTypedValueInDP(context, DEFAULT_HORIZONTAL_PADDING);
         int verticalPadding = (int) getTypedValueInDP(context, DEFAULT_VERTICAL_PADDING);
+
 
         RelativeLayout toastLayout = new RelativeLayout(context);
         toastLayout.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
         toastLayout.setBackground(getToastShape());
         toastLayout.addView(getTextView());
+
 
         if (drawable > 0) {
             toastLayout.addView(getIcon());
@@ -306,7 +309,8 @@ public class StyleableToast implements OnToastFinished {
 
         if (drawable > 0) {
 
-            int leftPadding = (int) getTypedValueInDP(context, 18 * 2 + 8);
+            //previous: 18x2  + 8
+            int leftPadding = (int) getTypedValueInDP(context, 18 * 2 + 5);
             int rightPadding = (int) getTypedValueInDP(context, 22);
 
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -333,11 +337,22 @@ public class StyleableToast implements OnToastFinished {
     }
 
 
+    private void getImageViewStyleAttr() {
+        if (style > 0) {
+            int[] drawableAttrSet = {android.R.attr.icon};
+            TypedArray drawableId = context.obtainStyledAttributes(style, drawableAttrSet);
+            drawable = drawableId.getResourceId(0, 0);
+            drawableId.recycle();
+        }
+    }
+
+
     private ImageView getIcon() {
 
         if (drawable > 0) {
 
-            int marginLeft = (int) getTypedValueInDP(context, 18);
+            //previous 18:
+            int marginLeft = (int) getTypedValueInDP(context, 15);
             int maxHeightVal = (int) getTypedValueInDP(context, 20);
             int maxWidthVal = (int) getTypedValueInDP(context, 20);
 
@@ -352,7 +367,7 @@ public class StyleableToast implements OnToastFinished {
                     RelativeLayout.LayoutParams.WRAP_CONTENT,
                     RelativeLayout.LayoutParams.WRAP_CONTENT);
 
-            //Push the icon 18dp from the left edge of the shape
+            //Push the icon 15dp from the left edge of the shape
             layoutParams.setMargins(marginLeft, 0, 0, 0);
 
             layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);

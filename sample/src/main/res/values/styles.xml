@@ -11,18 +11,19 @@
 
     <style name="StyleableToast">
 
-
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/red</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">fonts/anton.ttf</item>
+        <item name="android:fontFamily">fonts/dosis.otf</item>
+        <item name="android:colorBackground">@color/gray</item>
 
-        <item name="android:colorBackground">@color/white</item>
-        <item name="android:strokeWidth">2</item>
-        <item name="android:strokeColor">@color/white</item>
-        <item name="android:radius">@dimen/toastRadius</item>
-        <item name="android:alpha">255</item>
+        <!--<item name="android:strokeWidth">2</item>-->
+        <!--<item name="android:strokeColor">@color/white</item>-->
 
-        <!--<item name="android:drawable">@drawable/ic_error_black_24dp</item>-->
+        <!--<item name="android:radius">@dimen/toastRadius</item>-->
+
+        <!--<item name="android:alpha">255</item>-->
+
+        <item name="android:icon">@drawable/ic_airplanemode_inactive_black_24dp</item>
 
 
     </style>
