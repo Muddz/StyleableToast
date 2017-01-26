@@ -2,12 +2,14 @@ package com.muddzdev.styleabletoastlibrary;
 
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StyleRes;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,10 +61,12 @@ public class StyleableToast implements OnToastFinished {
     private TextView textView;
     private Typeface font;
 
-    private int strokeWidth, duration, style, alpha, drawable;
+    private float strokeWidth;
+    private int duration, style, alpha, drawable;
     private int backgroundColor, textColor, strokeColor;
     private int cornerRadius = -1;
-    private boolean isBold, animIconRotation;
+    private boolean isBold;
+    private boolean animIconRotation;
     private String toastMsg;
 
 
@@ -84,6 +88,7 @@ public class StyleableToast implements OnToastFinished {
         this.toastMsg = toastMsg;
         this.duration = duration;
         this.style = styleId;
+
     }
 
     /**
@@ -188,21 +193,44 @@ public class StyleableToast implements OnToastFinished {
         Toast toast = new Toast(context);
         toast.setDuration(duration);
         toast.setView(getToastLayout());
+
         return toast;
     }
 
-    private void initStyle() {
+
+    /**
+     * if a style is passed, we load the style attributes
+     */
+    private void getLayoutStyleAttr() {
+        if (style > 0) {
+
+            int[] colorAttrs = {android.R.attr.colorBackground, android.R.attr.strokeColor};
+            int[] floatAttrs = {android.R.attr.strokeWidth};
+            int[] dimenAttrs = {android.R.attr.radius};
+
+
+            TypedArray colors = context.obtainStyledAttributes(style, colorAttrs);
+            TypedArray dimens = context.obtainStyledAttributes(style, dimenAttrs);
+            TypedArray floats = context.obtainStyledAttributes(style, floatAttrs);
+
+            backgroundColor = colors.getColor(0, DEFAULT_BACKGROUND);
+            strokeColor = colors.getColor(1, Color.TRANSPARENT);
+            strokeWidth = floats.getFloat(0, 0);
+            cornerRadius = (int) dimens.getDimension(0, DEFAULT_CORNER_RADIUS);
+
+            colors.recycle();
+            dimens.recycle();
+            floats.recycle();
+        }
 
     }
 
-
     private View getToastLayout() {
+
+        getLayoutStyleAttr();
 
         int horizontalPadding = (int) getTypedValueInDP(context, DEFAULT_HORIZONTAL_PADDING);
         int verticalPadding = (int) getTypedValueInDP(context, DEFAULT_VERTICAL_PADDING);
-
-        int horizontalPadding2 = (int) getTypedValueInDP(context, 20);
-        int verticalPadding2 = (int) getTypedValueInDP(context, 8);
 
         RelativeLayout toastLayout = new RelativeLayout(context);
         toastLayout.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
@@ -217,17 +245,57 @@ public class StyleableToast implements OnToastFinished {
         return toastLayout;
     }
 
-    private GradientDrawable getToastShape() {
 
+    private void getShapeStylesAttr() {
+        if (style > 0) {
+
+            int[] floatAttrs = {android.R.attr.alpha};
+            TypedArray floats = context.obtainStyledAttributes(style, floatAttrs);
+            alpha = (int) floats.getFloat(0, DEFAULT_ALPHA);
+            floats.recycle();
+        }
+    }
+
+    private GradientDrawable getToastShape() {
+        getShapeStylesAttr();
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getShapeCornerRadius());
-        gradientDrawable.setStroke(getStrokeWidth(), getStrokeColor());
+        gradientDrawable.setStroke((int) getStrokeWidth(), getStrokeColor());
         gradientDrawable.setColor(getBackgroundColor());
         gradientDrawable.setAlpha(getShapeAlpha());
         return gradientDrawable;
     }
 
+
+    private void getTextStylesAttr() {
+        if (style > 0) {
+
+            int[] colorAttrs = {android.R.attr.textColor};
+            int[] stringAttrs = {android.R.attr.fontFamily};
+            int[] intsAttrs = {android.R.attr.textStyle};
+
+            TypedArray colors = context.obtainStyledAttributes(style, colorAttrs);
+            TypedArray strings = context.obtainStyledAttributes(style, stringAttrs);
+            TypedArray ints = context.obtainStyledAttributes(style, intsAttrs);
+
+            textColor = colors.getColor(0, DEFAULT_TEXT_COLOR);
+            font = Typeface.createFromAsset(context.getAssets(), strings.getString(0));
+
+            if (ints.getInt(0, 0) == 1) {
+                isBold = true;
+            } else {
+                isBold = false;
+            }
+
+            colors.recycle();
+            strings.recycle();
+            ints.recycle();
+        }
+
+    }
+
     private TextView getTextView() {
+        getTextStylesAttr();
 
         textView = new TextView(context);
         textView.setText(toastMsg);
@@ -294,8 +362,8 @@ public class StyleableToast implements OnToastFinished {
         return null;
     }
 
-    private int getStrokeWidth() {
-        return strokeWidth;
+    private float getStrokeWidth() {
+        return getTypedValueInDP(context, strokeWidth);
     }
 
     private int getStrokeColor() {
@@ -329,30 +397,24 @@ public class StyleableToast implements OnToastFinished {
 
 
     private Typeface getTypeface() {
-        Typeface result;
-
-        if (isBold) {
-            result = Typeface.DEFAULT_BOLD;
+        if (isBold && font == null) {
+            return Typeface.DEFAULT_BOLD;
         } else if (isBold && font != null) {
-            result = Typeface.create(font, Typeface.BOLD);
+            return Typeface.create(font, Typeface.BOLD);
         } else if (font != null) {
-            result = Typeface.create(font, Typeface.NORMAL);
+            return Typeface.create(font, Typeface.NORMAL);
         } else {
-            result = Typeface.create(DEFAULT_CONDENSED_FONT, Typeface.NORMAL);
+            return Typeface.create(DEFAULT_CONDENSED_FONT, Typeface.NORMAL);
         }
-
-        return result;
     }
 
     @ColorInt
     private int getTextColor() {
-        int result;
-        if (textColor == 0) {
-            result = DEFAULT_TEXT_COLOR;
+        if (textColor == 0 && style <= 0) {
+            return DEFAULT_TEXT_COLOR;
         } else {
-            result = textColor;
+            return textColor;
         }
-        return result;
     }
 
 

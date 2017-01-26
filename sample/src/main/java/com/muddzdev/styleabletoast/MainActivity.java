@@ -71,9 +71,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button5:
 
                 st = new StyleableToast(this, "Saving profile", Toast.LENGTH_LONG);
-                st.setBackgroundColor(Color.parseColor("#645abc"));
-                st.setTextColor(Color.WHITE);
-                st.setCornerRadius(35);
+                st.setStyle(R.style.StyleableToast);
                 st.show();
 
                 break;
