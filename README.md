@@ -11,15 +11,16 @@ Currently used in:
 
 ### Features
 
-- Set Background color of the toast.
+- Set background color of the toast.
 - Set the corner radius of the toast get shapes like, flat, slightly rounded square or rounded.
-- Set the alpha/transparency of your toast-
+- Set the alpha/transparency of your toast.
 - Set stroke width and color on your toast.
 - Style the toast text with a text color or bold.
 - Set a new font for the toast text.
 - Set a icon beside the toast text.
 - Define all setting in a styles.xml and just pass the style in the constructor.
 - Start a spinning animation of your icon (see example below)
+
 *(Next version: Builder pattern, elevtion and toast size)*
 
 ----
