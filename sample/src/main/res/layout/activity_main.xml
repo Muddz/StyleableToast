@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:background="#ff5a5f"
+        android:fontFamily="sans-serif-condensed"
+        android:onClick="Toaster"
+        android:padding="5dp"
+        android:text="Toast 1"
+        android:textColor="#fff"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_centerHorizontal="true"
+        android:background="#ff5a5f"
+        android:fontFamily="sans-serif-condensed"
+        android:onClick="Toaster"
+        android:padding="5dp"
+        android:text="Toast 2"
+        android:textColor="#fff"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentRight="true"
+        android:background="#ff5a5f"
+        android:fontFamily="sans-serif-condensed"
+        android:onClick="Toaster"
+        android:padding="5dp"
+        android:text="Toast 3"
+        android:textColor="#fff"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button1"
+        android:layout_marginTop="16dp">
+
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:background="#ff5a5f"
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="Toaster"
+            android:padding="5dp"
+            android:text="Toast 4"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:background="#ff5a5f"
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="Toaster"
+            android:padding="5dp"
+            android:text="Toast 5"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:background="#ff5a5f"
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="Toaster"
+            android:padding="5dp"
+            android:text="Toast 6"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
