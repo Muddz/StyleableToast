@@ -13,6 +13,10 @@ Currently used in:
 ## CASES:
 ![alt tag](https://github.com/Muddz/StyleableToast/blob/master/styleable%20cases.png)
 
+## With spinIconAnimation(); method:
+
+
+
 
 ### Features
 
