@@ -48,7 +48,15 @@ Currently used in:
 
     StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
     
-### Simple usage with a style resource:
+### Usage with by code:
+
+                StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
+                st.setBackgroundColor(Color.parseColor("#ff5a5f"));
+                st.setTextColor(Color.WHITE);
+                st.setIcon(R.drawable.ic_autorenew_black_24dp);
+                st.spinIconAnimation();
+                st.setAlpha(StyleableToast.MAX_VISIBILTY);
+                st.show();
 -----
     
 ### Installation
