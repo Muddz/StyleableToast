@@ -45,6 +45,7 @@ Currently used in:
     </style>
 
 **2) Pass your style resource in the constructor and call show()**
+
     StyleableToast(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
     
 
