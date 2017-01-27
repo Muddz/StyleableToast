@@ -25,7 +25,7 @@ Currently used in:
 
 ----
 
-### Example of simple usage with style resource:
+### Simple usage with a style resource:
 
 
 **1) Style your toast in styles.xml. All available attributes:**
@@ -46,9 +46,9 @@ Currently used in:
 
 **2) Pass your style resource in the constructor and call show();**
 
-    StyleableToast(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
+    StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
     
-
+### Simple usage with a style resource:
 -----
     
 ### Installation
