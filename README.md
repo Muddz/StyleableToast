@@ -36,8 +36,8 @@ Currently used in:
         <item name="android:textStyle"></item>
         <item name="android:fontFamily"></item>
         <item name="android:colorBackground"></item>
-        <item name="android:strokeWidth"></item>
-        <item name="android:strokeColor"></item>
+        <item name="android:strokeWidth"></item> // API 21+
+        <item name="android:strokeColor"></item> // API 21+
         <item name="android:radius"></item>
         <item name="android:alpha"></item>
         <item name="android:icon">/</item>
