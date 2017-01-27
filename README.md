@@ -25,8 +25,38 @@ Currently used in:
 
 ----
 
-### Example of simple usage
+### Simple usage with a style resource:
 
+
+**1) Style your toast in styles.xml. All available attributes:**
+
+    <style name="StyledToast">
+
+        <item name="android:textColor"></item>
+        <item name="android:textStyle"></item>
+        <item name="android:fontFamily"></item>
+        <item name="android:colorBackground"></item>
+        <item name="android:strokeWidth"></item>
+        <item name="android:strokeColor"></item>
+        <item name="android:radius"></item>
+        <item name="android:alpha"></item>
+        <item name="android:icon">/</item>
+        
+    </style>
+
+**2) Pass your style resource in the constructor and call show();**
+
+    StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
+    
+### Usage with by code:
+
+                StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
+                st.setBackgroundColor(Color.parseColor("#ff5a5f"));
+                st.setTextColor(Color.WHITE);
+                st.setIcon(R.drawable.ic_autorenew_black_24dp);
+                st.spinIconAnimation();
+                st.setAlpha(StyleableToast.MAX_VISIBILTY);
+                st.show();
 -----
     
 ### Installation
@@ -35,7 +65,7 @@ Add the depedency in your build.gradle. The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.1'    
+    compile 'com.muddzdev:styleabletoast:1.0.1'   
 }
 ```
  ----
