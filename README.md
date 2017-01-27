@@ -25,7 +25,26 @@ Currently used in:
 
 ----
 
-### Example of simple usage
+### Example of simple usage with style resource:
+
+    StyleableToast(this, "Saving profile", Toast.LENGTH_LONG, R.style.styledtoast).show();
+    
+Style your toast in styles.xml. All available attributes:
+
+    
+    <style name="StyledToast">
+
+        <item name="android:textColor"></item>
+        <item name="android:textStyle"></item>
+        <item name="android:fontFamily"></item>
+        <item name="android:colorBackground"></item>
+        <item name="android:strokeWidth"></item>
+        <item name="android:strokeColor"></item>
+        <item name="android:radius"></item>
+        <item name="android:alpha"></item>
+        <item name="android:icon">/</item>
+        
+    </style>
 
 -----
     
