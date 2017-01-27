@@ -15,17 +15,17 @@
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">fonts/dosis.otf</item>
         <item name="android:colorBackground">@color/gray</item>
-
         <!--<item name="android:strokeWidth">2</item>-->
         <!--<item name="android:strokeColor">@color/white</item>-->
-
         <!--<item name="android:radius">@dimen/toastRadius</item>-->
-
         <!--<item name="android:alpha">255</item>-->
+        <!--<item name="android:icon">@drawable/ic_autorenew_black_24dp</item>-->
 
-        <item name="android:icon">@drawable/ic_airplanemode_inactive_black_24dp</item>
+
 
 
     </style>
+
+
 
 </resources>

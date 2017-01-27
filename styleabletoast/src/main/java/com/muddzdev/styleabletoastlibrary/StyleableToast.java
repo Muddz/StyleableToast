@@ -144,8 +144,9 @@ public class StyleableToast implements OnToastFinished {
     /**
      * Enables spinning animation of the passed icon by its around its own center.
      */
-    public void spinIconAnimation() {
+    public StyleableToast spinIconAnimation() {
         this.animIconRotation = true;
+        return this;
     }
 
 
@@ -453,7 +454,7 @@ public class StyleableToast implements OnToastFinished {
 
     public static StyleableToast makeText(Context context, CharSequence text, int duration, int style) {
 
-        StyleableToast styleableToast = new StyleableToast(context, text.toString(), duration);
+        StyleableToast styleableToast = new StyleableToast(context, text.toString(), duration, style);
 
         return styleableToast;
     }
