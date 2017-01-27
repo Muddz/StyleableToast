@@ -1,6 +1,6 @@
 ### Android StyleableToast
 
-An Android library that takes the standard Android Toast and takes it to the next level with a variety of styling options that gives your app a extra unique feeling.
+An Android library that takes the standard Android Toast and takes it to the next level with a variety of styling options that gives your app a extra unique feeling.  
 
 
 Currently used in:
@@ -20,6 +20,7 @@ Currently used in:
 
 ### Features
 
+- Define all setting in a styles.xml and just pass the style in the constructor.
 - Set background color of the toast.
 - Set the corner radius of the toast get shapes like, flat, slightly rounded square or rounded.
 - Set the alpha/transparency of your toast.
@@ -27,8 +28,8 @@ Currently used in:
 - Style the toast text with a text color or bold.
 - Set a new font for the toast text.
 - Set a icon beside the toast text.
-- Define all setting in a styles.xml and just pass the style in the constructor.
-- Start a spinning animation of your icon (see example below)
+- Start a spinning animation of your icon (see example above)
+- Works from Api 16+
 
 *(Next version: Builder pattern, elevtion and toast size)*
 
