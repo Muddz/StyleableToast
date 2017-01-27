@@ -9,6 +9,11 @@ Currently used in:
 
 *Feel free to contact me if you want your app to be included here*
 
+
+## CASES:
+![alt tag](https://github.com/Muddz/StyleableToast/blob/master/styleable%20cases.png)
+
+
 ### Features
 
 - Set background color of the toast.
