@@ -27,9 +27,9 @@ Currently used in:
 
 ### Example of simple usage with style resource:
 
-    StyleableToast(this, "Saving profile", Toast.LENGTH_LONG, R.style.styledtoast).show();
+    StyleableToast(this, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
     
-Style your toast in styles.xml. All available attributes:
+**Style your toast in styles.xml. All available attributes:**
 
     
     <style name="StyledToast">
