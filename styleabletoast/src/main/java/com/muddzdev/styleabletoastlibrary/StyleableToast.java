@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StyleRes;
@@ -54,7 +55,7 @@ public class StyleableToast implements OnToastFinished {
     private static final int DEFAULT_CORNER_RADIUS = 25;
     private static final int DEFAULT_HORIZONTAL_PADDING = 25;
     private static final int DEFAULT_VERTICAL_PADDING = 11;
-    private static final int DEFAULT_ALPHA = 230;
+    private static final int DEFAULT_ALPHA = 185;
     public static int MAX_VISIBILTY = 255;
 
     private final Context context;
@@ -66,7 +67,7 @@ public class StyleableToast implements OnToastFinished {
     private int backgroundColor, textColor, strokeColor;
     private int cornerRadius = -1;
     private boolean isBold;
-    private boolean animIconRotation;
+    private boolean isAnimation;
     private String toastMsg;
 
 
@@ -145,7 +146,7 @@ public class StyleableToast implements OnToastFinished {
      * Enables spinning animation of the passed icon by its around its own center.
      */
     public StyleableToast spinIconAnimation() {
-        this.animIconRotation = true;
+        isAnimation = true;
         return this;
     }
 
@@ -215,8 +216,12 @@ public class StyleableToast implements OnToastFinished {
             TypedArray floats = context.obtainStyledAttributes(style, floatAttrs);
 
             backgroundColor = colors.getColor(0, DEFAULT_BACKGROUND);
-            strokeColor = colors.getColor(1, Color.TRANSPARENT);
-            strokeWidth = floats.getFloat(0, 0);
+
+            if(Build.VERSION.SDK_INT >=21){
+                strokeColor = colors.getColor(1, Color.TRANSPARENT);
+                strokeWidth = floats.getFloat(0, 0);
+            }
+
             cornerRadius = (int) dimens.getDimension(0, DEFAULT_CORNER_RADIUS);
 
             colors.recycle();
@@ -283,7 +288,15 @@ public class StyleableToast implements OnToastFinished {
             TypedArray ints = context.obtainStyledAttributes(style, intsAttrs);
 
             textColor = colors.getColor(0, DEFAULT_TEXT_COLOR);
-            font = Typeface.createFromAsset(context.getAssets(), strings.getString(0));
+            String passedFont = strings.getString(0);
+
+            if (passedFont != null && !passedFont.isEmpty()) {
+                if (passedFont.contains("fonts")) {
+                    font = Typeface.createFromAsset(context.getAssets(), passedFont);
+                } else {
+                    font = Typeface.create(passedFont, Typeface.NORMAL);
+                }
+            }
 
             if (ints.getInt(0, 0) == 1) {
                 isBold = true;
@@ -326,7 +339,7 @@ public class StyleableToast implements OnToastFinished {
     }
 
     private Animation getAnimation() {
-        if (animIconRotation) {
+        if (isAnimation) {
             RotateAnimation anim = new RotateAnimation(0.0f, 360.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
             anim.setInterpolator(new LinearInterpolator());
             anim.setRepeatCount(Animation.INFINITE);
@@ -358,11 +371,12 @@ public class StyleableToast implements OnToastFinished {
             int maxWidthVal = (int) getTypedValueInDP(context, 20);
 
             ImageView imageView = new ImageView(context);
+            imageView.setImageDrawable(context.getResources().getDrawable(drawable));
             imageView.setAnimation(getAnimation());
             imageView.setMaxWidth(marginLeft + maxWidthVal);
             imageView.setMaxHeight(maxHeightVal);
             imageView.setAdjustViewBounds(true);
-            imageView.setImageDrawable(context.getResources().getDrawable(drawable));
+
 
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
                     RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -413,8 +427,9 @@ public class StyleableToast implements OnToastFinished {
 
 
     private Typeface getTypeface() {
+
         if (isBold && font == null) {
-            return Typeface.DEFAULT_BOLD;
+            return Typeface.create(DEFAULT_CONDENSED_FONT, Typeface.BOLD);
         } else if (isBold && font != null) {
             return Typeface.create(font, Typeface.BOLD);
         } else if (font != null) {
@@ -422,6 +437,7 @@ public class StyleableToast implements OnToastFinished {
         } else {
             return Typeface.create(DEFAULT_CONDENSED_FONT, Typeface.NORMAL);
         }
+
     }
 
     @ColorInt
@@ -436,7 +452,7 @@ public class StyleableToast implements OnToastFinished {
 
     public void show() {
         toaster().show();
-        if (animIconRotation) {
+        if (isAnimation) {
             ToastDurationWatcher durationWatcher = new ToastDurationWatcher(toaster().getDuration(), this);
         }
     }

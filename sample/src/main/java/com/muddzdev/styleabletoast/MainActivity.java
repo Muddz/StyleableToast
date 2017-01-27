@@ -25,17 +25,20 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.button1:
 
-//                st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
-//                st.setBackgroundColor(Color.parseColor("#ff5a5f"));
-//                st.setTextColor(Color.WHITE);
-//                st.setIcon(R.drawable.ic_autorenew_black_24dp);
-//                st.spinIconAnimation();
-//                st.setAlpha(StyleableToast.MAX_VISIBILTY);
-//                st.show();
+                st = new StyleableToast(this, "Updating profile", Toast.LENGTH_LONG);
+                st.setBackgroundColor(Color.parseColor("#ff5a5f"));
+                st.setTextColor(Color.WHITE);
+                st.setIcon(R.drawable.ic_autorenew_black_24dp);
+                st.spinIconAnimation();
+                st.setAlpha(StyleableToast.MAX_VISIBILTY);
+                st.show();
 
 
+                break;
 
-                st = new StyleableToast(this, "Turn off fly mode", Toast.LENGTH_SHORT);
+            case R.id.button2:
+
+                st = new StyleableToast(this, "Turn off fly mode", Toast.LENGTH_LONG);
                 st.setBackgroundColor(Color.parseColor("#865aff"));
                 st.setTextColor(Color.WHITE);
                 st.setIcon(R.drawable.ic_airplanemode_inactive_black_24dp);
@@ -44,26 +47,15 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
 
-            case R.id.button2:
-
-                Toast.makeText(this, "Turn off fly mode", Toast.LENGTH_SHORT).show();
-
-//                st = new StyleableToast(this, "Profile saved", Toast.LENGTH_LONG);
-//                st.setBackgroundColor(Color.parseColor("#3b5998"));
-//                st.setBoldText();
-//                st.setAlpha(StyleableToast.MAX_VISIBILTY);
-//                st.show();
-                break;
-
             case R.id.button3:
 
-                st = new StyleableToast(this, "Can't continue with low battery!", Toast.LENGTH_LONG);
-                st.setBackgroundColor(Color.DKGRAY);
-                st.setTextFont(Typeface.createFromAsset(getAssets(),"fonts/dosis.otf"));
-                st.setTextColor(Color.YELLOW);
 
-
+                st = new StyleableToast(this, "Profile saved", Toast.LENGTH_LONG);
+                st.setBackgroundColor(Color.parseColor("#3b5998"));
+                st.setAlpha(StyleableToast.MAX_VISIBILTY);
+                st.setTextFont(Typeface.createFromAsset(getAssets(), "fonts/dosis.otf"));
                 st.show();
+
 
                 break;
 
@@ -71,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
                 st = new StyleableToast(this.getApplicationContext(), "PHONE IS OVERWHEATING!", Toast.LENGTH_LONG);
                 st.setCornerRadius(5);
-
                 st.setBackgroundColor(Color.BLACK);
                 st.setTextColor(Color.RED);
                 st.setBoldText();
@@ -82,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button5:
 
                 StyleableToast.makeText(this, "Picture saved in gallery", Toast.LENGTH_LONG, R.style.StyleableToast).show();
-
 
                 break;
 
