@@ -27,11 +27,9 @@ Currently used in:
 
 ### Example of simple usage with style resource:
 
-    StyleableToast(this, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
-    
-**Style your toast in styles.xml. All available attributes:**
 
-    
+**1) Style your toast in styles.xml. All available attributes:**
+
     <style name="StyledToast">
 
         <item name="android:textColor"></item>
@@ -45,6 +43,10 @@ Currently used in:
         <item name="android:icon">/</item>
         
     </style>
+
+**2) Pass your style resource in the constructor and call show()**
+    StyleableToast(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
+    
 
 -----
     
