@@ -35,7 +35,7 @@ Add the depedency in your build.gradle. The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.1'    
+    compile 'com.muddzdev:styleabletoast:1.0.1'   
 }
 ```
  ----
