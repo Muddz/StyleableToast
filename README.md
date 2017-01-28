@@ -1,6 +1,6 @@
 ### Android StyleableToast
 
-An Android library that takes the standard Android Toast and takes it to the next level with a variety of styling options that gives your app a extra unique feeling.
+An Android library that takes the standard Android Toast and takes it to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling!
 
 
 Currently used in:
@@ -9,23 +9,33 @@ Currently used in:
 
 *Feel free to contact me if you want your app to be included here*
 
+<a href="https://github.com/Muddz/StyleableToast/raw/master/sample.apk">Download the sample .apk: </a>
+
+
 ### Features
 
+- Style toasts in a styles.xml or from code.
 - Set background color of the toast.
-- Set the corner radius of the toast get shapes like, flat, slightly rounded square or rounded.
-- Set the alpha/transparency of your toast.
+- Set the corner radius of the toast and archive different shapes.
+- Set the transparency of your toast to get full solid or transparent toast.
 - Set stroke width and color on your toast.
 - Style the toast text with a text color or bold.
 - Set a new font for the toast text.
 - Set a icon beside the toast text.
-- Define all setting in a styles.xml and just pass the style in the constructor.
-- Start a spinning animation of your icon (see example below)
+- Set an spinning animation effect on your icon (see below example)
+- Works from Api 16+
 
 *(Next version: Builder pattern, elevtion and toast size)*
 
+## CASES:
+![alt tag](https://github.com/Muddz/StyleableToast/blob/master/styleable%20cases.png)
+
+## With spinIconAnimation(); method:
+![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
+
 ----
 
-### Simple usage with a style resource:
+### Usage with a style resource:
 
 
 **1) Style your toast in styles.xml. All available attributes:**
@@ -65,7 +75,7 @@ Add the depedency in your build.gradle. The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.2'   
+    compile 'com.muddzdev:styleabletoast:1.0.3'   
 }
 ```
  ----
