@@ -9,6 +9,7 @@ Currently used in:
 
 *Feel free to contact me if you want your app to be included here*
 
+<a href="https://github.com/Muddz/StyleableToast/blob/master/sample.apk">Download the sample .apk: </a>
 
 
 ### Features
