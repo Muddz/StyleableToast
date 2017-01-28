@@ -44,7 +44,7 @@ Currently used in:
 
         <item name="android:textColor"></item>
         <item name="android:textStyle"></item>
-        <item name="android:fontFamily"></item>  can aslo be custom font. Just add the path to it like: "fonts/myfont.ttf"
+        <item name="android:fontFamily"></item> For custom fonts just add the path "fonts/myfont.ttf"
         <item name="android:colorBackground"></item>
         <item name="android:strokeWidth"></item> // API 21+
         <item name="android:strokeColor"></item> // API 21+
