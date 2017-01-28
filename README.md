@@ -1,6 +1,6 @@
 ### Android StyleableToast
 
-An Android library that takes the standard Android Toast and takes it to the next level with a variety of styling options that gives your app a extra unique feeling.  
+An Android library that takes the standard Android Toast and takes it to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling!
 
 
 Currently used in:
@@ -34,7 +34,7 @@ Currently used in:
 
 ----
 
-### Simple usage with a style resource:
+### Usage with a style resource:
 
 
 **1) Style your toast in styles.xml. All available attributes:**
