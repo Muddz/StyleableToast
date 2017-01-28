@@ -33,7 +33,6 @@ Currently used in:
 ## With spinIcon(); method:
 ![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
-----
 
 ## Usage with a style resource:
 
