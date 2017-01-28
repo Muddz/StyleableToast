@@ -39,7 +39,7 @@ Currently used in:
 
 
 **1) Style your toast in styles.xml. All available attributes:**
-
+```xml
     <style name="StyledToast">
 
         <item name="android:textColor"></item>
@@ -53,13 +53,15 @@ Currently used in:
         <item name="android:icon">/</item>
         
     </style>
+```
 
 **2) Pass your style resource in the constructor and call show(); and you're done!**
 
+```java
     StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
-    
+```
 ### Usage with by code:
-
+```java
                 StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
                 st.setBackgroundColor(Color.parseColor("#ff5a5f"));
                 st.setTextColor(Color.WHITE);
@@ -67,6 +69,7 @@ Currently used in:
                 st.spinIconAnimation();
                 st.setAlpha(StyleableToast.MAX_VISIBILTY);
                 st.show();
+```
 -----
     
 ### Installation
