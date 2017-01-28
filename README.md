@@ -41,16 +41,16 @@ Currently used in:
 **1) Style your toast in styles.xml. All available attributes:**
 ```xml
     <style name="StyledToast">
-
-        <item name="android:textColor"></item>
-        <item name="android:textStyle"></item>
-        <item name="android:fontFamily"></item> For custom fonts just add the path "fonts/myfont.ttf"
-        <item name="android:colorBackground"></item>
-        <item name="android:strokeWidth"></item> // API 21+
-        <item name="android:strokeColor"></item> // API 21+
-        <item name="android:radius"></item>  radius for corners of the toast shape
-        <item name="android:alpha"></item>   value between 0-255 where 255 is full solid
-        <item name="android:icon">/</item>
+    
+    <item name="android:textColor"></item>
+    <item name="android:textStyle"></item>
+    <item name="android:fontFamily"></item> For custom fonts just add the path "fonts/myfont.ttf"
+    <item name="android:colorBackground"></item>
+    <item name="android:strokeWidth"></item> // API 21+
+    <item name="android:strokeColor"></item> // API 21+
+    <item name="android:radius"></item>  radius for corners of the toast shape
+    <item name="android:alpha"></item>   value between 0-255 where 255 is full solid
+    <item name="android:icon">/</item>
         
     </style>
 ```
@@ -62,13 +62,13 @@ Currently used in:
 ```
 ### Usage with by code:
 ```java
-                StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
-                st.setBackgroundColor(Color.parseColor("#ff5a5f"));
-                st.setTextColor(Color.WHITE);
-                st.setIcon(R.drawable.ic_autorenew_black_24dp);
-                st.spinIconAnimation();
-                st.setAlpha(StyleableToast.MAX_VISIBILTY);
-                st.show();
+    StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
+    st.setBackgroundColor(Color.parseColor("#ff5a5f"));
+    st.setTextColor(Color.WHITE);
+    st.setIcon(R.drawable.ic_autorenew_black_24dp);
+    st.spinIconAnimation();  
+    st.setAlpha(StyleableToast.MAX_VISIBILTY);
+    st.show();
 ```
 -----
     
