@@ -1,4 +1,4 @@
-### Android StyleableToast
+## Android StyleableToast
 
 An Android library that takes the standard Android Toast and takes it to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling! Style your toast either by code or in styles.xml!
 
@@ -12,7 +12,7 @@ Currently used in:
 <a href="https://github.com/Muddz/StyleableToast/raw/master/sample.apk">Download the sample .apk: </a>
 
 
-### Features
+## Features
 
 - Style toasts in a styles.xml or from code.
 - Set background color of the toast.
@@ -27,15 +27,15 @@ Currently used in:
 
 *(Next version: Builder pattern, elevtion and toast size)*
 
-### CASES:
+## CASES:
 ![alt tag](https://github.com/Muddz/StyleableToast/blob/master/styleable%20cases.png)
 
-### With spinIcon(); method:
+## With spinIcon(); method:
 ![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
 ----
 
-### Usage with a style resource:
+## Usage with a style resource:
 
 
 **1) Style your toast in styles.xml. All available attributes:**
@@ -60,7 +60,7 @@ Currently used in:
 ```java
     StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
 ```
-### Usage with by code:
+## Usage with by code:
 ```java
     StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
     st.setBackgroundColor(Color.parseColor("#ff5a5f"));
@@ -72,7 +72,7 @@ Currently used in:
 ```
 -----
     
-### Installation
+## Installation
 
 Add the depedency in your build.gradle. The library is distributed via jCenter
 
@@ -83,7 +83,7 @@ dependencies {
 ```
  ----
 
-### License
+## License
 
     Copyright 2017 Muddii Walid (Muddz)
 
