@@ -10,28 +10,27 @@ Currently used in:
 *Feel free to contact me if you want your app to be included here*
 
 
-## CASES:
-![alt tag](https://github.com/Muddz/StyleableToast/blob/master/styleable%20cases.png)
-
-## With spinIconAnimation(); method:
-
-
-
 
 ### Features
 
-- Define all setting in a styles.xml and just pass the style in the constructor.
+- Style toasts in a styles.xml or from code.
 - Set background color of the toast.
-- Set the corner radius of the toast get shapes like, flat, slightly rounded square or rounded.
-- Set the alpha/transparency of your toast.
+- Set the corner radius of the toast and archive different shapes.
+- Set the transparency of your toast to get full solid or transparent toast.
 - Set stroke width and color on your toast.
 - Style the toast text with a text color or bold.
 - Set a new font for the toast text.
 - Set a icon beside the toast text.
-- Start a spinning animation of your icon (see example above)
+- Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
 
 *(Next version: Builder pattern, elevtion and toast size)*
+
+## CASES:
+![alt tag](https://github.com/Muddz/StyleableToast/blob/master/styleable%20cases.png)
+
+## With spinIconAnimation(); method:
+![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
 ----
 
