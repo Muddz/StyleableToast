@@ -27,10 +27,10 @@ Currently used in:
 
 *(Next version: Builder pattern, elevtion and toast size)*
 
-## CASES:
+### CASES:
 ![alt tag](https://github.com/Muddz/StyleableToast/blob/master/styleable%20cases.png)
 
-## With spinIcon(); method:
+### With spinIcon(); method:
 ![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
 ----
