@@ -30,7 +30,7 @@ Currently used in:
 ## CASES:
 ![alt tag](https://github.com/Muddz/StyleableToast/blob/master/styleable%20cases.png)
 
-## With spinIcon; method:
+## With spinIcon(); method:
 ![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
 ----
@@ -44,12 +44,12 @@ Currently used in:
 
         <item name="android:textColor"></item>
         <item name="android:textStyle"></item>
-        <item name="android:fontFamily"></item>
+        <item name="android:fontFamily"></item>  can aslo be custom font. Just add the path to it like: "fonts/myfont.ttf"
         <item name="android:colorBackground"></item>
         <item name="android:strokeWidth"></item> // API 21+
         <item name="android:strokeColor"></item> // API 21+
-        <item name="android:radius"></item>
-        <item name="android:alpha"></item>
+        <item name="android:radius"></item>  radius for corners of the toast shape
+        <item name="android:alpha"></item>   value between 0-255 where 255 is full solid
         <item name="android:icon">/</item>
         
     </style>
