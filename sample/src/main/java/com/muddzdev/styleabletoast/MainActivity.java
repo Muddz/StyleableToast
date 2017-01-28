@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
                 st.setBackgroundColor(Color.parseColor("#ff5a5f"));
                 st.setTextColor(Color.WHITE);
                 st.setIcon(R.drawable.ic_autorenew_black_24dp);
-                st.spinIconAnimation();
-                st.setAlpha(StyleableToast.MAX_VISIBILTY);
+                st.spinIcon();
+                st.setMaxAlpha();
                 st.show();
 
 
@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 st.setBackgroundColor(Color.parseColor("#865aff"));
                 st.setTextColor(Color.WHITE);
                 st.setIcon(R.drawable.ic_airplanemode_inactive_black_24dp);
-                st.setAlpha(StyleableToast.MAX_VISIBILTY);
                 st.show();
 
                 break;
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
                 st = new StyleableToast(this, "Profile saved", Toast.LENGTH_LONG);
                 st.setBackgroundColor(Color.parseColor("#3b5998"));
-                st.setAlpha(StyleableToast.MAX_VISIBILTY);
+                st.setMaxAlpha();
                 st.setTextFont(Typeface.createFromAsset(getAssets(), "fonts/dosis.otf"));
                 st.show();
 
@@ -63,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                 st = new StyleableToast(this.getApplicationContext(), "PHONE IS OVERWHEATING!", Toast.LENGTH_LONG);
                 st.setCornerRadius(5);
+                st.setToastStroke(4,Color.RED);
                 st.setBackgroundColor(Color.BLACK);
                 st.setTextColor(Color.RED);
                 st.setBoldText();

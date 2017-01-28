@@ -5,5 +5,5 @@ package com.muddzdev.styleabletoastlibrary;
  */
 
 public interface OnToastFinished {
-     void onCancelAnimation();
+     void onToastFinished();
 }

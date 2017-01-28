@@ -20,7 +20,7 @@
         <!--<item name="android:strokeWidth">2</item>-->
         <!--<item name="android:strokeColor">@color/white</item>-->
         <!--<item name="android:radius">@dimen/toastRadius</item>-->
-        <!--<item name="android:alpha">255</item>-->
+        <!--<item name="android:alpha"></item>-->
         <item name="android:icon">@drawable/ic_file_download</item>
 
 

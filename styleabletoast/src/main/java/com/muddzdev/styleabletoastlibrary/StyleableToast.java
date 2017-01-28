@@ -22,7 +22,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.R.attr.name;
 import static com.muddzdev.styleabletoastlibrary.Utils.getTypedValueInDP;
+import static java.lang.reflect.Array.getFloat;
 
 //        Copyright 2017 Muddii Walid (Muddz)
 //
@@ -55,7 +57,7 @@ public class StyleableToast implements OnToastFinished {
     private static final int DEFAULT_CORNER_RADIUS = 25;
     private static final int DEFAULT_HORIZONTAL_PADDING = 25;
     private static final int DEFAULT_VERTICAL_PADDING = 11;
-    private static final int DEFAULT_ALPHA = 185;
+    private static final int DEFAULT_ALPHA = 230;
     public static int MAX_VISIBILTY = 255;
 
     private final Context context;
@@ -92,8 +94,19 @@ public class StyleableToast implements OnToastFinished {
 
     }
 
+
     /**
      * @param style Style your toast via styles.xml and pass the style id R.style.xxx
+     *              <p>The attributes that must be used:</p>
+     *              android:textColor.<br>
+     *              android:textStyle.<br>
+     *              android:fontFamily. If custom font, just write the path to it like: "fonts/myfont.ttf"<br>
+     *              android:colorBackground.<br>
+     *              android:strokeWidth.  API 21+<br>
+     *              android:strokeColor.  API 21+<br>
+     *              android:radius. Corner radius<br>
+     *              android:alpha. Value between 1-255 where 255 is full solid<br>
+     *              android:icon.<br>
      */
     public void setStyle(@StyleRes int style) {
         this.style = style;
@@ -145,7 +158,7 @@ public class StyleableToast implements OnToastFinished {
     /**
      * Enables spinning animation of the passed icon by its around its own center.
      */
-    public StyleableToast spinIconAnimation() {
+    public StyleableToast spinIcon() {
         isAnimation = true;
         return this;
     }
@@ -176,11 +189,11 @@ public class StyleableToast implements OnToastFinished {
     }
 
     /**
-     * @param alpha Set the alpha/Transparency of the Toast background between 0-255.
-     *              255 is full opque and 0 is full transparency.
+     * Set the alpha/Transparency of the Toast background between 0-255.
+     * 255 is full opque and 0 is full transparency.
      */
-    public void setAlpha(int alpha) {
-        this.alpha = alpha;
+    public void setMaxAlpha() {
+        this.alpha = MAX_VISIBILTY;
     }
 
     /**
@@ -217,7 +230,7 @@ public class StyleableToast implements OnToastFinished {
 
             backgroundColor = colors.getColor(0, DEFAULT_BACKGROUND);
 
-            if(Build.VERSION.SDK_INT >=21){
+            if (Build.VERSION.SDK_INT >= 21) {
                 strokeColor = colors.getColor(1, Color.TRANSPARENT);
                 strokeWidth = floats.getFloat(0, 0);
             }
@@ -261,6 +274,7 @@ public class StyleableToast implements OnToastFinished {
             int[] floatAttrs = {android.R.attr.alpha};
             TypedArray floats = context.obtainStyledAttributes(style, floatAttrs);
             alpha = (int) floats.getFloat(0, DEFAULT_ALPHA);
+            Log.d("TAG", "alpha: " + alpha);
             floats.recycle();
         }
     }
@@ -418,11 +432,17 @@ public class StyleableToast implements OnToastFinished {
 
 
     private int getShapeAlpha() {
+        Log.d("TAG", alpha + ": 1");
         if (alpha == 0) {
+            Log.d("TAG", alpha + ": 2");
             return DEFAULT_ALPHA;
         } else {
+
+            Log.d("TAG", alpha + ": 3");
             return alpha;
         }
+
+
     }
 
 
@@ -462,7 +482,7 @@ public class StyleableToast implements OnToastFinished {
      * Users should not call this method.
      */
     @Override
-    public void onCancelAnimation() {
+    public void onToastFinished() {
         getAnimation().cancel();
         getAnimation().reset();
     }

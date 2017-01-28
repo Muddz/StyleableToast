@@ -31,7 +31,7 @@ public class ToastDurationWatcher {
             @Override
             public void onFinish() {
                 if (onToastFinished != null) {
-                    onToastFinished.onCancelAnimation();
+                    onToastFinished.onToastFinished();
                 }
             }
         };
