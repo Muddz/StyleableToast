@@ -66,7 +66,7 @@ Currently used in:
     st.setTextColor(Color.WHITE);
     st.setIcon(R.drawable.ic_autorenew_black_24dp);
     st.spinIconAnimation();  
-    st.setAlpha(StyleableToast.MAX_VISIBILTY);
+    st.setMaxAlpha();
     st.show();
 ```
 -----
