@@ -22,9 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static android.R.attr.name;
 import static com.muddzdev.styleabletoastlibrary.Utils.getTypedValueInDP;
-import static java.lang.reflect.Array.getFloat;
 
 //        Copyright 2017 Muddii Walid (Muddz)
 //
@@ -58,7 +56,7 @@ public class StyleableToast implements OnToastFinished {
     private static final int DEFAULT_HORIZONTAL_PADDING = 25;
     private static final int DEFAULT_VERTICAL_PADDING = 11;
     private static final int DEFAULT_ALPHA = 230;
-    public static int MAX_VISIBILTY = 255;
+    private static int MAX_ALPHA = 255;
 
     private final Context context;
     private TextView textView;
@@ -189,11 +187,10 @@ public class StyleableToast implements OnToastFinished {
     }
 
     /**
-     * Set the alpha/Transparency of the Toast background between 0-255.
-     * 255 is full opque and 0 is full transparency.
+     * Makes the toast background full solid instead of the default 75% transparency.
      */
     public void setMaxAlpha() {
-        this.alpha = MAX_VISIBILTY;
+        this.alpha = MAX_ALPHA;
     }
 
     /**
@@ -203,7 +200,7 @@ public class StyleableToast implements OnToastFinished {
         this.drawable = drawable;
     }
 
-    private Toast toaster() {
+    private Toast buildToast() {
 
         Toast toast = new Toast(context);
         toast.setDuration(duration);
@@ -213,51 +210,18 @@ public class StyleableToast implements OnToastFinished {
     }
 
 
-    /**
-     * if a style is passed, we load the style attributes
-     */
-    private void getLayoutStyleAttr() {
-        if (style > 0) {
-
-            int[] colorAttrs = {android.R.attr.colorBackground, android.R.attr.strokeColor};
-            int[] floatAttrs = {android.R.attr.strokeWidth};
-            int[] dimenAttrs = {android.R.attr.radius};
-
-
-            TypedArray colors = context.obtainStyledAttributes(style, colorAttrs);
-            TypedArray dimens = context.obtainStyledAttributes(style, dimenAttrs);
-            TypedArray floats = context.obtainStyledAttributes(style, floatAttrs);
-
-            backgroundColor = colors.getColor(0, DEFAULT_BACKGROUND);
-
-            if (Build.VERSION.SDK_INT >= 21) {
-                strokeColor = colors.getColor(1, Color.TRANSPARENT);
-                strokeWidth = floats.getFloat(0, 0);
-            }
-
-            cornerRadius = (int) dimens.getDimension(0, DEFAULT_CORNER_RADIUS);
-
-            colors.recycle();
-            dimens.recycle();
-            floats.recycle();
-        }
-
-    }
-
+    //Returns the relative layout containing: textview, icons, shape
     private View getToastLayout() {
 
-        getLayoutStyleAttr();
         getImageViewStyleAttr();
 
         int horizontalPadding = (int) getTypedValueInDP(context, DEFAULT_HORIZONTAL_PADDING);
         int verticalPadding = (int) getTypedValueInDP(context, DEFAULT_VERTICAL_PADDING);
 
-
         RelativeLayout toastLayout = new RelativeLayout(context);
         toastLayout.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
         toastLayout.setBackground(getToastShape());
         toastLayout.addView(getTextView());
-
 
         if (drawable > 0) {
             toastLayout.addView(getIcon());
@@ -268,19 +232,40 @@ public class StyleableToast implements OnToastFinished {
     }
 
 
-    private void getShapeStylesAttr() {
+    /**
+     * loads style attributes from styles.xml if a style resource is used.
+     */
+    private void getToastShapeAttrs() {
         if (style > 0) {
 
-            int[] floatAttrs = {android.R.attr.alpha};
+            //array entries must be alphabetic ordered
+            int[] colorAttrs = {android.R.attr.colorBackground, android.R.attr.strokeColor};
+            int[] floatAttrs = {android.R.attr.alpha, android.R.attr.strokeWidth};
+            int[] dimenAttrs = {android.R.attr.radius};
+
+            TypedArray colors = context.obtainStyledAttributes(style, colorAttrs);
             TypedArray floats = context.obtainStyledAttributes(style, floatAttrs);
+            TypedArray dimens = context.obtainStyledAttributes(style, dimenAttrs);
+
+            backgroundColor = colors.getColor(0, DEFAULT_BACKGROUND);
+            cornerRadius = (int) dimens.getDimension(0, DEFAULT_CORNER_RADIUS);
             alpha = (int) floats.getFloat(0, DEFAULT_ALPHA);
-            Log.d("TAG", "alpha: " + alpha);
+
+            if (Build.VERSION.SDK_INT >= 21) {
+                strokeWidth = floats.getFloat(1, 0);
+                strokeColor = colors.getColor(1, Color.TRANSPARENT);
+            }
+
+            colors.recycle();
             floats.recycle();
+            dimens.recycle();
         }
+
     }
 
     private GradientDrawable getToastShape() {
-        getShapeStylesAttr();
+        getToastShapeAttrs();
+
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getShapeCornerRadius());
         gradientDrawable.setStroke((int) getStrokeWidth(), getStrokeColor());
@@ -311,7 +296,6 @@ public class StyleableToast implements OnToastFinished {
                     font = Typeface.create(passedFont, Typeface.NORMAL);
                 }
             }
-
             if (ints.getInt(0, 0) == 1) {
                 isBold = true;
             } else {
@@ -432,13 +416,9 @@ public class StyleableToast implements OnToastFinished {
 
 
     private int getShapeAlpha() {
-        Log.d("TAG", alpha + ": 1");
         if (alpha == 0) {
-            Log.d("TAG", alpha + ": 2");
             return DEFAULT_ALPHA;
         } else {
-
-            Log.d("TAG", alpha + ": 3");
             return alpha;
         }
 
@@ -471,9 +451,9 @@ public class StyleableToast implements OnToastFinished {
 
 
     public void show() {
-        toaster().show();
+        buildToast().show();
         if (isAnimation) {
-            ToastDurationWatcher durationWatcher = new ToastDurationWatcher(toaster().getDuration(), this);
+            ToastDurationWatcher durationWatcher = new ToastDurationWatcher(buildToast().getDuration(), this);
         }
     }
 
