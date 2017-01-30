@@ -1,6 +1,6 @@
-### Android StyleableToast
+## Android StyleableToast
 
-An Android library that takes the standard Android Toast and takes it to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling!
+An Android library that takes the standard Android Toast and takes it to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling! Style your toast either by code or in styles.xml!
 
 
 Currently used in:
@@ -12,7 +12,7 @@ Currently used in:
 <a href="https://github.com/Muddz/StyleableToast/raw/master/sample.apk">Download the sample .apk: </a>
 
 
-### Features
+## Features
 
 - Style toasts in a styles.xml or from code.
 - Set background color of the toast.
@@ -28,59 +28,61 @@ Currently used in:
 *(Next version: Builder pattern, elevtion and toast size)*
 
 ## CASES:
-![alt tag](https://github.com/Muddz/StyleableToast/blob/master/styleable%20cases.png)
+![alt tag](https://github.com/Muddz/StyleableToast/blob/master/showcase.png)
 
-## With spinIconAnimation(); method:
+## With spinIcon(); method:
 ![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
-----
 
-### Usage with a style resource:
+## Usage with a style resource:
 
 
 **1) Style your toast in styles.xml. All available attributes:**
-
+```xml
     <style name="StyledToast">
-
-        <item name="android:textColor"></item>
-        <item name="android:textStyle"></item>
-        <item name="android:fontFamily"></item>
-        <item name="android:colorBackground"></item>
-        <item name="android:strokeWidth"></item> // API 21+
-        <item name="android:strokeColor"></item> // API 21+
-        <item name="android:radius"></item>
-        <item name="android:alpha"></item>
-        <item name="android:icon">/</item>
+    
+    <item name="android:textColor"></item>
+    <item name="android:textStyle"></item> only bold!
+    <item name="android:fontFamily"></item> For custom fonts just add the path -> fonts/myfont.ttf
+    <item name="android:colorBackground"></item>
+    <item name="android:strokeWidth"></item>   API 21+
+    <item name="android:strokeColor"></item>   API 21+
+    <item name="android:radius"></item>  radius for corners of the toast shape
+    <item name="android:alpha"></item>   value between 0-255 where 255 is full solid
+    <item name="android:icon">/</item>  drawable id of the icon. R.drawable.xx
         
     </style>
+```
 
-**2) Pass your style resource in the constructor and call show();**
+**2) Pass your style resource in the constructor and call show(); and you're done!**
 
+```java
     StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
-    
-### Usage with by code:
-
-                StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
-                st.setBackgroundColor(Color.parseColor("#ff5a5f"));
-                st.setTextColor(Color.WHITE);
-                st.setIcon(R.drawable.ic_autorenew_black_24dp);
-                st.spinIconAnimation();
-                st.setAlpha(StyleableToast.MAX_VISIBILTY);
-                st.show();
+```
+## Usage with by code:
+```java
+    StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
+    st.setBackgroundColor(Color.parseColor("#ff5a5f"));
+    st.setTextColor(Color.WHITE);
+    st.setIcon(R.drawable.ic_autorenew_black_24dp);
+    st.spinIconAnimation();  
+    st.setMaxAlpha();
+    st.show();
+```
 -----
     
-### Installation
+## Installation
 
 Add the depedency in your build.gradle. The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.3'   
+    compile 'com.muddzdev:styleabletoast:1.0.4'   
 }
 ```
  ----
 
-### License
+## License
 
     Copyright 2017 Muddii Walid (Muddz)
 
