@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 st.show();
 
 
+
                 break;
 
             case R.id.button2:
@@ -60,9 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button4:
 
-                st = new StyleableToast(this.getApplicationContext(), "PHONE IS OVERWHEATING!", Toast.LENGTH_LONG);
+                st = new StyleableToast(this.getApplicationContext(), "PHONE IS OVERHEATING!", Toast.LENGTH_LONG);
                 st.setCornerRadius(5);
-                st.setToastStroke(4,Color.RED);
                 st.setBackgroundColor(Color.BLACK);
                 st.setTextColor(Color.RED);
                 st.setBoldText();
