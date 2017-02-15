@@ -133,7 +133,7 @@ public class StyleableToast implements OnToastFinished {
     }
 
     public void setTextStyle(boolean isBold, Typeface font) {
-        this.textColor = textColor;
+        this.isBold = isBold;
         this.font = font;
     }
 
@@ -235,6 +235,7 @@ public class StyleableToast implements OnToastFinished {
     /**
      * loads style attributes from styles.xml if a style resource is used.
      */
+    @SuppressWarnings("ResourceType")
     private void getToastShapeAttrs() {
         if (style > 0) {
 
