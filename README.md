@@ -25,8 +25,6 @@ Currently used in:
 - Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
 
-*(Next version: Builder pattern, elevtion and toast size)*
-
 ## CASES:
 ![alt tag](https://github.com/Muddz/StyleableToast/blob/master/showcase.png)
 
