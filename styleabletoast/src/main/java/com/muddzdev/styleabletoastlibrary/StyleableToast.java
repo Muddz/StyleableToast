@@ -2,7 +2,6 @@ package com.muddzdev.styleabletoastlibrary;
 
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -11,7 +10,6 @@ import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StyleRes;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +68,7 @@ public class StyleableToast implements OnToastFinished {
     private boolean isBold;
     private boolean isAnimation;
     private String toastMsg;
+    private ToastDurationWatcher durationTracker;
 
 
     public StyleableToast(Context context) {
@@ -201,15 +200,6 @@ public class StyleableToast implements OnToastFinished {
         this.drawable = drawable;
     }
 
-    private Toast buildToast() {
-
-        Toast toast = new Toast(context);
-        toast.setDuration(duration);
-        toast.setView(getToastLayout());
-
-        return toast;
-    }
-
 
     //Returns the relative layout containing: textview, icons, shape
     private View getToastLayout() {
@@ -227,6 +217,7 @@ public class StyleableToast implements OnToastFinished {
         if (drawable > 0) {
             toastLayout.addView(getIcon());
             toastLayout.setPadding(0, verticalPadding, 0, verticalPadding);
+
         }
 
         return toastLayout;
@@ -392,6 +383,7 @@ public class StyleableToast implements OnToastFinished {
         return null;
     }
 
+
     private float getStrokeWidth() {
         return getTypedValueInDP(context, strokeWidth);
     }
@@ -453,18 +445,26 @@ public class StyleableToast implements OnToastFinished {
 
 
     public void show() {
-        buildToast().show();
+
+        Toast toast = new Toast(context);
+        toast.setView(getToastLayout());
+        toast.setDuration(duration);
+        toast.show();
+
         if (isAnimation) {
-            ToastDurationWatcher durationWatcher = new ToastDurationWatcher(buildToast().getDuration(), this);
+            durationTracker = new ToastDurationWatcher(toast.getDuration(), this);
+
         }
     }
 
+
     /**
-     * A callback that automatically cancels and resets animations when the toast is finished showing on screen.
+     * A callback that automatically cancels and resets animation effect from spinIcon(); when the toast is finished showing on screen.
      * Users should not call this method.
      */
     @Override
     public void onToastFinished() {
+
         getAnimation().cancel();
         getAnimation().reset();
     }
