@@ -63,7 +63,7 @@ public class StyleableToast implements OnToastFinished {
     private Toast toast;
 
     private float strokeWidth;
-    private int duration, style, alpha, drawable;
+    private int duration, style, alpha, drawable, gravity, xOffset, yOffset;
     private int backgroundColor, textColor, strokeColor;
     private int cornerRadius = -1;
     private boolean isBold;
@@ -454,6 +454,15 @@ public class StyleableToast implements OnToastFinished {
         if (isAnimation) {
             durationTracker = new ToastDurationWatcher(toast.getDuration(), this);
         }
+    }
+
+    /**
+     * Sets the location at which the toast should appear on the screen.
+     */
+    public void setGravity(int gravity, int xOffset, int yOffset) {
+	    this.gravity = gravity;
+	    this.xOffset = xOffset;
+	    this.yOffset = yOffset;
     }
 
     public void cancel() {
