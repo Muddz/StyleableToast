@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 public class MainActivity extends AppCompatActivity {
+    StyleableToast st;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void Toaster(View v) {
-        StyleableToast st;
 
         switch (v.getId()) {
             case R.id.button1:
@@ -33,11 +33,10 @@ public class MainActivity extends AppCompatActivity {
                 st.setMaxAlpha();
                 st.show();
 
-
-
                 break;
 
             case R.id.button2:
+
 
                 st = new StyleableToast(this, "Turn off fly mode", Toast.LENGTH_LONG);
                 st.setBackgroundColor(Color.parseColor("#865aff"));
@@ -86,7 +85,5 @@ public class MainActivity extends AppCompatActivity {
                 st.show();
                 break;
         }
-
-
     }
 }

@@ -60,6 +60,7 @@ public class StyleableToast implements OnToastFinished {
     private final Context context;
     private TextView textView;
     private Typeface font;
+    private Toast toast;
 
     private float strokeWidth;
     private int duration, style, alpha, drawable;
@@ -416,7 +417,6 @@ public class StyleableToast implements OnToastFinished {
             return alpha;
         }
 
-
     }
 
 
@@ -446,21 +446,25 @@ public class StyleableToast implements OnToastFinished {
 
     public void show() {
 
-        Toast toast = new Toast(context);
+        toast = new Toast(context);
         toast.setView(getToastLayout());
         toast.setDuration(duration);
         toast.show();
 
         if (isAnimation) {
             durationTracker = new ToastDurationWatcher(toast.getDuration(), this);
-
         }
+    }
+
+    public void cancel() {
+        toast.cancel();
+
     }
 
 
     /**
      * A callback that automatically cancels and resets animation effect from spinIcon(); when the toast is finished showing on screen.
-     * Users should not call this method.
+     * Users should not call this method as this is used internally in the library.
      */
     @Override
     public void onToastFinished() {
