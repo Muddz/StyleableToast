@@ -18,9 +18,9 @@ Currently used in:
 - Set background color of the toast.
 - Set the corner radius of the toast and archive different shapes.
 - Set the transparency of your toast to get full solid or transparent toast.
-- Set stroke width and color on your toast.
+- Set stroke width and stroke color on your toast.
 - Style the toast text with a text color or bold.
-- Set a new font for the toast text.
+- Set a custom font for the toast text.
 - Set a icon beside the toast text.
 - Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
