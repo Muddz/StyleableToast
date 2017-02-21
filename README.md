@@ -4,7 +4,7 @@ An Android library that takes the standard Android Toast and takes it to the nex
 
 
 Currently used in:
-- [Quote Creator] (https://play.google.com/store/apps/details?id=org.m.muddzboy.QuoteCreator&hl=da) with +80.000 downloads!
+- [Quote Creator] (https://play.google.com/store/apps/details?id=org.m.muddzboy.QuoteCreator&hl=da) with +90.000 downloads!
 - [Shoppist] (https://play.google.com/store/apps/details?id=com.muddii.shopping_list&hl=da)
 
 *Feel free to contact me if you want your app to be included here*
