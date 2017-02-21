@@ -10,12 +10,20 @@ import android.widget.Toast;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 public class MainActivity extends AppCompatActivity {
-    StyleableToast st;
+    StyleableToast st, stBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        stBuilder = new StyleableToast
+                .Builder(this, "Turn off fly mode")
+                .withBackgroundColor(Color.parseColor("#865aff"))
+                .withIcon(R.drawable.ic_airplanemode_inactive_black_24dp)
+                .withMaxAlpha()
+                .build();
 
     }
 
@@ -37,12 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button2:
 
-
-                st = new StyleableToast(this, "Turn off fly mode", Toast.LENGTH_LONG);
-                st.setBackgroundColor(Color.parseColor("#865aff"));
-                st.setTextColor(Color.WHITE);
-                st.setIcon(R.drawable.ic_airplanemode_inactive_black_24dp);
-                st.show();
+                stBuilder.show();
 
                 break;
 
