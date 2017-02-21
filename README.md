@@ -76,7 +76,7 @@ Currently used in:
 
 ## Or with Builder pattern:
 ```java
-    stBuilder = new StyleableToast
+    st = new StyleableToast
             .Builder(this, "Turn off fly mode")
             .withBackgroundColor(Color.RED)
             .withTextColor(Color.WHITE)
