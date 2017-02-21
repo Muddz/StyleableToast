@@ -25,6 +25,12 @@ Currently used in:
 - Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
 
+## Update version: 1.0.6 |  21 february 2017
+- Added builder pattern
+- Added cancel(); method
+- Fixed argument error in setTextstyle();
+
+
 ## CASES:
 ![alt tag](https://github.com/Muddz/StyleableToast/blob/master/showcase.png)
 
@@ -67,6 +73,17 @@ Currently used in:
     st.setMaxAlpha();
     st.show();
 ```
+
+## Or with Builder pattern:
+```java
+    stBuilder = new StyleableToast
+            .Builder(this, "Turn off fly mode")
+            .withBackgroundColor(Color.RED)
+            .withTextColor(Color.WHITE)
+            .withBoldText()
+            .build();
+```
+
 -----
     
 ## Installation
@@ -75,7 +92,7 @@ Add the depedency in your build.gradle. The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.5'   
+    compile 'com.muddzdev:styleabletoast:1.0.6'   
 }
 ```
  ----
