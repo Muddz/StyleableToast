@@ -63,7 +63,7 @@ Currently used in:
 ```java
     StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
 ```
-## Usage with by code:
+## Usage with code:
 ```java
     StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
     st.setBackgroundColor(Color.parseColor("#ff5a5f"));
