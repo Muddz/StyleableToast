@@ -2,13 +2,6 @@
 
 An Android library that takes the standard Android Toast to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling! Style your toast either by code or in styles.xml!
 
-
-Currently used in:
-- [Quote Creator] (https://play.google.com/store/apps/details?id=org.m.muddzboy.QuoteCreator&hl=da) with +90.000 downloads!
-- [Shoppist] (https://play.google.com/store/apps/details?id=com.muddii.shopping_list&hl=da)
-
-*Feel free to contact me if you want your app to be included here*
-
 <a href="https://github.com/Muddz/StyleableToast/raw/master/sample.apk">Download the sample .apk: </a>
 
 
