@@ -18,10 +18,10 @@ An Android library that takes the standard Android Toast to the next level with 
 - Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
 
-## Update version: 1.0.6 |  21 february 2017
-- Added builder pattern
-- Added cancel(); method
-- Fixed argument error in setTextstyle();
+## Update version: 1.0.7 |  24 March 2017
+- Updates gradle
+- Updates Android support dependencies
+- Added missing resources for the sample
 
 
 ## CASES:
@@ -85,7 +85,7 @@ Add the depedency in your build.gradle. The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.6'   
+    compile 'com.muddzdev:styleabletoast:1.0.7'   
 }
 ```
  ----
