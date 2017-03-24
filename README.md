@@ -1,13 +1,6 @@
 ## Android StyleableToast
 
-An Android library that takes the standard Android Toast and takes it to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling! Style your toast either by code or in styles.xml!
-
-
-Currently used in:
-- [Quote Creator] (https://play.google.com/store/apps/details?id=org.m.muddzboy.QuoteCreator&hl=da) with +80.000 downloads!
-- [Shoppist] (https://play.google.com/store/apps/details?id=com.muddii.shopping_list&hl=da)
-
-*Feel free to contact me if you want your app to be included here*
+An Android library that takes the standard Android Toast to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling! Style your toast either by code or in styles.xml!
 
 <a href="https://github.com/Muddz/StyleableToast/raw/master/sample.apk">Download the sample .apk: </a>
 
@@ -18,12 +11,18 @@ Currently used in:
 - Set background color of the toast.
 - Set the corner radius of the toast and archive different shapes.
 - Set the transparency of your toast to get full solid or transparent toast.
-- Set stroke width and color on your toast.
+- Set stroke width and stroke color on your toast.
 - Style the toast text with a text color or bold.
-- Set a new font for the toast text.
+- Set a custom font for the toast text.
 - Set a icon beside the toast text.
 - Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
+
+## Update version: 1.0.6 |  21 february 2017
+- Added builder pattern
+- Added cancel(); method
+- Fixed argument error in setTextstyle();
+
 
 ## CASES:
 ![alt tag](https://github.com/Muddz/StyleableToast/blob/master/showcase.png)
@@ -57,7 +56,7 @@ Currently used in:
 ```java
     StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
 ```
-## Usage with by code:
+## Usage with code:
 ```java
     StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
     st.setBackgroundColor(Color.parseColor("#ff5a5f"));
@@ -67,6 +66,17 @@ Currently used in:
     st.setMaxAlpha();
     st.show();
 ```
+
+## Or with Builder pattern:
+```java
+    st = new StyleableToast
+            .Builder(this, "Turn off fly mode")
+            .withBackgroundColor(Color.RED)
+            .withTextColor(Color.WHITE)
+            .withBoldText()
+            .build();
+```
+
 -----
     
 ## Installation
@@ -75,7 +85,7 @@ Add the depedency in your build.gradle. The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.5'   
+    compile 'com.muddzdev:styleabletoast:1.0.6'   
 }
 ```
  ----
