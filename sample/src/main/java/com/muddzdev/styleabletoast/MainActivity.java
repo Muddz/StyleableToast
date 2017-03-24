@@ -10,26 +10,25 @@ import android.widget.Toast;
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 public class MainActivity extends AppCompatActivity {
-    StyleableToast st, stBuilder;
+
+    private StyleableToast st, stBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        stBuilder = new StyleableToast
-                .Builder(this, "Turn off fly mode")
-                .withBackgroundColor(Color.parseColor("#865aff"))
-                .withIcon(R.drawable.ic_airplanemode_inactive_black_24dp)
-                .withMaxAlpha()
-                .build();
+//        stBuilder = new StyleableToast
+//                .Builder(this, "Turn off fly mode")
+//                .withBackgroundColor(Color.RED)
+//                .withTextColor(Color.WHITE)
+//                .withBoldText()
+//                .build();
 
     }
 
 
     public void Toaster(View v) {
-
         switch (v.getId()) {
             case R.id.button1:
 
@@ -45,19 +44,24 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button2:
 
-                stBuilder.show();
+//                stBuilder.show();
+
+                StyleableToast st = new StyleableToast(this, "Turn off fly mode", Toast.LENGTH_LONG);
+                st.setBackgroundColor(Color.parseColor("#865aff"));
+                st.setIcon(R.drawable.ic_airplanemode_inactive_black_24dp);
+                st.setMaxAlpha();
+                st.show();
+
 
                 break;
 
             case R.id.button3:
-
 
                 st = new StyleableToast(this, "Profile saved", Toast.LENGTH_LONG);
                 st.setBackgroundColor(Color.parseColor("#3b5998"));
                 st.setMaxAlpha();
                 st.setTextFont(Typeface.createFromAsset(getAssets(), "fonts/dosis.otf"));
                 st.show();
-
 
                 break;
 
