@@ -62,7 +62,7 @@ An Android library that takes the standard Android Toast to the next level with 
     st.setBackgroundColor(Color.parseColor("#ff5a5f"));
     st.setTextColor(Color.WHITE);
     st.setIcon(R.drawable.ic_autorenew_black_24dp);
-    st.spinIconAnimation();  
+    st.spinIcon(); 
     st.setMaxAlpha();
     st.show();
 ```
