@@ -2,7 +2,7 @@
 
 An Android library that takes the standard Android Toast to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling! Style your toast either by code or in styles.xml!
 
-<a href="https://github.com/Muddz/StyleableToast/blob/master/Demo%20App.apk">Download the sample .apk: </a>
+<a href="https://github.com/Muddz/StyleableToast/raw/master/demo.apk">Download the sample .apk: </a>
 
 
 ## Features
@@ -18,10 +18,10 @@ An Android library that takes the standard Android Toast to the next level with 
 - Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
 
-## Update version: 1.0.7 |  24 March 2017
-- Updates gradle
-- Updates Android support dependencies
-- Added missing resources for the sample
+## Update version: 1.0.8 |  18 May 2017
+- Updated Gradle/Android dependencies.
+- Removed unused code,resources and test packages.
+- Added missing method for Builder class.
 
 
 ## CASES:
@@ -85,7 +85,7 @@ Add the depedency in your build.gradle. The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.7'   
+    compile 'com.muddzdev:styleabletoast:1.0.8'   
 }
 ```
  ----
