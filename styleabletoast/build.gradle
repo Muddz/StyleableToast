@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: "com.jfrog.bintray"
 
-version = "1.0.7"
+version = "1.0.8"
 
 android {
     compileSdkVersion 25
@@ -28,7 +28,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:25.3.1'
 }
-
 
 
 def siteUrl = 'https://github.com/Muddz/StyleableToast'
