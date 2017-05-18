@@ -13,6 +13,9 @@ public class ToastDurationWatcher {
     private int duration;
     private OnToastFinished onToastFinished;
 
+    public ToastDurationWatcher() {
+        trackToastDuration();
+    }
 
     public ToastDurationWatcher(int duration, OnToastFinished onToastFinished) {
         this.duration = duration;
@@ -20,6 +23,13 @@ public class ToastDurationWatcher {
         trackToastDuration();
     }
 
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public void setOnToastFinished(OnToastFinished onToastFinished) {
+        this.onToastFinished = onToastFinished;
+    }
 
     private void trackToastDuration() {
         CountDownTimer countDownTimer = new CountDownTimer(getToastDuration() + 500, 1000) {

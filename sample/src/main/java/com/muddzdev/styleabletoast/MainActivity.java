@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Builder pattern
 //        stBuilder = new StyleableToast
 //                .Builder(this, "Turn off fly mode")
 //                .withBackgroundColor(Color.RED)
@@ -44,14 +45,11 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button2:
 
-//                stBuilder.show();
-
-                StyleableToast st = new StyleableToast(this, "Turn off fly mode", Toast.LENGTH_LONG);
+                st = new StyleableToast(this, "Turn off fly mode", Toast.LENGTH_LONG);
                 st.setBackgroundColor(Color.parseColor("#865aff"));
                 st.setIcon(R.drawable.ic_airplanemode_inactive_black_24dp);
                 st.setMaxAlpha();
                 st.show();
-
 
                 break;
 

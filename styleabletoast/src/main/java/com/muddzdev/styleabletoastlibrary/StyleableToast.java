@@ -1,6 +1,7 @@
 package com.muddzdev.styleabletoastlibrary;
 
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -47,8 +48,7 @@ import static com.muddzdev.styleabletoastlibrary.Utils.getTypedValueInDP;
  */
 
 public class StyleableToast implements OnToastFinished {
-
-    private static final String TAG = "StyleableToast";
+    private static final String TAG = StyleableToast.class.getSimpleName();
     private static final String DEFAULT_CONDENSED_FONT = "sans-serif-condensed";
     private static final int DEFAULT_BACKGROUND = Color.parseColor("#555555");
     private static final int DEFAULT_TEXT_COLOR = Color.WHITE;
@@ -68,10 +68,11 @@ public class StyleableToast implements OnToastFinished {
     private int duration, style, alpha, drawable;
     private int backgroundColor, textColor, strokeColor;
     private int cornerRadius = -1;
-    private boolean isBold,isAnimation;
+    private boolean isBold, isAnimation;
     private String toastMsg;
     private ToastDurationWatcher durationTracker;
 
+    //Todo only make initialization possible via Builder from next update!!!
 
     public StyleableToast(Context context) {
         this.context = context.getApplicationContext();
@@ -102,6 +103,10 @@ public class StyleableToast implements OnToastFinished {
     }
 
     private void setupFromBuilder(@NonNull Builder builder) {
+        if(builder.message != null){
+            setToastMsg(builder.message);
+        }
+
         if (builder.bgColor != 0) {
             setBackgroundColor(builder.bgColor);
         }
@@ -401,9 +406,7 @@ public class StyleableToast implements OnToastFinished {
 
 
     private ImageView getIcon() {
-
         if (drawable > 0) {
-
             //previous 18:
             int marginLeft = (int) getTypedValueInDP(context, 15);
             int maxHeightVal = (int) getTypedValueInDP(context, 20);
@@ -415,7 +418,6 @@ public class StyleableToast implements OnToastFinished {
             imageView.setMaxWidth(marginLeft + maxWidthVal);
             imageView.setMaxHeight(maxHeightVal);
             imageView.setAdjustViewBounds(true);
-
 
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
                     RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -463,12 +465,10 @@ public class StyleableToast implements OnToastFinished {
         } else {
             return alpha;
         }
-
     }
 
 
     private Typeface getTypeface() {
-
         if (isBold && font == null) {
             return Typeface.create(DEFAULT_CONDENSED_FONT, Typeface.BOLD);
         } else if (isBold && font != null) {
@@ -499,13 +499,14 @@ public class StyleableToast implements OnToastFinished {
         toast.show();
 
         if (isAnimation) {
+
+            //TODO remake this solution so we dont create a new instance of it every time
             durationTracker = new ToastDurationWatcher(toast.getDuration(), this);
         }
     }
 
     public void cancel() {
         toast.cancel();
-
     }
 
 
@@ -515,18 +516,17 @@ public class StyleableToast implements OnToastFinished {
      */
     @Override
     public void onToastFinished() {
-
         getAnimation().cancel();
         getAnimation().reset();
     }
 
 
     public static StyleableToast makeText(Context context, CharSequence text, int duration, int style) {
-
         StyleableToast styleableToast = new StyleableToast(context, text.toString(), duration, style);
-
         return styleableToast;
     }
+
+
 
     public static final class Builder {
 
@@ -561,6 +561,13 @@ public class StyleableToast implements OnToastFinished {
         public Builder(Context context, @StringRes int message) {
             this(context, context.getString(message));
         }
+
+
+        public Builder withText(String msg) {
+            this.message = msg;
+            return this;
+        }
+
 
         /**
          * @param backgroundColor if not set the default color grey will be used.
@@ -676,6 +683,7 @@ public class StyleableToast implements OnToastFinished {
 
         /**
          * Build and returns the configured instance
+         *
          * @return The configured {@link StyleableToast} instance.
          */
         public StyleableToast build() {
