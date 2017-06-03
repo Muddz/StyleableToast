@@ -34,13 +34,12 @@ An Android library that takes the standard Android Toast to the next level with 
 ![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
 
-## Usage with a style resource:
+## Simple usage with a style from styles.xml:
 
 
 **1) Style your toast in styles.xml. All available attributes:**
 ```xml
     <style name="StyledToast">
-    
     <item name="android:textColor"></item>
     <item name="android:textStyle"></item> only bold!
     <item name="android:fontFamily"></item> For custom fonts just add the path -> fonts/myfont.ttf
@@ -50,34 +49,24 @@ An Android library that takes the standard Android Toast to the next level with 
     <item name="android:radius"></item>  radius for corners of the toast shape
     <item name="android:alpha"></item>   value between 0-255 where 255 is full solid
     <item name="android:icon">/</item>  drawable id of the icon. R.drawable.xx
-        
     </style>
 ```
 
-**2) Pass your style resource in the constructor and call show(); and you're done!**
+**2) Pass your style in the static constructor and call show(); and you're done!**
 
 ```java
     StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
 ```
-## Usage with code:
-```java
-    StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
-    st.setBackgroundColor(Color.parseColor("#ff5a5f"));
-    st.setTextColor(Color.WHITE);
-    st.setIcon(R.drawable.ic_autorenew_black_24dp);
-    st.spinIcon(); 
-    st.setMaxAlpha();
-    st.show();
-```
 
-## Or with Builder pattern:
+## With Builder pattern:
 ```java
-    st = new StyleableToast
-            .Builder(this, "Turn off fly mode")
-            .withBackgroundColor(Color.RED)
-            .withTextColor(Color.WHITE)
-            .withBoldText()
-            .build();
+        st = new StyleableToast
+                .Builder(this)
+                .text("Hello world!")
+                .textColor(Color.WHITE)
+                .backgroundColor(Color.BLUE)
+                .build();
+        st.show();
 ```
 
 -----
@@ -88,7 +77,7 @@ Add the depedency in your build.gradle. The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.8'   
+    compile 'com.muddzdev:styleabletoast:1.0.9'   
 }
 ```
  ----
