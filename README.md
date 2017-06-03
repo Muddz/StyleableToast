@@ -55,7 +55,7 @@ An Android library that takes the standard Android Toast to the next level with 
 **2) Pass your style in the static constructor and call show(); and you're done!**
 
 ```java
-    StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
+    StyleableToast.makeText(context, "Hello World!", Toast.LENGTH_LONG, R.style.StyledToast).show();
 ```
 
 ## With Builder pattern:
