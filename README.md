@@ -66,7 +66,6 @@ An Android library that takes the standard Android Toast to the next level with 
                 .textColor(Color.WHITE)
                 .backgroundColor(Color.BLUE)
                 .build();
-        st.show();
 ```
 
 -----
