@@ -1,6 +1,6 @@
 ## Android StyleableToast
 
-An Android library that takes the standard Android Toast to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling! Style your toast either by code or in styles.xml!
+An Android library that takes the standard Android `Toast` to the next level with many styling options that gives your app and user experience an extra unique feeling! Style your `Toast` either by code or in styles.xml!
 
 <a href="https://github.com/Muddz/StyleableToast/raw/master/demo.apk">Download the demo.apk</a>
 
@@ -9,12 +9,12 @@ An Android library that takes the standard Android Toast to the next level with 
 
 - Style toasts in a styles.xml or from code.
 - Set background color of the toast.
-- Set the corner radius of the toast and archive different shapes.
-- Set the transparency of your toast to get full solid or transparent toast.
-- Set stroke width and stroke color on your toast.
-- Style the toast text with a text color or bold.
+- Set the corner radius of the toast for different shapes.
+- Set the transparency of your toast.
+- Set a stroke color and width of your toast.
+- Style the toast text with a text color or bold effect.
 - Set a custom font for the toast text.
-- Set a icon beside the toast text.
+- Set a icon next to the toast text.
 - Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
 
