@@ -18,10 +18,13 @@ An Android library that takes the standard Android Toast to the next level with 
 - Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
 
-## Update version: 1.0.8 |  18 May 2017
-- Updated Gradle/Android dependencies.
-- Removed unused code,resources and test packages.
-- Added missing method for Builder class.
+## Update version: 1.0.9 |  03 June 2017
+- Removed constructor initialisation and fully implemented builder pattern.
+- Support for RTL when icons is used.
+- Added a `getStyleableToast()` method.
+- Made default values so user don't have to type every value manually.
+- Improved synchronization when using both Styles.xml and code together to style toast.
+- Refactoring of method names and comments and simplified codes.
 
 
 ## CASES:
