@@ -34,12 +34,12 @@ An Android library that takes the standard Android Toast to the next level with 
 ![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
 
-## Simple usage with a style from styles.xml:
+## Usage with a style from styles.xml:
 
 
 **1) Style your toast in styles.xml. All available attributes:**
 ```xml
-    <style name="StyledToast">
+    <style name="MyToast">
     <item name="android:textColor"></item>
     <item name="android:textStyle"></item> only bold!
     <item name="android:fontFamily"></item> For custom fonts just add the path -> fonts/myfont.ttf
