@@ -19,7 +19,7 @@ An Android library that takes the standard Android Toast to the next level with 
 - Works from Api 16+
 
 ## Update version: 1.0.9 |  03 June 2017
-- **IMPORTANT!!**Replaced constructor initialisation with builder pattern!
+- **IMPORTANT**Replaced constructor initialisation with builder pattern!
 - Support for RTL when icons is used.
 - Added a `getStyleableToast()` method.
 - Made default values so user don't have to type every value manually.
