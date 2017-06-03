@@ -243,7 +243,6 @@ public class StyleableToast implements OnToastFinished {
         RelativeLayout rootLayout = new RelativeLayout(context);
         rootLayout.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
         rootLayout.setBackground(getShape());
-        rootLayout.setAlpha(alpha);
         rootLayout.addView(getTextView());
         if (icon > 0) {
             rootLayout.addView(getIcon());
