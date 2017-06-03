@@ -1,0 +1,25 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="StyleableToast">
+        <item name="android:colorBackground">@color/purple</item>
+        <item name="android:icon">@drawable/ic_airplanemode_inactive_black_24dp</item>
+        <!--<item name="android:textColor">@color/red</item>-->
+        <!--<item name="android:alpha">255</item>-->
+        <!--<item name="android:fontFamily">fonts/dosis.otf"</item>-->
+        <!--<item name="android:strokeWidth">1</item>-->
+        <!--<item name="android:strokeColor">@color/red</item>-->
+        <!--<item name="android:radius">@dimen/flat</item>-->
+
+
+    </style>
+
+</resources>

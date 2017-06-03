@@ -1,1 +1,1 @@
-include ':sample', ':styleabletoast'
+include ':demo', ':styleabletoast'

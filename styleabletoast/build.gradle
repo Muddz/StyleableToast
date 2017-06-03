@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: "com.jfrog.bintray"
 
-version = "1.0.8"
+version = "1.0.9"
 
 android {
     compileSdkVersion 25
@@ -40,7 +40,6 @@ install {
         pom {
             project {
                 packaging 'aar'
-
                 name 'com.muddzdev:styleabletoast'
                 description = 'An Android library that takes the standard Android toast to the next level with a variety of styling options.'
                 url siteUrl
@@ -99,13 +98,16 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
+//    user = properties.getProperty("bintray.user")
+//    key = properties.getProperty("bintray.apikey")
+
+    user = "muddz"
+    key = "cd5bf822712334ccc336c04175625b0a46fae25b"
 
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "styleabletoast"
+        name = "Styleabletoast"
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
