@@ -1,6 +1,6 @@
 ## Android StyleableToast
 
-An Android library that takes the standard Android Toast to the next level with a variety of styling options that gives your app and user experience that little extra unique feeling! Style your toast either by code or in styles.xml!
+An Android library that takes the standard Android Toast to the next level with many styling options that gives your app and user experience an extra unique feeling! Style your Toast either by code or in styles.xml!
 
 <a href="https://github.com/Muddz/StyleableToast/raw/master/demo.apk">Download the demo.apk</a>
 
@@ -9,19 +9,22 @@ An Android library that takes the standard Android Toast to the next level with 
 
 - Style toasts in a styles.xml or from code.
 - Set background color of the toast.
-- Set the corner radius of the toast and archive different shapes.
-- Set the transparency of your toast to get full solid or transparent toast.
-- Set stroke width and stroke color on your toast.
-- Style the toast text with a text color or bold.
+- Set the corner radius of the toast for different shapes.
+- Set the transparency of your toast.
+- Set a stroke color and width of your toast.
+- Style the toast text with a text color or bold effect.
 - Set a custom font for the toast text.
-- Set a icon beside the toast text.
+- Set a icon next to the toast text.
 - Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
 
-## Update version: 1.0.8 |  18 May 2017
-- Updated Gradle/Android dependencies.
-- Removed unused code,resources and test packages.
-- Added missing method for Builder class.
+## Update version: 1.0.9 |  03 June 2017
+- **IMPORTANT** Replaced constructor initialisation with builder pattern!
+- Support for RTL when icons is used.
+- Added a `getStyleableToast()` method.
+- Made default values so user don't have to type every value manually.
+- Improved synchronization when using both Styles.xml and code together to style a toast.
+- Refactoring of methods and comments and simplified codes.
 
 
 ## CASES:
@@ -31,13 +34,12 @@ An Android library that takes the standard Android Toast to the next level with 
 ![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
 
-## Usage with a style resource:
+## Usage with a style from styles.xml:
 
 
 **1) Style your toast in styles.xml. All available attributes:**
 ```xml
-    <style name="StyledToast">
-    
+    <style name="MyToast">
     <item name="android:textColor"></item>
     <item name="android:textStyle"></item> only bold!
     <item name="android:fontFamily"></item> For custom fonts just add the path -> fonts/myfont.ttf
@@ -47,34 +49,23 @@ An Android library that takes the standard Android Toast to the next level with 
     <item name="android:radius"></item>  radius for corners of the toast shape
     <item name="android:alpha"></item>   value between 0-255 where 255 is full solid
     <item name="android:icon">/</item>  drawable id of the icon. R.drawable.xx
-        
     </style>
 ```
 
-**2) Pass your style resource in the constructor and call show(); and you're done!**
+**2) Pass your style in the static constructor and call show(); and you're done!**
 
 ```java
-    StyleableToast.makeText(context, "Saving profile", Toast.LENGTH_LONG, R.style.StyledToast).show();
-```
-## Usage with code:
-```java
-    StyleableToast st = new StyleableToast(this, "Updating profile", Toast.LENGTH_SHORT);
-    st.setBackgroundColor(Color.parseColor("#ff5a5f"));
-    st.setTextColor(Color.WHITE);
-    st.setIcon(R.drawable.ic_autorenew_black_24dp);
-    st.spinIcon(); 
-    st.setMaxAlpha();
-    st.show();
+    StyleableToast.makeText(context, "Hello World!", Toast.LENGTH_LONG, R.style.StyledToast).show();
 ```
 
-## Or with Builder pattern:
+## With Builder pattern:
 ```java
-    st = new StyleableToast
-            .Builder(this, "Turn off fly mode")
-            .withBackgroundColor(Color.RED)
-            .withTextColor(Color.WHITE)
-            .withBoldText()
-            .build();
+        st = new StyleableToast
+                .Builder(this)
+                .text("Hello world!")
+                .textColor(Color.WHITE)
+                .backgroundColor(Color.BLUE)
+                .build();
 ```
 
 -----
@@ -85,7 +76,7 @@ Add the depedency in your build.gradle. The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.8'   
+    compile 'com.muddzdev:styleabletoast:1.0.9'   
 }
 ```
  ----
