@@ -12,7 +12,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
 import android.support.v4.text.BidiFormatter;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Animation;
@@ -43,13 +42,13 @@ import static com.muddzdev.styleabletoastlibrary.Utils.getTypedValueInDP;
 
 
 /**
- * StyleableToast is a very easy and quick way to style your styleableToast and gives them an unique style and feeling compared
- * to the default boring grey ones. StyleableToast have 10 styling options.
+ * StyleableToastListener is a very easy and quick way to style your styleableToast and gives them an unique style and feeling compared
+ * to the default boring grey ones. StyleableToastListener have 10 styling options.
  * <p>If a particular style option is not set, the option will fall back to the standard Android Toast style</p>
  */
 
-public class StyleableToast implements OnToastFinished {
-    private static final String TAG = StyleableToast.class.getSimpleName();
+public class StyleableToastListener implements OnToastFinishedListener {
+    private static final String TAG = StyleableToastListener.class.getSimpleName();
     private static final String DEFAULT_CONDENSED_FONT = "sans-serif-condensed";
     private static final int DEFAULT_BACKGROUND = Color.parseColor("#555555");
     private static final int DEFAULT_TEXT_COLOR = Color.WHITE;
@@ -70,21 +69,21 @@ public class StyleableToast implements OnToastFinished {
     private boolean textBold, hasAnimation;
     private float strokeWidth;
     private String text;
-    private DurationTracker durationTracker;
+    private ToastDurationTracker toastDurationTracker;
 
 
-    public static StyleableToast makeText(Context context, String text, int duration, int style) {
-        return new StyleableToast(context, text, duration, style);
+    public static StyleableToastListener makeText(Context context, String text, int duration, int style) {
+        return new StyleableToastListener(context, text, duration, style);
     }
 
-    private StyleableToast(@NonNull Context context, String text, int duration, @StyleRes int style) {
+    private StyleableToastListener(@NonNull Context context, String text, int duration, @StyleRes int style) {
         this.context = context;
         this.text = text;
         this.duration = duration;
         this.style = style;
     }
 
-    private StyleableToast(StyleableToast.Builder builder) {
+    private StyleableToastListener(StyleableToastListener.Builder builder) {
         this.context = builder.context.getApplicationContext();
         this.text = builder.text;
         this.textColor = builder.textColor;
@@ -98,12 +97,12 @@ public class StyleableToast implements OnToastFinished {
         this.icon = builder.icon;
         this.hasAnimation = builder.hasAnimation;
         this.typeface = builder.typeface;
-        this.durationTracker = new DurationTracker(duration, this);
+        this.toastDurationTracker = new ToastDurationTracker(duration, this);
     }
 
 
     /**
-     * Style your StyleableToast via styles.xml. Any styles set in the styles xlm will override the current attributes.
+     * Style your StyleableToastListener via styles.xml. Any styles set in the styles xlm will override the current attributes.
      *
      * @param style style id "R.style.xxx"
      */
@@ -113,7 +112,7 @@ public class StyleableToast implements OnToastFinished {
 
 
     /**
-     * @param text Text to be shown in the StyleableToast.
+     * @param text Text to be shown in the StyleableToastListener.
      */
     public void setText(String text) {
         this.text = text;
@@ -127,7 +126,7 @@ public class StyleableToast implements OnToastFinished {
     }
 
     /**
-     * Makes the StyleableToast's text bold.
+     * Makes the StyleableToastListener's text bold.
      */
     public void setTextBold() {
         this.textBold = true;
@@ -177,14 +176,14 @@ public class StyleableToast implements OnToastFinished {
     }
 
     /**
-     * @param cornerRadius Sets the corner radius of the StyleableToast's shape. Pass 0 for a flat rectangle shape
+     * @param cornerRadius Sets the corner radius of the StyleableToastListener's shape. Pass 0 for a flat rectangle shape
      */
     public void setCornerRadius(int cornerRadius) {
         this.cornerRadius = cornerRadius;
     }
 
     /**
-     * Sets the transparency of the StyleableToast's background.
+     * Sets the transparency of the StyleableToastListener's background.
      *
      * @param alpha A value between 0-255.
      */
@@ -193,7 +192,7 @@ public class StyleableToast implements OnToastFinished {
     }
 
     /**
-     * @param icon Sets a icon on the left side of the StyleableToast's text
+     * @param icon Sets a icon on the left side of the StyleableToastListener's text
      */
     public void setIcon(@DrawableRes int icon) {
         this.icon = icon;
@@ -207,12 +206,12 @@ public class StyleableToast implements OnToastFinished {
         styleableToast.show();
 
         if (hasAnimation) {
-            durationTracker.trackToastDuration();
+            toastDurationTracker.trackToastDuration();
         }
     }
 
     /**
-     * Cancels the ongoing StyleableToast.
+     * Cancels the ongoing StyleableToastListener.
      */
     public void cancel() {
         styleableToast.cancel();
@@ -424,7 +423,7 @@ public class StyleableToast implements OnToastFinished {
     }
 
     /**
-     * A callback that automatically cancels and resets animation effect from spinIcon(); when the StyleableToast is finished showing on screen.
+     * A callback that automatically cancels and resets animation effect from spinIcon(); when the StyleableToastListener is finished showing on screen.
      * Users should not call this method as this is used internally in the library.
      */
     @Override
@@ -455,7 +454,7 @@ public class StyleableToast implements OnToastFinished {
         }
 
         /**
-         * @param text Text to be shown in the StyleableToast
+         * @param text Text to be shown in the StyleableToastListener
          */
         public Builder text(String text) {
             this.text = text;
@@ -471,7 +470,7 @@ public class StyleableToast implements OnToastFinished {
         }
 
         /**
-         * Makes the StyleableToast's text bold.
+         * Makes the StyleableToastListener's text bold.
          */
         public Builder textBold() {
             this.textBold = true;
@@ -518,7 +517,7 @@ public class StyleableToast implements OnToastFinished {
 
         /**
          * Sets the stroke color of the StylebleX.<br>
-         * Use with {@link StyleableToast#strokeWidth}
+         * Use with {@link StyleableToastListener#strokeWidth}
          */
         public Builder strokeColor(@ColorInt int strokeColor) {
             this.strokeColor = strokeColor;
@@ -527,7 +526,7 @@ public class StyleableToast implements OnToastFinished {
 
         /**
          * Sets the stroke width of the StylebleX.<br>
-         * Use with {@link StyleableToast#strokeColor}
+         * Use with {@link StyleableToastListener#strokeColor}
          */
         public Builder strokeWidth(int strokeWidth) {
             this.strokeWidth = strokeWidth;
@@ -535,7 +534,7 @@ public class StyleableToast implements OnToastFinished {
         }
 
         /**
-         * @param cornerRadius Sets the corner radius of the StyleableToast's shape. Pass 0 for a flat rectangle shape.
+         * @param cornerRadius Sets the corner radius of the StyleableToastListener's shape. Pass 0 for a flat rectangle shape.
          */
         public Builder cornerRadius(int cornerRadius) {
             this.cornerRadius = cornerRadius;
@@ -544,7 +543,7 @@ public class StyleableToast implements OnToastFinished {
 
 
         /**
-         * Sets the transparency of the StyleableToast's background.
+         * Sets the transparency of the StyleableToastListener's background.
          *
          * @param alpha A value between 0-255.
          */
@@ -554,7 +553,7 @@ public class StyleableToast implements OnToastFinished {
         }
 
         /**
-         * @param icon Sets a icon on the left side of the StyleableToast's text.
+         * @param icon Sets a icon on the left side of the StyleableToastListener's text.
          */
         public Builder icon(@DrawableRes int icon) {
             this.icon = icon;
@@ -562,10 +561,10 @@ public class StyleableToast implements OnToastFinished {
         }
 
         /**
-         * @return A mutable StyleableToast object.
+         * @return A mutable StyleableToastListener object.
          */
-        public StyleableToast build() {
-            return new StyleableToast(this);
+        public StyleableToastListener build() {
+            return new StyleableToastListener(this);
         }
 
     }

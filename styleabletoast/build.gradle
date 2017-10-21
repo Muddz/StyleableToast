@@ -6,7 +6,7 @@ version = "1.0.9"
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.0'
+    buildToolsVersion '26.0.2'
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 26
@@ -26,12 +26,12 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
 }
 
 
-def siteUrl = 'https://github.com/Muddz/StyleableToast'
-def gitUrl = 'https://github.com/Muddz/StyleableToast.git'
+def siteUrl = 'https://github.com/Muddz/StyleableToastListener'
+def gitUrl = 'https://github.com/Muddz/StyleableToastListener.git'
 group = "com.muddzdev"
 
 install {
