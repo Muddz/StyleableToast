@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="defaultBackgroundAlpha">230</integer>
+    <integer name="toastDurationShort">2000</integer>
+    <integer name="toastDurationLong">3500</integer>
+
+</resources>

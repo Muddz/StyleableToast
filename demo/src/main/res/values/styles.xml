@@ -15,7 +15,7 @@
         <!--<item name="android:textColor">@color/red</item>-->
         <!--<item name="android:alpha">255</item>-->
         <!--<item name="android:fontFamily">fonts/dosis.otf"</item>-->
-        <!--<item name="android:strokeWidth">1</item>-->
+        <!--<item name="andrstrokeidth">1</item>-->
         <!--<item name="android:strokeColor">@color/red</item>-->
         <!--<item name="android:radius">@dimen/flat</item>-->
 

@@ -7,11 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.muddzdev.styleabletoastlibrary.StyleableToastListener;
+import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private StyleableToastListener styleableToast;
+    private StyleableToast styleableToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +25,41 @@ public class MainActivity extends AppCompatActivity {
     public void Toaster(View v) {
         switch (v.getId()) {
             case R.id.button1:
-                StyleableToastListener.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.StyleableToast).show();
+
+                StyleableToast styleableToast = new StyleableToast
+                        .Builder(this)
+                        .text("Hello")
+                        .textColor(Color.BLACK)
+                        .textBold()
+//                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/dosis.otf"))
+                        .backgroundColor(Color.GREEN)
+                        .stroke(3, Color.BLACK)
+                        .alpha(255)
+
+                        .build();
+
+                styleableToast.show();
+
+
+//                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.StyleableToast).show();
                 break;
 
             case R.id.button2:
-                styleableToast = new StyleableToastListener
-                        .Builder(this)
-                        .text("New update available")
-                        .textColor(Color.WHITE)
-                        .icon(R.drawable.ic_file_download)
-                        .backgroundColor(Color.parseColor("#23ad33"))
-                        .build();
+
+                Toast.makeText(this, "", Toast.LENGTH_LONG).show();
+
+
+//                styleableToast = new StyleableToast
+//                        .Builder(this)
+//                        .text("New update available")
+//                        .textColor(Color.WHITE)
+//                        .icon(R.drawable.ic_file_download)
+//                        .backgroundColor(Color.parseColor("#23ad33"))
+//                        .build();
                 break;
 
             case R.id.button3:
-                styleableToast = new StyleableToastListener
+                styleableToast = new StyleableToast
                         .Builder(this)
                         .duration(Toast.LENGTH_LONG)
                         .text("Your collection has been updated")
@@ -50,20 +70,20 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.button4:
-                styleableToast = new StyleableToastListener
+                styleableToast = new StyleableToast
                         .Builder(this)
                         .text("Thank you for your health donation!")
                         .textColor(Color.parseColor("#6063b2"))
-                        .strokeWidth(2)
+//                        .stroke(2)
                         .duration(Toast.LENGTH_LONG)
-                        .strokeColor(Color.parseColor("#989ad1"))
+//                        .strokeColor(Color.parseColor("#989ad1"))
                         .backgroundColor(Color.WHITE)
                         .build();
 
                 break;
 
             case R.id.button5:
-                styleableToast = new StyleableToastListener
+                styleableToast = new StyleableToast
                         .Builder(this)
                         .icon(R.drawable.ic_overheating)
                         .text("Phone is overheating!")
@@ -74,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.button6:
-                styleableToast = new StyleableToastListener
+                styleableToast = new StyleableToast
                         .Builder(this)
                         .duration(Toast.LENGTH_LONG)
                         .icon(R.drawable.ic_autorenew_black_24dp)

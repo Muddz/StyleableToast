@@ -1,0 +1,9 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="defaultTextSize">16sp</dimen>
+    <dimen name="defaultCornerRadius">24dp</dimen>
+    <dimen name="defaultHorizontalPadding">25dp</dimen>
+    <dimen name="defaultVerticalPadding">11.3dp</dimen>
+
+</resources>

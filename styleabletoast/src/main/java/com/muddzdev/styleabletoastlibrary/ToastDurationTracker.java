@@ -19,7 +19,7 @@ public class ToastDurationTracker {
 
     /**
      * Starts a {@link CountDownTimer} which counts down from the duration of the StyleableToastListener
-     * from the moment {@link StyleableToastListener#show()} is called to cancel and reset the animation at end of the {@link StyleableToastListener}'s duration.
+     * from the moment {@link StyleableToast#show()} is called to cancel and reset the animation at end of the {@link StyleableToast}'s duration.
      */
     public void trackToastDuration() {
         CountDownTimer countDownTimer = new CountDownTimer(duration + EXTRA_DELAY, 1000) {

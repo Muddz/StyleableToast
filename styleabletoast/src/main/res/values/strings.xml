@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StyleableToastLibrary</string>
+    <string name="default_font">sans-serif-condensed"</string>
 </resources>

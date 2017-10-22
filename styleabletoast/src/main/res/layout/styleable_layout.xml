@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/styleabletoast_shape"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/defaultVerticalPadding"
+    android:paddingLeft="@dimen/defaultHorizontalPadding"
+    android:paddingRight="@dimen/defaultHorizontalPadding"
+    android:paddingTop="@dimen/defaultVerticalPadding">
+
+
+    <ImageView
+        android:id="@+id/icon_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_airplanemode_inactive_black_24dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:maxLines="4"
+        android:textColor="@color/defaultTextColor"
+        android:textSize="@dimen/defaultTextSize"
+        tools:text="Hello King Muddz" />
+
+    <ImageView
+        android:id="@+id/icon_right"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:adjustViewBounds="true"
+        android:background="@drawable/ic_airplanemode_inactive_black_24dp"
+        android:visibility="gone" />
+</LinearLayout>
