@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                         .Builder(this)
                         .text("Turn off fly mode")
                         .textColor(Color.WHITE)
+                        .duration(Toast.LENGTH_LONG)
                         .backgroundColor(ContextCompat.getColor(this, R.color.purple))
                         .icon(R.drawable.ic_airplanemode_inactive_black_24dp)
                         .build();
@@ -41,7 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button2:
 
-                Toast.makeText(this, "Hello", Toast.LENGTH_LONG).show();
+                StyleableToast styleableToasts = new StyleableToast
+                        .Builder(this)
+                        .text("Turn off fly mode")
+                        .textColor(Color.WHITE)
+                        .duration(Toast.LENGTH_LONG)
+                        .backgroundColor(ContextCompat.getColor(this, R.color.purple))
+                        .build();
+                styleableToasts.show();
 
 
 //                styleableToast = new StyleableToast
@@ -54,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.button3:
+
+                Toast.makeText(this, "Turn off fly mode", Toast.LENGTH_SHORT).show();
+
                 styleableToast = new StyleableToast
                         .Builder(this)
                         .duration(Toast.LENGTH_LONG)

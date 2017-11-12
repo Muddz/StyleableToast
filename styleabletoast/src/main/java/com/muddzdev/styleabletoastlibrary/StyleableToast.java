@@ -11,7 +11,6 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
-import android.support.v4.text.BidiFormatter;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -61,7 +60,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private int alpha = DEFAULT_ALPHA;
     private int textColor = DEFAULT_TEXT_COLOR;
 
-    private int style, icon, strokeColor, duration;
+    private int style, iconResLeft, iconResRight, strokeColor, duration;
     private boolean textBold, hasAnimation;
     private float strokeWidth;
 
@@ -70,12 +69,13 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private TextView textView;
     private Typeface typeface;
     private Toast styleableToast;
-    private ImageView imageView;
+    private ImageView iconLeft, iconRight;
 
     private String text;
     private ToastDurationTracker toastDurationTracker; //D
-    private LinearLayout toastLayout;
+    private LinearLayout rootLayout;
 
+    //TODO REFACTOR DURATION TO LENGHT
 
     public static StyleableToast makeText(Context context, String text, int duration, int style) {
         return new StyleableToast(context, text, duration, style);
@@ -84,9 +84,10 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     private void initLayout() {
         View v = inflate(getContext(), R.layout.styleable_layout, null);
-        toastLayout = v.findViewById(R.id.root);
+        rootLayout = v.findViewById(R.id.root);
         textView = v.findViewById(R.id.textview);
-        imageView = v.findViewById(R.id.icon_left);
+        iconLeft = v.findViewById(R.id.icon_right);
+        iconRight = v.findViewById(R.id.icon_right);
         makeTextView();
         makeShape();
     }
@@ -113,7 +114,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         this.strokeWidth = builder.strokeWidth;
         this.alpha = builder.alpha;
         this.cornerRadius = builder.cornerRadius;
-        this.icon = builder.icon;
+        this.iconResLeft = builder.icon;
         this.hasAnimation = builder.hasAnimation;
         this.typeface = builder.typeface;
         this.toastDurationTracker = new ToastDurationTracker(duration, this);
@@ -175,7 +176,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     }
 
     /**
-     * Enables spinning animation of the passed icon by its around its own center.
+     * Enables spinning animation of the passed iconResLeft by its around its own center.
      */
     public void spinIcon() {
         this.hasAnimation = true;
@@ -209,17 +210,17 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     }
 
     /**
-     * @param icon Sets a icon on the left side of the StyleableToastListener's text
+     * @param iconResLeft Sets a iconResLeft on the left side of the StyleableToastListener's text
      */
-    public void setIcon(@DrawableRes int icon) {
-        this.icon = icon;
+    public void setIconResLeft(@DrawableRes int iconResLeft) {
+        this.iconResLeft = iconResLeft;
     }
 
 
     public void show() {
         styleableToast = new Toast(context);
         styleableToast.setDuration(duration);
-        styleableToast.setView(toastLayout);
+        styleableToast.setView(rootLayout);
         styleableToast.show();
 
         if (hasAnimation) {
@@ -256,51 +257,30 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     }
 
     private void makeShape() {
-        GradientDrawable gradientDrawable = (GradientDrawable) toastLayout.getBackground();
+        GradientDrawable gradientDrawable = (GradientDrawable) rootLayout.getBackground();
         gradientDrawable.setCornerRadius(getTypedValueInDP(context, cornerRadius));
         gradientDrawable.setStroke((int) getTypedValueInDP(context, strokeWidth), strokeColor);
         gradientDrawable.setAlpha(alpha);
         gradientDrawable.setColor(backgroundColor);
         getShapeAttributes();
-//        getIcon();
+        setIconSettings();
     }
 
-
-    private ImageView getIcon() {
-
-        //TODO if we have a icon. Make the root layouts padding left & right to 14dp else default padding.
-
-
-
-
-        if (icon > 0) {
+    private void setIconSettings() {
+        if (iconResLeft > 0 || iconResRight > 0) {
             int marginLeft = (int) getTypedValueInDP(context, 15);
             int marginRight = (int) getTypedValueInDP(context, 15);
-            int maxHeightVal = (int) getTypedValueInDP(context, 20);
-            int maxWidthVal = (int) getTypedValueInDP(context, 20);
-
-//            ImageView imageView = new ImageView(context);
-//            imageView.setImageDrawable(context.getResources().getDrawable(icon));
-//            imageView.setAnimation(getAnimation());
-//            imageView.setMaxWidth(marginLeft + maxWidthVal);
-//            imageView.setMaxHeight(maxHeightVal);
-//            imageView.setAdjustViewBounds(true);
-
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-
-            //Push the icon x dp from the edge of the shape
-            if (BidiFormatter.getInstance().isRtlContext()) {
-                layoutParams.setMargins(0, 0, marginRight, 0);
-            } else {
-                layoutParams.setMargins(marginLeft, 0, 0, 0);
-            }
-
-            imageView.setLayoutParams(layoutParams);
-            return imageView;
+            int verticalPadding = (int) context.getResources().getDimension(R.dimen.defaultVerticalPadding);
+            rootLayout.setPadding(marginLeft, verticalPadding, marginRight, verticalPadding);
         }
-        return null;
+        if (iconResLeft > 0) {
+            iconLeft.setBackgroundResource(iconResLeft);
+            iconLeft.setVisibility(VISIBLE);
+        }
+        if (iconResRight > 0) {
+            iconRight.setBackgroundResource(iconResRight);
+            iconRight.setVisibility(VISIBLE);
+        }
     }
 
 
@@ -383,7 +363,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
             int[] drawableAttrSet = {android.R.attr.icon};
             TypedArray drawables = context.obtainStyledAttributes(style, drawableAttrSet);
             if (drawables.hasValue(0)) {
-                icon = drawables.getResourceId(0, 0);
+                iconResLeft = drawables.getResourceId(0, 0);
             }
             drawables.recycle();
         }
@@ -416,7 +396,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     }
 
 
-    //--------------------BUILDER--------------------
+//--------------------BUILDER--------------------
 
     public static class Builder {
         private final Context context;
@@ -483,7 +463,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         }
 
         /**
-         * Enables spinning animation of the passed icon by its around its own center.
+         * Enables spinning animation of the passed iconResLeft by its around its own center.
          */
         public Builder spinIcon() {
             this.hasAnimation = true;
@@ -525,7 +505,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         }
 
         /**
-         * @param icon Sets a icon on the left side of the StyleableToastListener's text.
+         * @param icon Sets a iconResLeft on the left side of the StyleableToastListener's text.
          */
         public Builder icon(@DrawableRes int icon) {
             this.icon = icon;

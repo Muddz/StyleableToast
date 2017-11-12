@@ -12,7 +12,6 @@
     android:paddingRight="@dimen/defaultHorizontalPadding"
     android:paddingTop="@dimen/defaultVerticalPadding">
 
-
     <ImageView
         android:id="@+id/icon_left"
         android:layout_width="20dp"
@@ -20,7 +19,8 @@
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:adjustViewBounds="true"
-        android:background="@drawable/ic_airplanemode_inactive_black_24dp"/>
+        android:visibility="gone"
+        tools:background="@drawable/ic_airplanemode_inactive_black_24dp" />
 
     <TextView
         android:id="@+id/textview"
@@ -41,6 +41,6 @@
         android:layout_marginLeft="4dp"
         android:layout_marginStart="4dp"
         android:adjustViewBounds="true"
-        android:background="@drawable/ic_airplanemode_inactive_black_24dp"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:background="@drawable/ic_airplanemode_inactive_black_24dp" />
 </LinearLayout>
