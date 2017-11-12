@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.muddzdev.styleabletoastlibrary">
 
-    <application android:supportsRtl="true"></application>
+    <application android:supportsRtl="true"/>
 
 </manifest>

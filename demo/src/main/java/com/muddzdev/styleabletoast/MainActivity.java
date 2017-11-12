@@ -18,10 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
-
 
     public void Toaster(View v) {
         switch (v.getId()) {
@@ -42,14 +39,15 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button2:
 
-                StyleableToast styleableToasts = new StyleableToast
+                StyleableToast styleableToasst = new StyleableToast
                         .Builder(this)
                         .text("Turn off fly mode")
                         .textColor(Color.WHITE)
                         .duration(Toast.LENGTH_LONG)
                         .backgroundColor(ContextCompat.getColor(this, R.color.purple))
+                        .icon(R.drawable.ic_overheating)
                         .build();
-                styleableToasts.show();
+                styleableToasst.show();
 
 
 //                styleableToast = new StyleableToast
@@ -63,16 +61,26 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button3:
 
-                Toast.makeText(this, "Turn off fly mode", Toast.LENGTH_SHORT).show();
-
-                styleableToast = new StyleableToast
+                StyleableToast styleableToastt = new StyleableToast
                         .Builder(this)
-                        .duration(Toast.LENGTH_LONG)
-                        .text("Your collection has been updated")
+                        .text("Turn off fly mode")
                         .textColor(Color.WHITE)
-                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/dosis.otf"))
-                        .backgroundColor(Color.parseColor("#cc3784"))
+                        .duration(Toast.LENGTH_LONG)
+                        .backgroundColor(ContextCompat.getColor(this, R.color.purple))
+                        .icon(R.drawable.ic_file_download)
                         .build();
+                styleableToastt.show();
+
+//                Toast.makeText(this, "Turn off fly mode", Toast.LENGTH_SHORT).show();
+//
+//                styleableToast = new StyleableToast
+//                        .Builder(this)
+//                        .duration(Toast.LENGTH_LONG)
+//                        .text("Your collection has been updated")
+//                        .textColor(Color.WHITE)
+//                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/dosis.otf"))
+//                        .backgroundColor(Color.parseColor("#cc3784"))
+//                        .build();
                 break;
 
             case R.id.button4:

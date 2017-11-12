@@ -49,10 +49,11 @@ import static com.muddzdev.styleabletoastlibrary.Utils.getTypedValueInDP;
 public class StyleableToast extends RelativeLayout implements OnToastFinishedListener {
 
     private static final String TAG = StyleableToast.class.getSimpleName();
+
     private static final String DEFAULT_CONDENSED_FONT = "sans-serif-condensed";
     private static final int DEFAULT_BACKGROUND = Color.parseColor("#555555"); // D
     private static final int DEFAULT_TEXT_COLOR = Color.WHITE; // D
-    private static final int DEFAULT_CORNER_RADIUS = R.dimen.defaultCornerRadius;
+    private static final int DEFAULT_CORNER_RADIUS = R.dimen.default_corner_radius;
     private static final int DEFAULT_ALPHA = 230; // D
 
     private int cornerRadius;
@@ -63,7 +64,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private int style, iconResLeft, iconResRight, strokeColor, duration;
     private boolean textBold, hasAnimation;
     private float strokeWidth;
-
 
     private final Context context;
     private TextView textView;
@@ -81,12 +81,11 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         return new StyleableToast(context, text, duration, style);
     }
 
-
     private void initLayout() {
         View v = inflate(getContext(), R.layout.styleable_layout, null);
         rootLayout = v.findViewById(R.id.root);
         textView = v.findViewById(R.id.textview);
-        iconLeft = v.findViewById(R.id.icon_right);
+        iconLeft = v.findViewById(R.id.icon_left);
         iconRight = v.findViewById(R.id.icon_right);
         makeTextView();
         makeShape();
@@ -101,7 +100,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         this.style = style;
     }
 
-    //For builder pattern
+    //For builder pattern.
     private StyleableToast(StyleableToast.Builder builder) {
         super(builder.context);
         this.context = builder.context.getApplicationContext();
@@ -124,7 +123,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     /**
      * Style your StyleableToastListener via styles.xml. Any styles set in the styles xlm will override the current attributes.
-     *
      * @param style style id "R.style.xxx"
      */
     public void setStyle(@StyleRes int style) {
@@ -142,6 +140,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     /**
      * @param textColor if not set the default color white will be used.
      */
+
     public void setTextColor(@ColorInt int textColor) {
         this.textColor = textColor;
     }
@@ -149,6 +148,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     /**
      * Makes the StyleableToastListener's text bold.
      */
+
     public void setTextBold() {
         this.textBold = true;
     }
@@ -171,6 +171,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     /**
      * @param typeface Set a different typeface than the standard <i>sans-serif-condensed</i>
      */
+
     public void setTypeface(Typeface typeface) {
         this.typeface = typeface;
     }
@@ -202,7 +203,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     /**
      * Sets the transparency of the StyleableToastListener's background.
-     *
      * @param alpha A value between 0-255.
      */
     public void setAlpha(int alpha) {
@@ -222,7 +222,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         styleableToast.setDuration(duration);
         styleableToast.setView(rootLayout);
         styleableToast.show();
-
         if (hasAnimation) {
             toastDurationTracker.trackToastDuration();
         }
@@ -268,10 +267,10 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     private void setIconSettings() {
         if (iconResLeft > 0 || iconResRight > 0) {
-            int marginLeft = (int) getTypedValueInDP(context, 15);
-            int marginRight = (int) getTypedValueInDP(context, 15);
-            int verticalPadding = (int) context.getResources().getDimension(R.dimen.defaultVerticalPadding);
-            rootLayout.setPadding(marginLeft, verticalPadding, marginRight, verticalPadding);
+            int horizontalPadding = (int) getTypedValueInDP(context, 20);
+            int verticalPadding = (int) context.getResources().getDimension(R.dimen.toast_vertical_padding);
+
+            rootLayout.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
         }
         if (iconResLeft > 0) {
             iconLeft.setBackgroundResource(iconResLeft);
