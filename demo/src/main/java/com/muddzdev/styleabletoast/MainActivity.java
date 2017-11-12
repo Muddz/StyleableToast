@@ -3,6 +3,7 @@ package com.muddzdev.styleabletoast;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -28,25 +29,19 @@ public class MainActivity extends AppCompatActivity {
 
                 StyleableToast styleableToast = new StyleableToast
                         .Builder(this)
-                        .text("Hello")
-                        .textColor(Color.BLACK)
-                        .textBold()
-//                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/dosis.otf"))
-                        .backgroundColor(Color.GREEN)
-                        .stroke(3, Color.BLACK)
-                        .alpha(255)
-
+                        .text("Turn off fly mode")
+                        .textColor(Color.WHITE)
+                        .backgroundColor(ContextCompat.getColor(this, R.color.purple))
+                        .icon(R.drawable.ic_airplanemode_inactive_black_24dp)
                         .build();
-
                 styleableToast.show();
-
 
 //                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.StyleableToast).show();
                 break;
 
             case R.id.button2:
 
-                Toast.makeText(this, "", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Hello", Toast.LENGTH_LONG).show();
 
 
 //                styleableToast = new StyleableToast

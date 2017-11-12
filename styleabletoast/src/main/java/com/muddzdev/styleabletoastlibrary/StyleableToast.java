@@ -54,7 +54,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private static final int DEFAULT_BACKGROUND = Color.parseColor("#555555"); // D
     private static final int DEFAULT_TEXT_COLOR = Color.WHITE; // D
     private static final int DEFAULT_CORNER_RADIUS = R.dimen.defaultCornerRadius;
-
     private static final int DEFAULT_ALPHA = 230; // D
 
     private int cornerRadius;
@@ -71,6 +70,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private TextView textView;
     private Typeface typeface;
     private Toast styleableToast;
+    private ImageView imageView;
 
     private String text;
     private ToastDurationTracker toastDurationTracker; //D
@@ -86,6 +86,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         View v = inflate(getContext(), R.layout.styleable_layout, null);
         toastLayout = v.findViewById(R.id.root);
         textView = v.findViewById(R.id.textview);
+        imageView = v.findViewById(R.id.icon_left);
         makeTextView();
         makeShape();
     }
@@ -261,26 +262,33 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         gradientDrawable.setAlpha(alpha);
         gradientDrawable.setColor(backgroundColor);
         getShapeAttributes();
+//        getIcon();
     }
 
 
     private ImageView getIcon() {
+
+        //TODO if we have a icon. Make the root layouts padding left & right to 14dp else default padding.
+
+
+
+
         if (icon > 0) {
             int marginLeft = (int) getTypedValueInDP(context, 15);
             int marginRight = (int) getTypedValueInDP(context, 15);
             int maxHeightVal = (int) getTypedValueInDP(context, 20);
             int maxWidthVal = (int) getTypedValueInDP(context, 20);
 
-            ImageView imageView = new ImageView(context);
-            imageView.setImageDrawable(context.getResources().getDrawable(icon));
-            imageView.setAnimation(getAnimation());
-            imageView.setMaxWidth(marginLeft + maxWidthVal);
-            imageView.setMaxHeight(maxHeightVal);
-            imageView.setAdjustViewBounds(true);
+//            ImageView imageView = new ImageView(context);
+//            imageView.setImageDrawable(context.getResources().getDrawable(icon));
+//            imageView.setAnimation(getAnimation());
+//            imageView.setMaxWidth(marginLeft + maxWidthVal);
+//            imageView.setMaxHeight(maxHeightVal);
+//            imageView.setAdjustViewBounds(true);
 
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
-                    RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
 
             //Push the icon x dp from the edge of the shape
             if (BidiFormatter.getInstance().isRtlContext()) {
@@ -289,7 +297,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
                 layoutParams.setMargins(marginLeft, 0, 0, 0);
             }
 
-            layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
             imageView.setLayoutParams(layoutParams);
             return imageView;
         }

@@ -20,8 +20,7 @@
         android:layout_marginEnd="4dp"
         android:layout_marginRight="4dp"
         android:adjustViewBounds="true"
-        android:background="@drawable/ic_airplanemode_inactive_black_24dp"
-        android:visibility="gone" />
+        android:background="@drawable/ic_airplanemode_inactive_black_24dp"/>
 
     <TextView
         android:id="@+id/textview"
