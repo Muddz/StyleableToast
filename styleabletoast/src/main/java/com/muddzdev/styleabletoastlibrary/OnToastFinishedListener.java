@@ -5,7 +5,7 @@ package com.muddzdev.styleabletoastlibrary;
  */
 
 /**
- * A callback used in {@link ToastDurationTracker} that sends a callback when a {@link StyleableToast}
+ * A callback used in {@link ToastLengthTracker} that sends a callback when a {@link StyleableToast}
  * is finished with showing.
  */
 public interface OnToastFinishedListener {

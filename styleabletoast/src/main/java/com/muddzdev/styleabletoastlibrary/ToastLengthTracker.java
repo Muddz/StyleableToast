@@ -7,22 +7,22 @@ import android.os.CountDownTimer;
  */
 
 
-public class ToastDurationTracker {
+public class ToastLengthTracker {
     private static final int EXTRA_DELAY = 500;
     private OnToastFinishedListener onToastFinishedListener;
-    private int duration;
+    private int length;
 
-    public ToastDurationTracker(int duration, OnToastFinishedListener onToastFinishedListener) {
-        this.duration = duration;
+    public ToastLengthTracker(int length, OnToastFinishedListener onToastFinishedListener) {
+        this.length = length;
         this.onToastFinishedListener = onToastFinishedListener;
     }
 
     /**
-     * Starts a {@link CountDownTimer} which counts down from the duration of the StyleableToastListener
-     * from the moment {@link StyleableToast#show()} is called to cancel and reset the animation at end of the {@link StyleableToast}'s duration.
+     * Starts a {@link CountDownTimer} which counts down from the length of the StyleableToastListener
+     * from the moment {@link StyleableToast#show()} is called to cancel and reset the animation at end of the {@link StyleableToast}'s length.
      */
-    public void trackToastDuration() {
-        CountDownTimer countDownTimer = new CountDownTimer(duration + EXTRA_DELAY, 1000) {
+    public void trackToastLength() {
+        CountDownTimer countDownTimer = new CountDownTimer(length + EXTRA_DELAY, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
             }

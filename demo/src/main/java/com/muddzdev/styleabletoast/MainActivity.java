@@ -24,30 +24,35 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.button1:
 
-                StyleableToast styleableToast = new StyleableToast
+                new StyleableToast
                         .Builder(this)
                         .text("Turn off fly mode")
-                        .textColor(Color.WHITE)
+                        .textColor(Color.BLACK)
                         .duration(Toast.LENGTH_LONG)
                         .backgroundColor(ContextCompat.getColor(this, R.color.purple))
-                        .icon(R.drawable.ic_airplanemode_inactive_black_24dp)
-                        .build();
-                styleableToast.show();
+                        .iconResLeft(R.drawable.ic_airplanemode_inactive_black_24dp)
+                        .show();
 
 //                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.StyleableToast).show();
                 break;
 
             case R.id.button2:
 
-                StyleableToast styleableToasst = new StyleableToast
+                new StyleableToast
                         .Builder(this)
                         .text("Turn off fly mode")
-                        .textColor(Color.WHITE)
-                        .duration(Toast.LENGTH_LONG)
                         .backgroundColor(ContextCompat.getColor(this, R.color.purple))
-                        .icon(R.drawable.ic_overheating)
-                        .build();
-                styleableToasst.show();
+                        .show();
+
+//                StyleableToast styleableToasst = new StyleableToast
+//                        .Builder(this)
+//                        .text("Turn off fly mode")
+//                        .textColor(Color.WHITE)
+//                        .duration(Toast.LENGTH_LONG)
+//                        .backgroundColor(ContextCompat.getColor(this, R.color.purple))
+//                        .icon(R.drawable.ic_overheating)
+//                        .build();
+//                styleableToasst.show();
 
 
 //                styleableToast = new StyleableToast
@@ -61,15 +66,15 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button3:
 
-                StyleableToast styleableToastt = new StyleableToast
-                        .Builder(this)
-                        .text("Turn off fly mode")
-                        .textColor(Color.WHITE)
-                        .duration(Toast.LENGTH_LONG)
-                        .backgroundColor(ContextCompat.getColor(this, R.color.purple))
-                        .icon(R.drawable.ic_file_download)
-                        .build();
-                styleableToastt.show();
+//                StyleableToast styleableToastt = new StyleableToast
+//                        .Builder(this)
+//                        .text("Turn off fly mode")
+//                        .textColor(Color.WHITE)
+//                        .duration(Toast.LENGTH_LONG)
+//                        .backgroundColor(ContextCompat.getColor(this, R.color.purple))
+//                        .icon(R.drawable.ic_file_download)
+//                        .build();
+//                styleableToastt.show();
 
 //                Toast.makeText(this, "Turn off fly mode", Toast.LENGTH_SHORT).show();
 //
@@ -84,39 +89,39 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.button4:
-                styleableToast = new StyleableToast
-                        .Builder(this)
-                        .text("Thank you for your health donation!")
-                        .textColor(Color.parseColor("#6063b2"))
-//                        .stroke(2)
-                        .duration(Toast.LENGTH_LONG)
-//                        .strokeColor(Color.parseColor("#989ad1"))
-                        .backgroundColor(Color.WHITE)
-                        .build();
+//                styleableToast = new StyleableToast
+//                        .Builder(this)
+//                        .text("Thank you for your health donation!")
+//                        .textColor(Color.parseColor("#6063b2"))
+////                        .stroke(2)
+//                        .duration(Toast.LENGTH_LONG)
+////                        .strokeColor(Color.parseColor("#989ad1"))
+//                        .backgroundColor(Color.WHITE)
+//                        .build();
 
                 break;
 
             case R.id.button5:
-                styleableToast = new StyleableToast
-                        .Builder(this)
-                        .icon(R.drawable.ic_overheating)
-                        .text("Phone is overheating!")
-                        .textBold()
-                        .textColor(Color.parseColor("#FFDA44"))
-                        .cornerRadius(5)
-                        .build();
+//                styleableToast = new StyleableToast
+//                        .Builder(this)
+//                        .icon(R.drawable.ic_overheating)
+//                        .text("Phone is overheating!")
+//                        .textBold()
+//                        .textColor(Color.parseColor("#FFDA44"))
+//                        .cornerRadius(5)
+//                        .build();
                 break;
 
             case R.id.button6:
-                styleableToast = new StyleableToast
-                        .Builder(this)
-                        .duration(Toast.LENGTH_LONG)
-                        .icon(R.drawable.ic_autorenew_black_24dp)
-                        .spinIcon()
-                        .text("Downloading your information")
-                        .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#184c6d"))
-                        .build();
+//                styleableToast = new StyleableToast
+//                        .Builder(this)
+//                        .duration(Toast.LENGTH_LONG)
+//                        .icon(R.drawable.ic_autorenew_black_24dp)
+//                        .spinIcon()
+//                        .text("Downloading your information")
+//                        .textColor(Color.WHITE)
+//                        .backgroundColor(Color.parseColor("#184c6d"))
+//                        .build();
                 break;
         }
 
