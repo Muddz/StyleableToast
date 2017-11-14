@@ -13,7 +13,7 @@
         <item name="android:colorBackground">@color/purple</item>
         <item name="android:icon">@drawable/ic_airplanemode_inactive_black_24dp</item>
         <!--<item name="android:textColor">@color/red</item>-->
-        <!--<item name="android:alpha">255</item>-->
+        <!--<item name="andrbackgroundAlphalpha">255</item>-->
         <!--<item name="android:fontFamily">fonts/dosis.otf"</item>-->
         <!--<item name="andrstrokeidth">1</item>-->
         <!--<item name="android:strokeColor">@color/red</item>-->

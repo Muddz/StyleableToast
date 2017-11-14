@@ -47,7 +47,7 @@ An Android library that takes the standard Android Toast to the next level with 
     <item name="android:strokeWidth"></item>   API 21+
     <item name="android:strokeColor"></item>   API 21+
     <item name="android:radius"></item>  radius for corners of the toast shape
-    <item name="android:alpha"></item>   value between 0-255 where 255 is full solid
+    <item name="android:backgroundAlpha"></item>   value between 0-255 where 255 is full solid
     <item name="android:iconResLeft">/</item>  drawable id of the iconResLeft. R.drawable.xx
     </style>
 ```
