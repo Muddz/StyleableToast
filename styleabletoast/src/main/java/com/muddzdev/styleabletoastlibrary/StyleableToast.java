@@ -157,6 +157,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     /**
      * @param backgroundAlpha A value between 0-255.
      */
+    @Deprecated
     public void setBackgroundAlpha(int backgroundAlpha) {
         this.backgroundAlpha = backgroundAlpha;
     }
@@ -191,15 +192,12 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     /**
      * Default Toast.LENGTH_LONG
-     *
      * @param length {@link Toast#LENGTH_SHORT} or {@link Toast#LENGTH_LONG}
      * @throws IllegalStateException If non of the above values is used.
      */
 
     public void setLength(int length) {
-        if (length == LENGTH_LONG) {
-            this.length = length;
-        } else if (length == LENGTH_SHORT) {
+        if (length == LENGTH_LONG || length == LENGTH_SHORT) {
             this.length = length;
         } else {
             this.length = LENGTH_LONG;
@@ -233,7 +231,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private void makeTextView() {
         textView.setText(text);
 
-        if (textColor !=0) {
+        if (textColor != 0) {
             textView.setTextColor(textColor);
         }
         if (textBold && typeface == null) {
@@ -254,8 +252,8 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         gradientDrawable.setStroke((int) getTypedValueInDP(context, strokeWidth), strokeColor);
 
         //TODO RECHECK THIS
-        gradientDrawable.setCornerRadius(cornerRadius != -1 ? getTypedValueInDP(context, cornerRadius) : R.dimen.default_corner_radius);
-        gradientDrawable.setAlpha(backgroundAlpha > 0 ? backgroundAlpha : R.integer.defaultBackgroundAlpha);
+//        gradientDrawable.setCornerRadius(cornerRadius != -1 ? getTypedValueInDP(context, cornerRadius) : R.dimen.default_corner_radius);
+//        gradientDrawable.setAlpha(backgroundAlpha > 0 ? backgroundAlpha : R.integer.defaultBackgroundAlpha);
 
         //TODO RECHECK THIS
         if (backgroundColor == 0) {
@@ -263,6 +261,9 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         } else {
             gradientDrawable.setColor(backgroundColor);
         }
+
+        rootLayout.getBackground().setAlpha(100);
+        ((GradientDrawable) rootLayout.getBackground()).setCornerRadius(1);
         rootLayout.setBackground(gradientDrawable);
         setIconSettings();
 
