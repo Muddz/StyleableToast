@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/styleabletoast_shape"
     android:gravity="center"
-    android:alpha="100"
+    android:layerType="software"
     android:orientation="horizontal"
     android:paddingBottom="@dimen/toast_vertical_padding"
     android:paddingLeft="@dimen/toast_horizontal_padding"

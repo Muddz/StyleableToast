@@ -41,12 +41,6 @@ import static com.muddzdev.styleabletoastlibrary.Utils.getTypedValueInDP;
 //        limitations under the License.
 
 
-/**
- * StyleableToastListener is a very easy and quick way to style your styleableToast and gives them an unique style and feeling compared
- * to the default boring grey ones. StyleableToastListener have 10 styling options.
- * <p>If a particular style option is not set, the option will fall back to the standard Android Toast style</p>
- */
-
 public class StyleableToast extends RelativeLayout implements OnToastFinishedListener {
 
     private int cornerRadius = -1;
@@ -76,23 +70,18 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     }
 
     //TODO read all comments and methods.. Refactoring round 2!
-    //TODO Delete unessercery code.
     //TODO new samples for the show case on github.
-    //TODO 18dp or 20dp for horizontal padding with icon?
-    //TODO Background alpha only on the background else. Replace with a method for full alpha so users either have default alpha or full solid
+    //TODO alpha so users either have default alpha or full solid
 
-    //TODO refactor this better!
     private void initLayout() {
         View v = inflate(getContext(), R.layout.styleable_layout, null);
         rootLayout = v.findViewById(R.id.root);
         textView = v.findViewById(R.id.textview);
         iconLeft = v.findViewById(R.id.icon_left);
         iconRight = v.findViewById(R.id.icon_right);
-
-        //TODO ***
-        makeTextView();
         makeShape();
-
+        makeIcon();
+        makeTextView();
     }
 
     //For styles.xml
@@ -107,7 +96,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     //For builder pattern.
     private StyleableToast(StyleableToast.Builder builder) {
         super(builder.context);
-        this.context = builder.context.getApplicationContext();
+        this.context = builder.context;
         this.text = builder.text;
         this.textColor = builder.textColor;
         this.textBold = builder.textBold;
@@ -121,11 +110,10 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         this.iconResRight = builder.iconResRight;
         this.hasAnimation = builder.hasAnimation;
         this.typeface = builder.typeface;
-        initLayout();
     }
 
     /**
-     * Style your StyleableToastListener via styles.xml. Any styles set in the styles.xml will override the current attributes.
+     * Style your StyleableToast via styles.xml. Any styles set in the styles.xml will override current attributes.
      *
      * @param style style resId.
      */
@@ -168,7 +156,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     }
 
     /**
-     * @param cornerRadius Sets the corner radius of the StyleableToastListener's shape.
+     * @param cornerRadius Sets the corner radius of the StyleableToast's shape.
      */
     public void setCornerRadius(int cornerRadius) {
         this.cornerRadius = cornerRadius;
@@ -192,6 +180,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     /**
      * Default Toast.LENGTH_LONG
+     *
      * @param length {@link Toast#LENGTH_SHORT} or {@link Toast#LENGTH_LONG}
      * @throws IllegalStateException If non of the above values is used.
      */
@@ -205,6 +194,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     }
 
     public void show() {
+        initLayout();
         styleableToast = new Toast(context);
         styleableToast.setDuration(length);
         styleableToast.setView(rootLayout);
@@ -219,60 +209,46 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         styleableToast.cancel();
     }
 
-    //Will be deleted in 2.0.1
+
     @Deprecated
     public Toast getStyleableToast() {
         return styleableToast;
     }
 
+
     // ____________________ PUBLIC METHODS ENDS ________________________
 
 
     private void makeTextView() {
+        loadTextViewStyleAttributes();
         textView.setText(text);
-
         if (textColor != 0) {
             textView.setTextColor(textColor);
         }
         if (textBold && typeface == null) {
-            textView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+            textView.setTypeface(Typeface.create(context.getString(R.string.default_font), Typeface.BOLD));
         } else if (textBold) {
             textView.setTypeface(Typeface.create(typeface, Typeface.BOLD));
         } else if (typeface != null) {
             textView.setTypeface(typeface);
         }
-
-        if (style > 0) {
-            loadTextViewStyleAttributes();
-        }
     }
 
     private void makeShape() {
+        loadShapeAttributes();
         GradientDrawable gradientDrawable = (GradientDrawable) rootLayout.getBackground();
+        gradientDrawable.setCornerRadius(cornerRadius != -1 ? getTypedValueInDP(context, cornerRadius) : R.dimen.default_corner_radius);
         gradientDrawable.setStroke((int) getTypedValueInDP(context, strokeWidth), strokeColor);
 
-        //TODO RECHECK THIS
-//        gradientDrawable.setCornerRadius(cornerRadius != -1 ? getTypedValueInDP(context, cornerRadius) : R.dimen.default_corner_radius);
-//        gradientDrawable.setAlpha(backgroundAlpha > 0 ? backgroundAlpha : R.integer.defaultBackgroundAlpha);
-
-        //TODO RECHECK THIS
         if (backgroundColor == 0) {
             gradientDrawable.setColor(ContextCompat.getColor(context, R.color.defaultBackgroundColor));
         } else {
             gradientDrawable.setColor(backgroundColor);
         }
-
-        rootLayout.getBackground().setAlpha(100);
-        ((GradientDrawable) rootLayout.getBackground()).setCornerRadius(1);
         rootLayout.setBackground(gradientDrawable);
-        setIconSettings();
-
-        if (style > 0) {
-            loadShapeAttributes();
-        }
     }
 
-    private void setIconSettings() {
+    private void makeIcon() {
         if (iconResLeft > 0 || iconResRight > 0) {
             int horizontalPadding = (int) getResources().getDimension(R.dimen.toast_horizontal_padding_with_icon);
             int verticalPadding = (int) getResources().getDimension(R.dimen.toast_vertical_padding);
@@ -299,6 +275,10 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
      */
     @SuppressWarnings("ResourceType")
     private void loadShapeAttributes() {
+        if (style == 0) {
+            return;
+        }
+
         // each entries Attrs must be alphabetic ordered
         int[] colorAttrs = {android.R.attr.colorBackground, android.R.attr.strokeColor};
         int[] floatAttrs = {android.R.attr.alpha, android.R.attr.strokeWidth};
@@ -308,20 +288,25 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         TypedArray floats = context.obtainStyledAttributes(style, floatAttrs);
         TypedArray dimens = context.obtainStyledAttributes(style, dimenAttrs);
 
+
+        //TODO SOMETHING AINT WORKING HERE!!!!!
         if (colors.hasValue(0)) {
-            backgroundColor = colors.getColor(0, R.color.defaultBackgroundColor);
+            backgroundColor = colors.getColor(0, Color.BLACK);
+        }else{
+            backgroundColor = Color.CYAN;
         }
 
         if (dimens.hasValue(0)) {
             cornerRadius = (int) dimens.getDimension(0, R.dimen.default_corner_radius);
         }
 
-        if (floats.hasValue(0)) {
-            backgroundAlpha = (int) floats.getFloat(0, R.integer.defaultBackgroundAlpha);
-        }
+        backgroundAlpha = (int) floats.getFloat(0, R.integer.defaultBackgroundAlpha);
+
         if (Build.VERSION.SDK_INT >= 21) {
-            strokeWidth = floats.getInt(1, 0);
-            strokeColor = colors.getColor(1, Color.TRANSPARENT);
+            if (floats.hasValue(1) && colors.hasValue(1)) {
+                strokeWidth = (int) floats.getFloat(1, 0);
+                strokeColor = colors.getColor(1, Color.TRANSPARENT);
+            }
         }
 
         colors.recycle();
@@ -330,6 +315,10 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     }
 
     private void loadTextViewStyleAttributes() {
+        if (style == 0) {
+            return;
+        }
+
         int[] colorAttrs = {android.R.attr.textColor};
         int[] stringAttrs = {android.R.attr.fontFamily};
         int[] intsAttrs = {android.R.attr.textStyle};
@@ -364,6 +353,10 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
 
     private void loadIconAttributes() {
+        if (style == 0) {
+            return;
+        }
+
         int[] drawableAttrSet = {android.R.attr.icon};
         TypedArray drawables = context.obtainStyledAttributes(style, drawableAttrSet);
         if (drawables.hasValue(0)) {
@@ -417,7 +410,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         private Typeface typeface;
         private final Context context;
 
-
         public Builder(@NonNull Context context) {
             this.context = context;
         }
@@ -447,9 +439,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
             return this;
         }
 
-        /**
-         * @param backgroundAlpha A value between 0-255.
-         */
+        @Deprecated
         public Builder backgroundAlpha(int backgroundAlpha) {
             this.backgroundAlpha = backgroundAlpha;
             return this;
@@ -488,16 +478,14 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         }
 
         /**
-         * @param duration {@link Toast#LENGTH_SHORT} or {@link Toast#LENGTH_LONG}
+         * @param length {@link Toast#LENGTH_SHORT} or {@link Toast#LENGTH_LONG}
          * @throws IllegalStateException If a wrong value is used.
          */
-        public Builder length(int duration) {
-            if (duration == LENGTH_LONG) {
-                this.length = duration;
-            } else if (duration == LENGTH_SHORT) {
-                this.length = duration;
+        public Builder length(int length) {
+            if (length == LENGTH_LONG || length == LENGTH_SHORT) {
+                this.length = length;
             } else {
-                throw new IllegalStateException("StyleableB's length must either be LENGTH_LONG or LENGTH_SHORT");
+                this.length = LENGTH_LONG;
             }
             return this;
         }
