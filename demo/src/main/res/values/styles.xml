@@ -11,8 +11,12 @@
 
     <style name="StyleableToast">
         <item name="android:icon">@drawable/ic_airplanemode_inactive_black_24dp</item>
-        <item name="android:strokeWidth">1</item>
-        <item name="android:strokeColor">@color/red</item>
+        <item name="android:textColor">#ff0000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">fonts/dosis.otf</item>
+        <!--<item name="android:strokeWidth">1</item>-->
+        <!--<item name="android:strokeColor">@color/red</item>-->
+
 
     </style>
 

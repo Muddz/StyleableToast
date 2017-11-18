@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
@@ -21,14 +22,14 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.button1:
 
-                new StyleableToast
-                        .Builder(this)
-                        .text("Turn off fly mode")
-                        .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#63b175"))
-                        .show();
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("Turn off fly mode")
+//                        .textColor(Color.WHITE)
+//                        .backgroundColor(Color.parseColor("#63b175"))
+//                        .show();
 
-//                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.StyleableToast).show();
+                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.StyleableToast).show();
                 break;
 
             case R.id.button2:
@@ -67,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
                 new StyleableToast
                         .Builder(this)
                         .text("Turn off fly mode")
-                        .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#eb4a59"))
+                        .textColor(Color.RED)
+                        .backgroundColor(Color.WHITE)
                         .show();
 
                 break;
