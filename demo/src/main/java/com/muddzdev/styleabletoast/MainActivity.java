@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
                 new StyleableToast
                         .Builder(this)
                         .text("Turn off fly mode")
-                        .textColor(Color.parseColor("#feda44"))
-                        .backgroundColor(Color.parseColor("#06301a"))
+                        .textColor(Color.WHITE)
+                        .backgroundColor(Color.parseColor("#63b175"))
                         .show();
 
 //                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.StyleableToast).show();
@@ -38,9 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
                 new StyleableToast
                         .Builder(this)
-
-                        .text("Turn off fly mode")
-                        .textColor(Color.parseColor("#e7ba95"))
+                        .text("السلام عليكم")
+                        .textColor(Color.parseColor("#f2be93"))
                         .backgroundColor(Color.parseColor("#721C47"))
                         .show();
 
@@ -56,34 +55,58 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button3:
 
+                //Nodes pink
+
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("Turn off fly mode")
+//                        .textColor(Color.WHITE)
+//                        .backgroundColor(Color.parseColor("#ff4d79"))
+//                        .show();
+
+
+                //Soft red:
+
                 new StyleableToast
                         .Builder(this)
                         .text("Turn off fly mode")
                         .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#FF5A5F"))
+                        .backgroundColor(Color.parseColor("#eb4a59"))
                         .show();
+
                 break;
 
             case R.id.button4:
+
+                //Facebook blue
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("Turn off fly mode")
+//                        .textColor(Color.WHITE)
+//                        .backgroundColor(Color.parseColor("#4267b2"))
+//                        .show();
+
+
+                //Twitter blue
                 new StyleableToast
                         .Builder(this)
                         .text("Turn off fly mode")
                         .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#3575d3"))
+                        .backgroundColor(Color.parseColor("#1da1f2"))
                         .show();
+
+
 
                 break;
 
             case R.id.button5:
 
 
-
-
                 new StyleableToast
                         .Builder(this)
                         .text("Turn off fly mode")
-                        .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#ff4d79"))
+                        .textColor(Color.parseColor("#87deed"))
+                        .backgroundColor(Color.parseColor("#3f4347"))
                         .show();
                 break;
 
@@ -92,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                         .Builder(this)
                         .text("Turn off fly mode")
                         .textColor(Color.WHITE)
-                        .backgroundColor(Color.BLUE)
+                        .backgroundColor(Color.parseColor("#6441a4"))
                         .show();
                 break;
         }

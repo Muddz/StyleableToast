@@ -250,7 +250,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
         //TODO RECHECK THIS
         gradientDrawable.setCornerRadius(cornerRadius != -1 ? getTypedValueInDP(context, cornerRadius) : R.dimen.default_corner_radius);
-//        gradientDrawable.setAlpha(backgroundAlpha > 0 ? backgroundAlpha : R.integer.defaultBackgroundAlpha);
+        gradientDrawable.setAlpha(backgroundAlpha > 0 ? backgroundAlpha : R.integer.defaultBackgroundAlpha);
 
         //TODO RECHECK THIS
         if (backgroundColor == 0) {
