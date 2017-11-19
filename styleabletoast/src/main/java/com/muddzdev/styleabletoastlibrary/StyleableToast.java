@@ -12,7 +12,10 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.TypedArrayUtils;
 import android.support.v4.graphics.TypefaceCompat;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -70,6 +73,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         return new StyleableToast(context, text, length, style);
     }
 
+    //TODO HARWARE LAYER IN XML LAYOUT SHALL IT BE THERE? AND GRAVITY?
     //TODO read all comments and methods.. Refactoring round 2!
     //TODO new samples for the show case on github.
     //TODO Test if Full alpha is even nessecery else completely remove alpha logic
@@ -97,7 +101,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     //For builder pattern.
     private StyleableToast(StyleableToast.Builder builder) {
         super(builder.context);
-        this.context = builder.context;
+        this.context = builder.context.getApplicationContext();
         this.text = builder.text;
         this.textColor = builder.textColor;
         this.textBold = builder.textBold;
@@ -115,6 +119,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     /**
      * Style your StyleableToast via styles.xml. Any styles set in the styles.xml will override current attributes.
+     *
      * @param style style resId.
      */
     public void setStyle(@StyleRes int style) {
@@ -179,6 +184,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     /**
      * Default Toast.LENGTH_LONG
+     *
      * @param length {@link Toast#LENGTH_SHORT} or {@link Toast#LENGTH_LONG}
      * @throws IllegalStateException If non of the above values is used.
      */
@@ -227,6 +233,8 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         } else {
             gradientDrawable.setColor(backgroundColor);
         }
+
+        gradientDrawable.setAlpha(255);
         rootLayout.setBackground(gradientDrawable);
     }
 
@@ -263,7 +271,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         }
     }
 
-
     /**
      * loads style attributes from styles.xml if a style resource is used.
      */
@@ -274,31 +281,19 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         }
 
         // each entries Attrs must be alphabetic ordered
-        int[] colorAttrs = {android.R.attr.colorBackground, android.R.attr.strokeColor};
-        int[] floatAttrs = {android.R.attr.alpha, android.R.attr.strokeWidth};
+        int[] colorAttrs = {android.R.attr.color, android.R.attr.strokeColor};
+        int[] floatAttrs = {android.R.attr.strokeWidth};
         int[] dimenAttrs = {android.R.attr.radius};
 
         TypedArray colors = context.obtainStyledAttributes(style, colorAttrs);
         TypedArray floats = context.obtainStyledAttributes(style, floatAttrs);
         TypedArray dimens = context.obtainStyledAttributes(style, dimenAttrs);
-
-
-        //TODO SOMETHING AINT WORKING HERE!!!!!
-        if (colors.hasValue(0)) {
-            backgroundColor = colors.getColor(0, Color.BLACK);
-        } else {
-            backgroundColor = Color.BLACK;
-        }
-
-        if (dimens.hasValue(0)) {
-            cornerRadius = (int) dimens.getDimension(0, R.dimen.default_corner_radius);
-        }
-
-        backgroundAlpha = (int) floats.getFloat(0, R.integer.defaultBackgroundAlpha);
+        backgroundColor = colors.getColor(0, ContextCompat.getColor(context, R.color.defaultBackgroundColor));
+        cornerRadius = (int) dimens.getDimension(0, R.dimen.default_corner_radius);
 
         if (Build.VERSION.SDK_INT >= 21) {
             if (floats.hasValue(1) && colors.hasValue(1)) {
-                strokeWidth = (int) floats.getFloat(1, 0);
+                strokeWidth = (int) floats.getFloat(0, 0);
                 strokeColor = colors.getColor(1, Color.TRANSPARENT);
             }
         }

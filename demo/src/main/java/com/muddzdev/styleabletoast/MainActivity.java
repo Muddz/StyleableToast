@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 new StyleableToast
                         .Builder(this)
                         .text("السلام عليكم")
+                        .stroke(1,Color.YELLOW)
                         .textColor(Color.parseColor("#f2be93"))
                         .backgroundColor(Color.parseColor("#721C47"))
                         .show();
@@ -68,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
                 new StyleableToast
                         .Builder(this)
                         .text("Turn off fly mode")
-                        .textColor(Color.RED)
-                        .backgroundColor(Color.WHITE)
+                        .textColor(Color.WHITE)
+                        .backgroundColor(Color.parseColor("#eb4a59"))
                         .show();
 
                 break;
