@@ -14,6 +14,7 @@ import android.support.annotation.StyleRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.TypedArrayUtils;
 import android.support.v4.graphics.TypefaceCompat;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -88,6 +89,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         makeIcon();
         makeTextView();
     }
+
 
     //For styles.xml
     private StyleableToast(@NonNull Context context, String text, int length, @StyleRes int style) {
@@ -234,7 +236,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
             gradientDrawable.setColor(backgroundColor);
         }
 
-        gradientDrawable.setAlpha(255);
+        gradientDrawable.setAlpha(230);
         rootLayout.setBackground(gradientDrawable);
     }
 
@@ -281,22 +283,24 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         }
 
         // each entries Attrs must be alphabetic ordered
-        int[] colorAttrs = {android.R.attr.color, android.R.attr.strokeColor};
+        int[] colorAttrs = {android.R.attr.colorBackground, android.R.attr.strokeColor};
         int[] floatAttrs = {android.R.attr.strokeWidth};
         int[] dimenAttrs = {android.R.attr.radius};
 
-        TypedArray colors = context.obtainStyledAttributes(style, colorAttrs);
+        TypedArray colors = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
         TypedArray floats = context.obtainStyledAttributes(style, floatAttrs);
         TypedArray dimens = context.obtainStyledAttributes(style, dimenAttrs);
-        backgroundColor = colors.getColor(0, ContextCompat.getColor(context, R.color.defaultBackgroundColor));
+//        backgroundColor = colors.getColor(0, ContextCompat.getColor(context, R.color.defaultBackgroundColor));
+        backgroundColor = Color.WHITE;
         cornerRadius = (int) dimens.getDimension(0, R.dimen.default_corner_radius);
 
-        if (Build.VERSION.SDK_INT >= 21) {
-            if (floats.hasValue(1) && colors.hasValue(1)) {
-                strokeWidth = (int) floats.getFloat(0, 0);
-                strokeColor = colors.getColor(1, Color.TRANSPARENT);
-            }
-        }
+
+//        if (Build.VERSION.SDK_INT >= 21) {
+//            if (floats.hasValue(1) && colors.hasValue(1)) {
+//                strokeWidth = (int) floats.getFloat(0, 0);
+//                strokeColor = colors.getColor(1, Color.TRANSPARENT);
+//            }
+//        }
 
         colors.recycle();
         floats.recycle();
@@ -308,27 +312,41 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
             return;
         }
 
-        int[] colorAttrs = {android.R.attr.textColor};
-        int[] stringAttrs = {android.R.attr.fontFamily};
-        int[] intsAttrs = {android.R.attr.textStyle};
 
-        TypedArray colors = context.obtainStyledAttributes(style, colorAttrs);
-        TypedArray strings = context.obtainStyledAttributes(style, stringAttrs);
-        TypedArray ints = context.obtainStyledAttributes(style, intsAttrs);
+        TypedArray textBoldAttr = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
+        textBold = textBoldAttr.getBoolean(R.styleable.StyleableToast_textBold, false);
 
-        textColor = colors.getColor(0, Color.WHITE);
-        textBold = ints.getInt(0, 0) == 1;
-        String fontStyle = strings.getString(0);
+        TypedArray textColorAttr = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
+        textColor = textColorAttr.getColor(1, Color.YELLOW);
 
-        if (fontStyle != null) {
-            if (fontStyle.contains("fonts/") && fontStyle.contains(".otf") || fontStyle.contains(".ttf")) {
-                typeface = Typeface.createFromAsset(context.getAssets(), fontStyle);
-            }
-        }
+        TypedArray textFont = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
+        typeface = Typeface.createFromAsset(context.getAssets(), textFont.getString(2));
 
-        colors.recycle();
-        strings.recycle();
-        ints.recycle();
+        textBoldAttr.recycle();
+        textColorAttr.recycle();
+        textFont.recycle();
+
+//        int[] colorAttrs = {android.R.attr.textColor};
+//        int[] stringAttrs = {android.R.attr.fontFamily};
+//        int[] intsAttrs = {android.R.attr.textStyle};
+//
+//        TypedArray colors = context.obtainStyledAttributes(style, colorAttrs);
+//        TypedArray strings = context.obtainStyledAttributes(style, stringAttrs);
+//        TypedArray ints = context.obtainStyledAttributes(style, intsAttrs);
+//
+//        textColor = colors.getColor(0, Color.WHITE);
+//        textBold = ints.getInt(0, 0) == 1;
+//        String fontStyle = strings.getString(0);
+//
+//        if (fontStyle != null) {
+//            if (fontStyle.contains("fonts/") && fontStyle.contains(".otf") || fontStyle.contains(".ttf")) {
+//                typeface = Typeface.createFromAsset(context.getAssets(), fontStyle);
+//            }
+//        }
+//
+//        colors.recycle();
+//        strings.recycle();
+//        ints.recycle();
     }
 
 

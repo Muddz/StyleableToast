@@ -1,6 +1,7 @@
 package com.muddzdev.styleabletoast;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,54 +25,58 @@ public class MainActivity extends AppCompatActivity {
 
 //                new StyleableToast
 //                        .Builder(this)
-//                        .text("Turn off fly mode")
-//                        .textColor(Color.WHITE)
-//                        .backgroundColor(Color.parseColor("#63b175"))
+//                        .text("Battery needs charging!")
+//                        .iconResLeft(R.drawable.ic_battery_charging_50_black_24dp)
+//                        .textColor(Color.YELLOW)
+//                        .stroke(2,Color.YELLOW)
+//                        .backgroundColor(Color.parseColor("#676990"))
 //                        .show();
 
-                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.StyleableToast).show();
+                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.toaster).show();
                 break;
 
             case R.id.button2:
 
+                //TODO MAKE A BREAKING NEWS TOAST
+                //TODO MAKE AN ALERT TOAST
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("السلام عليكم")
+//                        .stroke(1,Color.YELLOW)
+//                        .textColor(Color.parseColor("#f2be93"))
+//                        .backgroundColor(Color.parseColor("#721C47"))
+//                        .show();
+
+
                 new StyleableToast
                         .Builder(this)
-                        .text("السلام عليكم")
-                        .stroke(1,Color.YELLOW)
-                        .textColor(Color.parseColor("#f2be93"))
-                        .backgroundColor(Color.parseColor("#721C47"))
+                        .text("New update available")
+                        .textColor(Color.WHITE)
+                        .iconResLeft(R.drawable.ic_file_download)
+                        .backgroundColor(Color.parseColor("#23ad33"))
                         .show();
-
-
-//                styleableToast = new StyleableToast
-//                        .Builder(this)
-//                        .text("New update available")
-//                        .textColor(Color.WHITE)
-//                        .icon(R.drawable.ic_file_download)
-//                        .backgroundColor(Color.parseColor("#23ad33"))
-//                        .build();
                 break;
 
             case R.id.button3:
 
                 //Nodes pink
 
+                new StyleableToast
+                        .Builder(this)
+                        .text("Shopping cart updated")
+                        .textColor(Color.WHITE)
+                        .backgroundColor(Color.parseColor("#ff4d79"))
+                        .show();
+
+
+                //Soft red:
+//
 //                new StyleableToast
 //                        .Builder(this)
 //                        .text("Turn off fly mode")
 //                        .textColor(Color.WHITE)
-//                        .backgroundColor(Color.parseColor("#ff4d79"))
+//                        .backgroundColor(Color.parseColor("#eb4a59"))
 //                        .show();
-
-
-                //Soft red:
-
-                new StyleableToast
-                        .Builder(this)
-                        .text("Turn off fly mode")
-                        .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#eb4a59"))
-                        .show();
 
                 break;
 
@@ -89,30 +94,31 @@ public class MainActivity extends AppCompatActivity {
                 //Twitter blue
                 new StyleableToast
                         .Builder(this)
-                        .text("Turn off fly mode")
+                        .text("")
                         .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#1da1f2"))
+                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/arvo.ttf"))
+                        .backgroundColor(Color.parseColor("#6b2a18"))
                         .show();
-
 
 
                 break;
 
             case R.id.button5:
 
-
                 new StyleableToast
                         .Builder(this)
-                        .text("Turn off fly mode")
-                        .textColor(Color.parseColor("#87deed"))
-                        .backgroundColor(Color.parseColor("#3f4347"))
+                        .text("Donation sent")
+                        .stroke(1, Color.parseColor("#6441a4"))
+                        .textColor(Color.parseColor("#6441a4"))
+                        .backgroundColor(Color.parseColor("#e8e8e8"))
                         .show();
                 break;
 
             case R.id.button6:
                 new StyleableToast
                         .Builder(this)
-                        .text("Turn off fly mode")
+                        .iconResLeft(R.drawable.ic_cloud_upload_black_24dp)
+                        .text("Uploading")
                         .textColor(Color.WHITE)
                         .backgroundColor(Color.parseColor("#6441a4"))
                         .show();
