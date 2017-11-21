@@ -18,6 +18,8 @@ An Android library that takes the standard Android Toast to the next level with 
 - Set an spinning animation effect on your icon (see below example)
 - Works from Api 16+
 
+## CURRENTLY WORKING ON UPDATE 2.0 - RELEASE THIS WEEK! 
+
 ## Update version: 1.0.9 |  03 June 2017
 - **IMPORTANT** Replaced constructor initialisation with builder pattern!
 - Support for RTL when icons is used.
