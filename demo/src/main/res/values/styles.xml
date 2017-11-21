@@ -1,4 +1,4 @@
-<resources >
+<resources>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -9,11 +9,15 @@
     </style>
 
 
-
     <style name="toaster">
         <item name="textBold">true</item>
-        <item name="textColor">@color/red</item>
-        <item name="textFont">fonts/rubik.ttf</item>
+        <item name="textColor">@color/colorPrimary</item>
+        <item name="textFont">fonts/arvo.ttf</item>
+        <item name="backgroundColor">@color/colorAccent</item>
+        <item name="cornerRadius">1</item>
+
+
+
     </style>
 
 </resources>

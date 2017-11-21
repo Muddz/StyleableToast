@@ -61,7 +61,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private boolean hasAnimation;
     private boolean textBold;
     private String text;
-
+    TypedArray typedArray;
     private TextView textView;
     private Typeface typeface;
     private ImageView iconLeft;
@@ -74,7 +74,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         return new StyleableToast(context, text, length, style);
     }
 
-    //TODO HARWARE LAYER IN XML LAYOUT SHALL IT BE THERE? AND GRAVITY?
     //TODO read all comments and methods.. Refactoring round 2!
     //TODO new samples for the show case on github.
     //TODO Test if Full alpha is even nessecery else completely remove alpha logic
@@ -88,6 +87,9 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         makeShape();
         makeIcon();
         makeTextView();
+        if (style > 0) {
+            typedArray = getContext().obtainStyledAttributes(style, R.styleable.StyleableToast);
+        }
     }
 
 
@@ -287,12 +289,24 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         int[] floatAttrs = {android.R.attr.strokeWidth};
         int[] dimenAttrs = {android.R.attr.radius};
 
+        TypedArray typedArray = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
+        backgroundColor = typedArray.getColor(R.styleable.StyleableToast_backgroundColor, R.color.defaultBackgroundColor);
+        cornerRadius = typedArray.getInt(R.styleable.StyleableToast_cornerRadius, R.dimen.default_corner_radius);
+
+//        TypedArray backgroundColorAttr = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
+//        backgroundColor = backgroundColorAttr.getColor(R.styleable.StyleableToast_backgroundColor, R.color.defaultBackgroundColor);
+
+//        TypedArray cornerRadiusAttr = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
+//        cornerRadius = cornerRadiusAttr.getInt(R.styleable.StyleableToast_cornerRadius, R.dimen.default_corner_radius);
+
+
+//        backgroundColorAttr.recycle();
+//        cornerRadiusAttr.recycle();
+
         TypedArray colors = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
         TypedArray floats = context.obtainStyledAttributes(style, floatAttrs);
         TypedArray dimens = context.obtainStyledAttributes(style, dimenAttrs);
-//        backgroundColor = colors.getColor(0, ContextCompat.getColor(context, R.color.defaultBackgroundColor));
-        backgroundColor = Color.WHITE;
-        cornerRadius = (int) dimens.getDimension(0, R.dimen.default_corner_radius);
+//        cornerRadius = (int) dimens.getDimension(0, R.dimen.default_corner_radius);
 
 
 //        if (Build.VERSION.SDK_INT >= 21) {
@@ -312,41 +326,24 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
             return;
         }
 
-
         TypedArray textBoldAttr = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
         textBold = textBoldAttr.getBoolean(R.styleable.StyleableToast_textBold, false);
 
         TypedArray textColorAttr = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
-        textColor = textColorAttr.getColor(1, Color.YELLOW);
+        textColor = textColorAttr.getColor(R.styleable.StyleableToast_textColor, Color.WHITE);
 
-        TypedArray textFont = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
-        typeface = Typeface.createFromAsset(context.getAssets(), textFont.getString(2));
+        TypedArray textFontAttr = context.obtainStyledAttributes(style, R.styleable.StyleableToast);
+        String textFontPath = textFontAttr.getString(R.styleable.StyleableToast_textFont);
+
+        if (textFontPath != null) {
+            if (textFontPath.contains("fonts/") && textFontPath.contains(".otf") || textFontPath.contains(".ttf")) {
+                typeface = Typeface.createFromAsset(context.getAssets(), textFontPath);
+            }
+        }
 
         textBoldAttr.recycle();
         textColorAttr.recycle();
-        textFont.recycle();
-
-//        int[] colorAttrs = {android.R.attr.textColor};
-//        int[] stringAttrs = {android.R.attr.fontFamily};
-//        int[] intsAttrs = {android.R.attr.textStyle};
-//
-//        TypedArray colors = context.obtainStyledAttributes(style, colorAttrs);
-//        TypedArray strings = context.obtainStyledAttributes(style, stringAttrs);
-//        TypedArray ints = context.obtainStyledAttributes(style, intsAttrs);
-//
-//        textColor = colors.getColor(0, Color.WHITE);
-//        textBold = ints.getInt(0, 0) == 1;
-//        String fontStyle = strings.getString(0);
-//
-//        if (fontStyle != null) {
-//            if (fontStyle.contains("fonts/") && fontStyle.contains(".otf") || fontStyle.contains(".ttf")) {
-//                typeface = Typeface.createFromAsset(context.getAssets(), fontStyle);
-//            }
-//        }
-//
-//        colors.recycle();
-//        strings.recycle();
-//        ints.recycle();
+        textFontAttr.recycle();
     }
 
 
