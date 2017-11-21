@@ -11,12 +11,14 @@
 
     <style name="toaster">
         <item name="textBold">true</item>
-        <item name="textColor">@color/colorPrimary</item>
+        <item name="textColor">#ff0</item>
         <item name="textFont">fonts/arvo.ttf</item>
-        <item name="backgroundColor">@color/colorAccent</item>
-        <item name="cornerRadius">1</item>
-
-
+        <item name="backgroundColor">@color/colorPrimary</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="strokeColor">@color/colorAccent</item>
+        <item name="iconLeft">@drawable/ic_file_download</item>
+        <item name="iconRight">@drawable/ic_file_download</item>'
 
     </style>
 
