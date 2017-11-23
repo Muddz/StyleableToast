@@ -12,7 +12,7 @@
     <style name="toaster">
         <item name="textBold">true</item>
         <item name="textColor">#ff0</item>
-        <item name="textFont">fonts/arvo.ttf</item>
+        <item name="textFont">fonts/rubik.ttf</item>
         <item name="backgroundColor">@color/colorPrimary</item>
         <item name="cornerRadius">4dp</item>
         <item name="strokeWidth">3dp</item>

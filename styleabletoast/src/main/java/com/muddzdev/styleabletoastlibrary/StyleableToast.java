@@ -50,7 +50,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     private int cornerRadius = -1;
     private int backgroundColor;
-    private int backgroundAlpha;
     private int strokeColor;
     private int strokeWidth;
     private int iconResLeft;
@@ -70,6 +69,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private LinearLayout rootLayout;
     private final Context context;
 
+    @Deprecated
     public static StyleableToast makeText(@NonNull Context context, String text, int length, @StyleRes int style) {
         return new StyleableToast(context, text, length, style);
     }
@@ -78,10 +78,15 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         return new StyleableToast(context, text, Toast.LENGTH_LONG, style);
     }
 
+    //TODO to remove the old makeText() or not
+    // TODO Be sure on the custom attribute namings!!!
+    // TODO make a release note already now!!
     //TODO read all comments and methods.. Refactoring round 2!
     //TODO new samples for the show case on github.
     //TODO Test if Full alpha is even nessecery else completely remove alpha logic
 
+
+    //TODO REFACTOR THIS TO BETTER
     private void initLayout() {
         View v = inflate(getContext(), R.layout.styleable_layout, null);
         rootLayout = v.findViewById(R.id.root);
@@ -94,6 +99,15 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         makeShape();
         makeIcon();
         makeTextView();
+
+        if (style > 0 && typedArray != null) {
+            typedArray.recycle();
+        }
+
+        if (hasAnimation) {
+            iconLeft.setAnimation(getAnimation());
+            new ToastLengthTracker(length, this);
+        }
     }
 
 
@@ -117,7 +131,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         this.backgroundColor = builder.backgroundColor;
         this.strokeColor = builder.strokeColor;
         this.strokeWidth = builder.strokeWidth;
-        this.backgroundAlpha = builder.backgroundAlpha;
         this.cornerRadius = builder.cornerRadius;
         this.iconResLeft = builder.iconResLeft;
         this.iconResRight = builder.iconResRight;
@@ -152,14 +165,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     public void setBackgroundColor(@ColorInt int backgroundColor) {
         this.backgroundColor = backgroundColor;
-    }
-
-    /**
-     * @param backgroundAlpha A value between 0-255.
-     */
-    @Deprecated
-    public void setBackgroundAlpha(int backgroundAlpha) {
-        this.backgroundAlpha = backgroundAlpha;
     }
 
     public void setStroke(int strokeWidth, @ColorInt int strokeColor) {
@@ -207,27 +212,11 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         styleableToast.setDuration(length == Toast.LENGTH_SHORT ? Toast.LENGTH_SHORT : Toast.LENGTH_LONG);
         styleableToast.setView(rootLayout);
         styleableToast.show();
-
-        if (style > 0 && typedArray != null) {
-            typedArray.recycle();
-        }
-
-        if (hasAnimation) {
-            iconLeft.setAnimation(getAnimation());
-            new ToastLengthTracker(length, this);
-        }
     }
 
     public void cancel() {
         styleableToast.cancel();
     }
-
-
-    @Deprecated
-    public Toast getStyleableToast() {
-        return styleableToast;
-    }
-
 
     // ----------------------- PUBLIC METHODS ENDS -----------------------
 
@@ -236,20 +225,20 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         GradientDrawable gradientDrawable = (GradientDrawable) rootLayout.getBackground();
         gradientDrawable.setCornerRadius(cornerRadius != -1 ? cornerRadius : R.dimen.default_corner_radius);
         gradientDrawable.setStroke(strokeWidth, strokeColor);
-
         if (backgroundColor == 0) {
             gradientDrawable.setColor(ContextCompat.getColor(context, R.color.defaultBackgroundColor));
         } else {
             gradientDrawable.setColor(backgroundColor);
         }
 
-        gradientDrawable.setAlpha(230);
+        gradientDrawable.setAlpha(getResources().getInteger(R.integer.defaultBackgroundAlpha));
         rootLayout.setBackground(gradientDrawable);
     }
 
     private void makeTextView() {
         loadTextViewStyleAttributes();
         textView.setText(text);
+
         if (textColor != 0) {
             textView.setTextColor(textColor);
         }
@@ -283,15 +272,15 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     /**
      * loads style attributes from styles.xml if a style resource is used.
      */
-    @SuppressWarnings("ResourceType")
     private void loadShapeAttributes() {
         if (style == 0) {
             return;
         }
 
         length = typedArray.getInt(R.styleable.StyleableToast_length, 0);
-        backgroundColor = typedArray.getColor(R.styleable.StyleableToast_backgroundColor, R.color.defaultBackgroundColor);
+        backgroundColor = typedArray.getColor(R.styleable.StyleableToast_backgroundColor, ContextCompat.getColor(context, R.color.defaultBackgroundColor));
         cornerRadius = (int) typedArray.getDimension(R.styleable.StyleableToast_cornerRadius, R.dimen.default_corner_radius);
+
         if (Build.VERSION.SDK_INT >= 21) {
             if (typedArray.hasValue(R.styleable.StyleableToast_strokeColor) && typedArray.hasValue(R.styleable.StyleableToast_strokeWidth)) {
                 strokeWidth = (int) typedArray.getDimension(R.styleable.StyleableToast_strokeWidth, 0);
@@ -354,7 +343,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
         private int cornerRadius = -1;
         private int backgroundColor;
-        private int backgroundAlpha;
         private int strokeColor;
         private int strokeWidth;
         private int iconResLeft;
@@ -396,11 +384,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
             return this;
         }
 
-        @Deprecated
-        public Builder backgroundAlpha(int backgroundAlpha) {
-            this.backgroundAlpha = backgroundAlpha;
-            return this;
-        }
 
         public Builder stroke(int strokeWidth, int strokeColor) {
             this.strokeWidth = strokeWidth;

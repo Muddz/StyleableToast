@@ -23,16 +23,16 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.button1:
 
-//                new StyleableToast
-//                        .Builder(this)
-//                        .text("Battery needs charging!")
-//                        .iconResLeft(R.drawable.ic_battery_charging_50_black_24dp)
-//                        .textColor(Color.YELLOW)
-//                        .stroke(2,Color.YELLOW)
-//                        .backgroundColor(Color.parseColor("#676990"))
-//                        .show();
+                new StyleableToast
+                        .Builder(this)
+                        .text("Battery needs charging!")
+                        .iconResLeft(R.drawable.ic_battery_charging_50_black_24dp)
 
-                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.toaster).show();
+                        .stroke(2,Color.YELLOW)
+
+                        .show();
+
+//                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.toaster).show();
                 break;
 
             case R.id.button2:

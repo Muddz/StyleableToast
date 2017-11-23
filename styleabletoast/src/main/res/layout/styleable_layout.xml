@@ -29,7 +29,6 @@
         android:layout_gravity="center"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
-        android:maxLines="4"
         android:textColor="@color/defaultTextColor"
         android:textSize="@dimen/toast_text_size"
         tools:text="Hello StyleableToast" />
