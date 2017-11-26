@@ -69,7 +69,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private LinearLayout rootLayout;
     private final Context context;
 
-    @Deprecated
     public static StyleableToast makeText(@NonNull Context context, String text, int length, @StyleRes int style) {
         return new StyleableToast(context, text, length, style);
     }
@@ -77,13 +76,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     public static StyleableToast makeText(@NonNull Context context, String text, @StyleRes int style) {
         return new StyleableToast(context, text, Toast.LENGTH_LONG, style);
     }
-
-    //TODO to remove the old makeText() or not
-    // TODO Be sure on the custom attribute namings!!!
-    // TODO make a release note already now!!
-    //TODO read all comments and methods.. Refactoring round 2!
-    //TODO new samples for the show case on github.
-    //TODO Test if Full alpha is even nessecery else completely remove alpha logic
 
 
     //TODO REFACTOR THIS TO BETTER
@@ -96,14 +88,18 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         if (style > 0) {
             typedArray = getContext().obtainStyledAttributes(style, R.styleable.StyleableToast);
         }
+
+        //TODO REFACTOR THIS TO BETTER
         makeShape();
         makeIcon();
         makeTextView();
 
+        //TODO REFACTOR THIS TO BETTER
         if (style > 0 && typedArray != null) {
             typedArray.recycle();
         }
 
+        //TODO REFACTOR THIS TO BETTER
         if (hasAnimation) {
             iconLeft.setAnimation(getAnimation());
             new ToastLengthTracker(length, this);
@@ -208,6 +204,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     public void show() {
         initLayout();
+        //TODO INIT TOAST BEFORE??
         styleableToast = new Toast(context);
         styleableToast.setDuration(length == Toast.LENGTH_SHORT ? Toast.LENGTH_SHORT : Toast.LENGTH_LONG);
         styleableToast.setView(rootLayout);
@@ -278,7 +275,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         }
 
         length = typedArray.getInt(R.styleable.StyleableToast_length, 0);
-        backgroundColor = typedArray.getColor(R.styleable.StyleableToast_backgroundColor, ContextCompat.getColor(context, R.color.defaultBackgroundColor));
+        backgroundColor = typedArray.getColor(R.styleable.StyleableToast_colorBackground, ContextCompat.getColor(context, R.color.defaultBackgroundColor));
         cornerRadius = (int) typedArray.getDimension(R.styleable.StyleableToast_cornerRadius, R.dimen.default_corner_radius);
 
         if (Build.VERSION.SDK_INT >= 21) {

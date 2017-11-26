@@ -5,8 +5,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/styleabletoast_shape"
-    android:orientation="horizontal"
     android:gravity="center_vertical"
+    android:orientation="horizontal"
     android:paddingBottom="@dimen/toast_vertical_padding"
     android:paddingLeft="@dimen/toast_horizontal_padding"
     android:paddingRight="@dimen/toast_horizontal_padding"
@@ -20,7 +20,7 @@
         android:layout_marginRight="@dimen/icon_horizontal_padding"
         android:adjustViewBounds="true"
         android:visibility="gone"
-        tools:background="@drawable/ic_airplanemode_inactive_black_24dp" />
+        tools:background="@drawable/ic_cloud_upload_black_24dp" />
 
     <TextView
         android:id="@+id/textview"

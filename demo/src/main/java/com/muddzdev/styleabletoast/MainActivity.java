@@ -26,12 +26,9 @@ public class MainActivity extends AppCompatActivity {
                 new StyleableToast
                         .Builder(this)
                         .text("Battery needs charging!")
-                        .iconResLeft(R.drawable.ic_battery_charging_50_black_24dp)
-
-                        .stroke(2,Color.YELLOW)
-
                         .show();
-
+//
+//                StyleableToast.makeText(this, "Turn off fly mode", R.style.toaster).show();
 //                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.toaster).show();
                 break;
 
