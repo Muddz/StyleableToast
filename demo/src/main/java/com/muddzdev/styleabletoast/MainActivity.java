@@ -22,17 +22,13 @@ public class MainActivity extends AppCompatActivity {
     public void Toaster(View v) {
         switch (v.getId()) {
             case R.id.button1:
-
-                new StyleableToast
-                        .Builder(this)
-                        .text("Battery needs charging!")
-                        .show();
-//
-//                StyleableToast.makeText(this, "Turn off fly mode", R.style.toaster).show();
-//                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.toaster).show();
+                StyleableToast.makeText(this, "Turn off fly mode",Toast.LENGTH_LONG, R.style.fullStyle).show();
                 break;
 
             case R.id.button2:
+                StyleableToast.makeText(this, "Turn off fly mode", R.style.defaultStyle).show();
+                //Length set to SHORT. Test default length
+//                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.defaultStyle).show();
 
                 //TODO MAKE A BREAKING NEWS TOAST
                 //TODO MAKE AN ALERT TOAST
@@ -45,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
 //                        .show();
 
 
-                new StyleableToast
-                        .Builder(this)
-                        .text("New update available")
-                        .textColor(Color.WHITE)
-                        .iconResLeft(R.drawable.ic_file_download)
-                        .backgroundColor(Color.parseColor("#23ad33"))
-                        .show();
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("New update available")
+//                        .textColor(Color.WHITE)
+//                        .iconResLeft(R.drawable.ic_file_download)
+//                        .backgroundColor(Color.parseColor("#23ad33"))
+//                        .show();
                 break;
 
             case R.id.button3:
