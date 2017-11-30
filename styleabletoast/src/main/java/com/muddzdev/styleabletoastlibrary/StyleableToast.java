@@ -408,7 +408,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         }
 
 
-        public Builder stroke(int strokeWidth, int strokeColor) {
+        public Builder stroke(int strokeWidth, @ColorInt int strokeColor) {
             this.strokeWidth = strokeWidth;
             this.strokeColor = strokeColor;
             return this;
