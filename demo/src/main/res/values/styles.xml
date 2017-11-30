@@ -14,15 +14,17 @@
         <item name="textColor">#ff0</item>
         <item name="textFont">fonts/rubik.ttf</item>
         <item name="colorBackground">@color/colorPrimary</item>
-        <item name="cornerRadius">1dp</item>
+        <item name="cornerRadius">8dp</item>
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">@color/colorAccent</item>
         <item name="iconLeft">@drawable/ic_file_download</item>
         <item name="iconRight">@drawable/ic_file_download</item>
+        <item name="textSize">16sp</item>
 
     </style>
 
     <style name="defaultStyle">
+
         <item name="length">SHORT</item>
         <!--<item name="textBold">true</item>-->
         <!--<item name="textColor">#ff0</item>-->

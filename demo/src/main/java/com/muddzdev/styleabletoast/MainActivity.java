@@ -1,13 +1,18 @@
 package com.muddzdev.styleabletoast;
 
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
+
+import static android.util.TypedValue.COMPLEX_UNIT_SP;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,11 +27,24 @@ public class MainActivity extends AppCompatActivity {
     public void Toaster(View v) {
         switch (v.getId()) {
             case R.id.button1:
-                StyleableToast.makeText(this, "Turn off fly mode",Toast.LENGTH_LONG, R.style.fullStyle).show();
+                new StyleableToast
+                        .Builder(this)
+                        .text("Hello World")
+                        .textSize(13)
+                        .show();
+
+//                StyleableToast.makeText(this, "Turn off fly mode",Toast.LENGTH_LONG, R.style.defaultStyle).show();
                 break;
 
             case R.id.button2:
-                StyleableToast.makeText(this, "Turn off fly mode", R.style.defaultStyle).show();
+
+                new StyleableToast
+                        .Builder(this)
+                        .text("Hello World")
+                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/b.otf"))
+                        .show();
+
+//                StyleableToast.makeText(this, "Turn off fly mode", R.style.defaultStyle).show();
                 //Length set to SHORT. Test default length
 //                StyleableToast.makeText(this, "Turn off fly mode", Toast.LENGTH_LONG, R.style.defaultStyle).show();
 
@@ -52,14 +70,21 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button3:
 
-                //Nodes pink
 
                 new StyleableToast
                         .Builder(this)
-                        .text("Shopping cart updated")
-                        .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#ff4d79"))
+                        .text("Hello World")
+                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/c.otf"))
                         .show();
+
+                //Nodes pink
+
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("Shopping cart updated")
+//                        .textColor(Color.WHITE)
+//                        .backgroundColor(Color.parseColor("#ff4d79"))
+//                        .show();
 
 
                 //Soft red:
@@ -75,6 +100,13 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.button4:
 
+
+                new StyleableToast
+                        .Builder(this)
+                        .text("Hello World")
+                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/f.ttf"))
+                        .show();
+
                 //Facebook blue
 //                new StyleableToast
 //                        .Builder(this)
@@ -85,13 +117,13 @@ public class MainActivity extends AppCompatActivity {
 
 
                 //Twitter blue
-                new StyleableToast
-                        .Builder(this)
-                        .text("")
-                        .textColor(Color.WHITE)
-                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/arvo.ttf"))
-                        .backgroundColor(Color.parseColor("#6b2a18"))
-                        .show();
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("")
+//                        .textColor(Color.WHITE)
+//                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/arvo.ttf"))
+//                        .backgroundColor(Color.parseColor("#6b2a18"))
+//                        .show();
 
 
                 break;
@@ -100,21 +132,34 @@ public class MainActivity extends AppCompatActivity {
 
                 new StyleableToast
                         .Builder(this)
-                        .text("Donation sent")
-                        .stroke(1, Color.parseColor("#6441a4"))
-                        .textColor(Color.parseColor("#6441a4"))
-                        .backgroundColor(Color.parseColor("#e8e8e8"))
+                        .text("Hello World")
+                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/g.ttf"))
                         .show();
+//
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("Donation sent")
+//                        .stroke(1, Color.parseColor("#6441a4"))
+//                        .textColor(Color.parseColor("#6441a4"))
+//                        .backgroundColor(Color.parseColor("#e8e8e8"))
+//                        .show();
                 break;
 
             case R.id.button6:
+
                 new StyleableToast
                         .Builder(this)
-                        .iconResLeft(R.drawable.ic_cloud_upload_black_24dp)
-                        .text("Uploading")
-                        .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#6441a4"))
+                        .text("Hello World")
+                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/h.otf"))
                         .show();
+
+//                new StyleableToast
+//                        .Builder(this)
+//                        .iconResLeft(R.drawable.ic_cloud_upload_black_24dp)
+//                        .text("Uploading")
+//                        .textColor(Color.WHITE)
+//                        .backgroundColor(Color.parseColor("#6441a4"))
+//                        .show();
                 break;
         }
 

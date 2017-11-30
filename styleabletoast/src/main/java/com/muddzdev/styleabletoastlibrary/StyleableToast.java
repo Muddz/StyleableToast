@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -23,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.util.TypedValue.COMPLEX_UNIT_PX;
 import static android.widget.Toast.LENGTH_LONG;
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -53,6 +55,8 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private int textColor;
     private int length;
     private int style;
+    private float textSize;
+    private boolean isTextSizeFromStyle = false;
     private boolean hasAnimation;
     private boolean textBold;
     private String text;
@@ -90,18 +94,19 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private StyleableToast(StyleableToast.Builder builder) {
         super(builder.context);
         this.context = builder.context.getApplicationContext();
-        this.text = builder.text;
-        this.textColor = builder.textColor;
-        this.textBold = builder.textBold;
-        this.length = builder.length;
         this.backgroundColor = builder.backgroundColor;
+        this.cornerRadius = builder.cornerRadius;
+        this.iconResRight = builder.iconResRight;
+        this.iconResLeft = builder.iconResLeft;
         this.strokeColor = builder.strokeColor;
         this.strokeWidth = builder.strokeWidth;
-        this.cornerRadius = builder.cornerRadius;
-        this.iconResLeft = builder.iconResLeft;
-        this.iconResRight = builder.iconResRight;
         this.hasAnimation = builder.hasAnimation;
+        this.textColor = builder.textColor;
+        this.textSize = builder.textSize;
+        this.textBold = builder.textBold;
         this.typeface = builder.typeface;
+        this.text = builder.text;
+        this.length = builder.length;
     }
 
     private void initStyleableToast() {
@@ -132,6 +137,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     /**
      * Style your StyleableToast via styles.xml. Any styles set in the styles.xml will override current attributes.
+     *
      * @param style style resId.
      */
     public void setStyle(@StyleRes int style) {
@@ -148,6 +154,10 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     public void setTextBold() {
         this.textBold = true;
+    }
+
+    public void setTextSize(float textSize) {
+        this.textSize = textSize;
     }
 
     public void setTypeface(Typeface typeface) {
@@ -182,6 +192,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     /**
      * Enables spinning animation of the passed iconResLeft by its around its own center.
      */
+    @Deprecated
     public void spinIcon() {
         this.hasAnimation = true;
     }
@@ -203,8 +214,16 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     }
 
     public void cancel() {
-        styleableToast.cancel();
+        if (styleableToast != null) {
+            styleableToast.cancel();
+        }
     }
+
+    @Deprecated
+    public Toast getStyleableToast() {
+        return styleableToast;
+    }
+
 
     // ----------------------- PUBLIC METHODS ENDS -----------------------
 
@@ -218,7 +237,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         } else {
             gradientDrawable.setColor(backgroundColor);
         }
-
         gradientDrawable.setAlpha(getResources().getInteger(R.integer.defaultBackgroundAlpha));
         rootLayout.setBackground(gradientDrawable);
     }
@@ -226,10 +244,14 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private void makeTextView() {
         loadTextViewStyleAttributes();
         textView.setText(text);
-
         if (textColor != 0) {
             textView.setTextColor(textColor);
         }
+
+        if (textSize > 0) {
+            textView.setTextSize(isTextSizeFromStyle ? 0 : TypedValue.COMPLEX_UNIT_SP, textSize);
+        }
+
         if (textBold && typeface == null) {
             textView.setTypeface(Typeface.create(context.getString(R.string.default_font), Typeface.BOLD));
         } else if (textBold) {
@@ -268,7 +290,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         backgroundColor = typedArray.getColor(R.styleable.StyleableToast_colorBackground, ContextCompat.getColor(context, R.color.defaultBackgroundColor));
         cornerRadius = (int) typedArray.getDimension(R.styleable.StyleableToast_cornerRadius, R.dimen.default_corner_radius);
 
-        if(typedArray.hasValue(R.styleable.StyleableToast_length)){
+        if (typedArray.hasValue(R.styleable.StyleableToast_length)) {
             length = typedArray.getInt(R.styleable.StyleableToast_length, 0);
         }
 
@@ -285,8 +307,11 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
             return;
         }
 
-        textBold = typedArray.getBoolean(R.styleable.StyleableToast_textBold, false);
         textColor = typedArray.getColor(R.styleable.StyleableToast_textColor, Color.WHITE);
+        textBold = typedArray.getBoolean(R.styleable.StyleableToast_textBold, false);
+        textSize = typedArray.getDimension(R.styleable.StyleableToast_textSize, 0);
+        isTextSizeFromStyle = textSize > 0;
+
         String textFontPath = typedArray.getString(R.styleable.StyleableToast_textFont);
         if (textFontPath != null) {
             if (textFontPath.contains("fonts/") && (textFontPath.contains(".otf") || textFontPath.contains(".ttf"))) {
@@ -333,7 +358,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     public static class Builder {
 
-
         private int cornerRadius = -1;
         private int backgroundColor;
         private int strokeColor;
@@ -342,6 +366,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         private int iconResRight;
         private int textColor;
         private int length;
+        private float textSize;
         private boolean hasAnimation;
         private boolean textBold;
         private String text;
@@ -364,6 +389,11 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
         public Builder textBold() {
             this.textBold = true;
+            return this;
+        }
+
+        public Builder textSize(float textSize) {
+            this.textSize = textSize;
             return this;
         }
 
@@ -405,6 +435,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         /**
          * Enables spinning animation of the passed iconResLeft by its around its own center.
          */
+        @Deprecated
         public Builder spinIcon() {
             this.hasAnimation = true;
             return this;
