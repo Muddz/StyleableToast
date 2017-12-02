@@ -1,6 +1,7 @@
 package com.muddzdev.styleabletoastlibrary;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -12,7 +13,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Animation;
@@ -23,10 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import static android.util.TypedValue.COMPLEX_UNIT_PX;
-import static android.widget.Toast.LENGTH_LONG;
-import static android.widget.Toast.LENGTH_SHORT;
 
 //        Copyright 2017 Muddii Walid (Muddz)
 //
@@ -43,7 +39,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 //        limitations under the License.
 
 
-// TODO THIS!!!
+@SuppressLint("ViewConstructor")
 public class StyleableToast extends RelativeLayout implements OnToastFinishedListener {
 
     private int cornerRadius = -1;
@@ -67,7 +63,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private ImageView iconRight;
     private Toast styleableToast;
     private LinearLayout rootLayout;
-    private final Context context;
+    private Context context;
 
     public static StyleableToast makeText(@NonNull Context context, String text, int length, @StyleRes int style) {
         return new StyleableToast(context, text, length, style);
@@ -79,7 +75,6 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     public static StyleableToast makeText(@NonNull Context context, String text, @StyleRes int style) {
         return new StyleableToast(context, text, Toast.LENGTH_SHORT, style);
     }
-
 
     //For styles.xml
     private StyleableToast(@NonNull Context context, String text, int length, @StyleRes int style) {
@@ -264,11 +259,11 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     private void makeIcon() {
         loadIconAttributes();
-        if (iconResLeft > 0 || iconResRight > 0) {
-            int horizontalPadding = (int) getResources().getDimension(R.dimen.toast_horizontal_padding_with_icon);
-            int verticalPadding = (int) getResources().getDimension(R.dimen.toast_vertical_padding);
-            rootLayout.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
-        }
+//        if (iconResLeft > 0 || iconResRight > 0) {
+//            int horizontalPadding = (int) getResources().getDimension(R.dimen.toast_horizontal_padding_with_icon);
+//            int verticalPadding = (int) getResources().getDimension(R.dimen.toast_vertical_padding);
+//            rootLayout.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
+//        }
         if (iconResLeft > 0) {
             iconLeft.setBackgroundResource(iconResLeft);
             iconLeft.setVisibility(VISIBLE);

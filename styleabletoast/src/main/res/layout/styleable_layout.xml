@@ -8,30 +8,28 @@
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:paddingBottom="@dimen/toast_vertical_padding"
-    android:paddingLeft="@dimen/toast_horizontal_padding"
-    android:paddingRight="@dimen/toast_horizontal_padding"
+
+
     android:paddingTop="@dimen/toast_vertical_padding">
 
     <ImageView
         android:id="@+id/icon_left"
         android:layout_width="@dimen/max_icon_size"
         android:layout_height="@dimen/max_icon_size"
-        android:layout_marginEnd="@dimen/icon_horizontal_padding"
-        android:layout_marginRight="@dimen/icon_horizontal_padding"
+        android:layout_weight="1dp"
         android:adjustViewBounds="true"
-        android:visibility="gone"
-        tools:background="@drawable/ic_cloud_upload_black_24dp" />
+        android:background="#ff33"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/textview"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_weight="0dp"
         android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
         android:textColor="@color/defaultTextColor"
         android:textSize="@dimen/toast_text_size"
-        tools:text="Hello StyleableToast" />
+        tools:text="Hello World" />
 
     <ImageView
         android:id="@+id/icon_right"

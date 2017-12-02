@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
     public void Toaster(View v) {
         switch (v.getId()) {
             case R.id.button1:
+
                 new StyleableToast
                         .Builder(this)
                         .text("Hello World")
-                        .textSize(13)
                         .show();
 
 //                StyleableToast.makeText(this, "Turn off fly mode",Toast.LENGTH_LONG, R.style.defaultStyle).show();
@@ -41,8 +41,15 @@ public class MainActivity extends AppCompatActivity {
                 new StyleableToast
                         .Builder(this)
                         .text("Hello World")
-                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/b.otf"))
+                        .iconResLeft(R.drawable.ic_b)
                         .show();
+
+
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("Hello World")
+//                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/b.otf"))
+//                        .show();
 
 //                StyleableToast.makeText(this, "Turn off fly mode", R.style.defaultStyle).show();
                 //Length set to SHORT. Test default length
@@ -69,13 +76,17 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.button3:
-
-
                 new StyleableToast
                         .Builder(this)
                         .text("Hello World")
-                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/c.otf"))
+                        .iconResLeft(R.drawable.ic_c)
                         .show();
+
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("Hello World")
+//                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/c.otf"))
+//                        .show();
 
                 //Nodes pink
 
@@ -99,13 +110,17 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.button4:
-
-
                 new StyleableToast
                         .Builder(this)
                         .text("Hello World")
-                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/f.ttf"))
+                        .iconResLeft(R.drawable.ic_d)
                         .show();
+//
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("Hello World")
+//                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/f.ttf"))
+//                        .show();
 
                 //Facebook blue
 //                new StyleableToast
@@ -129,12 +144,16 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.button5:
-
                 new StyleableToast
                         .Builder(this)
                         .text("Hello World")
-                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/g.ttf"))
+                        .iconResLeft(R.drawable.ic_e)
                         .show();
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("Hello World")
+//                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/g.ttf"))
+//                        .show();
 //
 //                new StyleableToast
 //                        .Builder(this)
@@ -146,12 +165,16 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.button6:
-
                 new StyleableToast
                         .Builder(this)
                         .text("Hello World")
-                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/h.otf"))
+                        .iconResLeft(R.drawable.ic_f)
                         .show();
+//                new StyleableToast
+//                        .Builder(this)
+//                        .text("Hello World")
+//                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/h.otf"))
+//                        .show();
 
 //                new StyleableToast
 //                        .Builder(this)
