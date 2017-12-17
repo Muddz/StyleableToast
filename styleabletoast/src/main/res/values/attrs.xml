@@ -7,6 +7,7 @@
         <attr name="textFont" format="string" />
         <attr name="textSize" format="dimension" />
         <attr name="colorBackground" format="color" />
+        <attr name="solidBackground" format="boolean" />
         <attr name="cornerRadius" format="dimension" />
         <attr name="strokeWidth" format="dimension" />
         <attr name="strokeColor" format="color" />

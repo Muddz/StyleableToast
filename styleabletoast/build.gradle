@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: "com.jfrog.bintray"
 
-version = "1.0.9"
+version = "2.0.0"
 
 android {
     compileSdkVersion 27
@@ -41,7 +41,7 @@ install {
             project {
                 packaging 'aar'
                 name 'com.muddzdev:styleabletoast'
-                description = 'An Android library that takes the standard Android toast to the next level with a variety of styling options.'
+                description = 'An Android library that takes the standard Android toast to the next level with a many styling options.'
                 url siteUrl
 
                 licenses {
@@ -98,11 +98,11 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 bintray {
-//    user = properties.getProperty("bintray.user")
-//    key = properties.getProperty("bintray.apikey")
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
 
-    user = "muddz"
-    key = "cd5bf822712334ccc336c04175625b0a46fae25b"
+//    user = "muddz"
+//    key = "cd5bf822712334ccc336c04175625b0a46fae25b"
 
     configurations = ['archives']
     pkg {
@@ -115,7 +115,7 @@ bintray {
         version {
             gpg {
                 sign = false //Determines whether to GPG sign the files. The default is false
-                passphrase = properties.getProperty("bintray.gpg.password")
+//                passphrase = properties.getProperty("bintray.gpg.password")
                 //Optional. The passphrase for GPG signing'
             }
         }

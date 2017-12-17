@@ -296,6 +296,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
             return;
         }
 
+        solidBackground = typedArray.getBoolean(R.styleable.StyleableToast_solidBackground, false);
         backgroundColor = typedArray.getColor(R.styleable.StyleableToast_colorBackground, ContextCompat.getColor(context, R.color.defaultBackgroundColor));
         cornerRadius = (int) typedArray.getDimension(R.styleable.StyleableToast_cornerRadius, R.dimen.default_corner_radius);
 

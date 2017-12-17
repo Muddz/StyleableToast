@@ -17,8 +17,7 @@
         android:layout_width="@dimen/max_icon_size"
         android:layout_height="@dimen/max_icon_size"
         android:layout_marginRight="8dp"
-        android:background="#ff33"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/textview"
@@ -36,7 +35,6 @@
         android:layout_marginLeft="@dimen/icon_horizontal_padding"
         android:layout_marginStart="@dimen/icon_horizontal_padding"
         android:adjustViewBounds="true"
-        android:visibility="gone"
-        tools:background="@drawable/ic_airplanemode_inactive_black_24dp" />
+        android:visibility="gone" />
 
 </LinearLayout>
