@@ -10,12 +10,13 @@ An Android library that takes the standard Android Toast to the next level with 
 - Style toasts in a styles.xml or from code.
 - Set background color of the toast.
 - Set the corner radius of the toast for different shapes.
-- Set the transparency of your toast.
+- Set full solid for the toast background.
 - Set a stroke color and width of your toast.
-- Style the toast text with a text color or bold effect.
+- Style the toast text with a text color, bold style or text size.
 - Set a custom font for the toast text.
-- Set a icon next to the toast text.
+- Set a icon next to the toast text on either the right or left side.
 - Set an spinning animation effect on your icon (see below example)
+- Supports RTL
 - Works from Api 16+
 
 ## CURRENTLY WORKING ON UPDATE 2.0 - RELEASE THIS WEEK! 
