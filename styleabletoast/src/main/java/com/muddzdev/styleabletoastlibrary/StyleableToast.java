@@ -54,6 +54,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
     private float textSize;
     private boolean isTextSizeFromStyle = false;
     private boolean hasAnimation;
+    private boolean solidBackground;
     private boolean textBold;
     private String text;
     private TypedArray typedArray;
@@ -96,6 +97,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         this.strokeColor = builder.strokeColor;
         this.strokeWidth = builder.strokeWidth;
         this.hasAnimation = builder.hasAnimation;
+        this.solidBackground = builder.solidBackground;
         this.textColor = builder.textColor;
         this.textSize = builder.textSize;
         this.textBold = builder.textBold;
@@ -163,6 +165,10 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         this.backgroundColor = backgroundColor;
     }
 
+    public void setSolidBackground() {
+        this.solidBackground = true;
+    }
+
     public void setStroke(int strokeWidth, @ColorInt int strokeColor) {
         this.strokeWidth = strokeWidth;
         this.strokeColor = strokeColor;
@@ -227,12 +233,20 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         GradientDrawable gradientDrawable = (GradientDrawable) rootLayout.getBackground();
         gradientDrawable.setCornerRadius(cornerRadius != -1 ? cornerRadius : R.dimen.default_corner_radius);
         gradientDrawable.setStroke(strokeWidth, strokeColor);
+
         if (backgroundColor == 0) {
             gradientDrawable.setColor(ContextCompat.getColor(context, R.color.defaultBackgroundColor));
         } else {
             gradientDrawable.setColor(backgroundColor);
         }
-        gradientDrawable.setAlpha(getResources().getInteger(R.integer.defaultBackgroundAlpha));
+
+        if (solidBackground) {
+            gradientDrawable.setAlpha(getResources().getInteger(R.integer.fullBackgroundAlpha));
+        } else {
+            gradientDrawable.setAlpha(getResources().getInteger(R.integer.defaultBackgroundAlpha));
+        }
+
+
         rootLayout.setBackground(gradientDrawable);
     }
 
@@ -259,11 +273,11 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
 
     private void makeIcon() {
         loadIconAttributes();
-//        if (iconResLeft > 0 || iconResRight > 0) {
-//            int horizontalPadding = (int) getResources().getDimension(R.dimen.toast_horizontal_padding_with_icon);
-//            int verticalPadding = (int) getResources().getDimension(R.dimen.toast_vertical_padding);
-//            rootLayout.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
-//        }
+        if (iconResLeft > 0 || iconResRight > 0) {
+            int horizontalPadding = (int) getResources().getDimension(R.dimen.toast_horizontal_padding_with_icon);
+            int verticalPadding = (int) getResources().getDimension(R.dimen.toast_vertical_padding);
+            rootLayout.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding);
+        }
         if (iconResLeft > 0) {
             iconLeft.setBackgroundResource(iconResLeft);
             iconLeft.setVisibility(VISIBLE);
@@ -362,6 +376,7 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         private int textColor;
         private int length;
         private float textSize;
+        private boolean solidBackground;
         private boolean hasAnimation;
         private boolean textBold;
         private String text;
@@ -402,6 +417,10 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
             return this;
         }
 
+        public Builder solidBackground() {
+            this.solidBackground = true;
+            return this;
+        }
 
         public Builder stroke(int strokeWidth, @ColorInt int strokeColor) {
             this.strokeWidth = strokeWidth;

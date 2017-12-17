@@ -30,7 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
                 new StyleableToast
                         .Builder(this)
-                        .text("Hello World")
+                        .text("Saving image...")
+                        .textColor(Color.BLACK)
+                        .backgroundColor(Color.WHITE)
+                        .solidBackground()
+                        .length(Toast.LENGTH_LONG)
+                        .iconResLeft(R.drawable.ic_airplanemode_inactive_black_24dp)
                         .show();
 
 //                StyleableToast.makeText(this, "Turn off fly mode",Toast.LENGTH_LONG, R.style.defaultStyle).show();
@@ -40,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
                 new StyleableToast
                         .Builder(this)
-                        .text("Hello World")
+                        .text("Uploading...")
                         .iconResLeft(R.drawable.ic_b)
                         .show();
 
@@ -78,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button3:
                 new StyleableToast
                         .Builder(this)
-                        .text("Hello World")
+                        .text("Battery low!")
                         .iconResLeft(R.drawable.ic_c)
                         .show();
 
@@ -112,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button4:
                 new StyleableToast
                         .Builder(this)
-                        .text("Hello World")
+                        .text("Access denied")
                         .iconResLeft(R.drawable.ic_d)
                         .show();
 //

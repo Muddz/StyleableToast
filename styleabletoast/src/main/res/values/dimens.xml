@@ -5,5 +5,5 @@
     <dimen name="toast_vertical_padding">11.3dp</dimen>
     <dimen name="icon_horizontal_padding">8dp</dimen>
     <dimen name="default_corner_radius">24dp</dimen>
-    <dimen name="max_icon_size">20dp</dimen>
+    <dimen name="max_icon_size">18dp</dimen>
 </resources>

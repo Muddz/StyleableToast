@@ -5,27 +5,25 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/styleabletoast_shape"
-    android:gravity="center_vertical"
+    android:gravity="center"
     android:orientation="horizontal"
     android:paddingBottom="@dimen/toast_vertical_padding"
-
-
+    android:paddingLeft="@dimen/toast_horizontal_padding"
+    android:paddingRight="@dimen/toast_horizontal_padding"
     android:paddingTop="@dimen/toast_vertical_padding">
 
     <ImageView
         android:id="@+id/icon_left"
         android:layout_width="@dimen/max_icon_size"
         android:layout_height="@dimen/max_icon_size"
-        android:layout_weight="1dp"
-        android:adjustViewBounds="true"
+        android:layout_marginRight="8dp"
         android:background="#ff33"
         android:visibility="visible" />
 
     <TextView
         android:id="@+id/textview"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0dp"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@color/defaultTextColor"
         android:textSize="@dimen/toast_text_size"
@@ -40,4 +38,5 @@
         android:adjustViewBounds="true"
         android:visibility="gone"
         tools:background="@drawable/ic_airplanemode_inactive_black_24dp" />
+
 </LinearLayout>
