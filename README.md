@@ -23,11 +23,10 @@ An Android library that takes the standard Android Toast to the next level with 
 ## Update version: 2.0.0  **IMPORTANT** |  18 December 2017
 
 !! READ THE CHANGES FROM `1.0.9` TO `2.0.0` BEFORE UPDATING
-
 - Support for RTL phones
 - added setIconLeft() & setIconRight()
 - added setTextSize()
-- added the new styles.xml attribute. See below!
+- added new custom styles.xml attribute. See below!
 - added new makeText() constructor without length
 - replaced setAlpha() with setSolidBackground()
 - replaced setStrokeWidth() and setStrokeColor() with setStroke(width,color)
