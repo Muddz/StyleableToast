@@ -43,7 +43,7 @@ An Android library that takes the standard Android Toast to the next level with 
 ![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
 
-## Usage with a style from styles.xml:
+## Style a toast from Styles.xml
 
 **1) Style your toast in styles.xml. All available attributes:**
 ```xml
