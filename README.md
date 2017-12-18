@@ -36,7 +36,7 @@ An Android library that takes the standard Android Toast to the next level with 
 - Updated depedencies
 - Over all refactoring
 
-## CASES:
+## Cases:
 ![alt tag](https://github.com/Muddz/StyleableToast/blob/master/showcase.png)
 
 ## With spinIcon(); method:
