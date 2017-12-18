@@ -61,7 +61,6 @@ An Android library that takes the standard Android Toast to the next level with 
 
 ```java
     StyleableToast.makeText(context, "Hello World!", R.style.StyledToast).show();
-    StyleableToast.makeText(context, "Hello World!", Toast.LENGTH_LONG, R.style.StyledToast).show();
 ```
 
 ## With Builder pattern:
