@@ -38,7 +38,6 @@ An Android library that takes the standard Android Toast to the next level with 
 
 ## Cases:
 ![alt tag](https://github.com/Muddz/StyleableToast/blob/master/cases.jpg)
-<img src="https://github.com/favicon.ico" width="300">
 
 ## Style a toast from styles.xml
 
