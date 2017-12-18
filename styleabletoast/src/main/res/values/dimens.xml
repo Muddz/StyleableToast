@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="toast_text_size">16sp</dimen>
+    <dimen name="toast_horizontal_padding_with_icon">22dp</dimen>
+    <dimen name="toast_horizontal_padding">25dp</dimen>
+    <dimen name="toast_vertical_padding">11.3dp</dimen>
+    <dimen name="icon_horizontal_padding">8dp</dimen>
+    <dimen name="default_corner_radius">24dp</dimen>
+    <dimen name="max_icon_size">19dp</dimen>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/styleabletoast_shape"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/toast_vertical_padding"
+    android:paddingLeft="@dimen/toast_horizontal_padding"
+    android:paddingRight="@dimen/toast_horizontal_padding"
+    android:paddingTop="@dimen/toast_vertical_padding">
+
+    <ImageView
+        android:id="@+id/icon_left"
+        android:layout_width="@dimen/max_icon_size"
+        android:layout_height="@dimen/max_icon_size"
+        android:layout_marginRight="8dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/defaultTextColor"
+        android:textSize="@dimen/toast_text_size"
+        tools:text="Hello World" />
+
+    <ImageView
+        android:id="@+id/icon_right"
+        android:layout_width="@dimen/max_icon_size"
+        android:layout_height="@dimen/max_icon_size"
+        android:layout_marginLeft="@dimen/icon_horizontal_padding"
+        android:layout_marginStart="@dimen/icon_horizontal_padding"
+        android:adjustViewBounds="true"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -2,14 +2,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: "com.jfrog.bintray"
 
-version = "1.0.9"
+version = "2.0.0"
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion '26.0.2'
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
@@ -25,13 +25,14 @@ android {
 
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.0.2'
 }
 
 
-def siteUrl = 'https://github.com/Muddz/StyleableToast'
-def gitUrl = 'https://github.com/Muddz/StyleableToast.git'
+def siteUrl = 'https://github.com/Muddz/StyleableToastListener'
+def gitUrl = 'https://github.com/Muddz/StyleableToastListener.git'
+def developerName = "muddz"
 group = "com.muddzdev"
 
 install {
@@ -41,7 +42,7 @@ install {
             project {
                 packaging 'aar'
                 name 'com.muddzdev:styleabletoast'
-                description = 'An Android library that takes the standard Android toast to the next level with a variety of styling options.'
+                description = 'An Android library that takes the standard Android toast to the next level with a many styling options.'
                 url siteUrl
 
                 licenses {
@@ -52,7 +53,7 @@ install {
                 }
                 developers {
                     developer {
-                        id 'muddz'
+                        id developerName
                         name 'Muddii Walid'
                         email 'Aux-cc@hotmail.com'
                     }
@@ -98,11 +99,8 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 bintray {
-//    user = properties.getProperty("bintray.user")
-//    key = properties.getProperty("bintray.apikey")
-
-    user = "muddz"
-    key = "cd5bf822712334ccc336c04175625b0a46fae25b"
+    bintray.user = developerName
+    bintray.key = "cd5bf822712334ccc336c04175625b0a46fae25b"
 
     configurations = ['archives']
     pkg {
@@ -111,12 +109,9 @@ bintray {
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
-        publish = true
         version {
             gpg {
-                sign = false //Determines whether to GPG sign the files. The default is false
-                passphrase = properties.getProperty("bintray.gpg.password")
-                //Optional. The passphrase for GPG signing'
+                name = '2.0.0'
             }
         }
     }

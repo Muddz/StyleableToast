@@ -8,18 +8,26 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="allStyles">
+        <item name="textBold">true</item>
+        <item name="textColor">#ff003b</item>
+        <item name="textFont">fonts/dosis.otf</item>
+        <item name="textSize">16sp</item>
+        <item name="colorBackground">#b9b5b5</item>
+        <item name="solidBackground">true</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="strokeColor">#a7a5a5</item>
+        <item name="iconLeft">@drawable/ic_cloud_upload_black_24dp</item>
+        <item name="length">LONG</item>
+        <item name="cornerRadius">14dp</item>
+    </style>
 
-    <style name="StyleableToast">
-        <item name="android:colorBackground">@color/purple</item>
-        <item name="android:icon">@drawable/ic_airplanemode_inactive_black_24dp</item>
-        <!--<item name="android:textColor">@color/red</item>-->
-        <!--<item name="android:alpha">255</item>-->
-        <!--<item name="android:fontFamily">fonts/dosis.otf"</item>-->
-        <!--<item name="android:strokeWidth">1</item>-->
-        <!--<item name="android:strokeColor">@color/red</item>-->
-        <!--<item name="android:radius">@dimen/flat</item>-->
+    <style name="style2">
+        <item name="textColor">#ffffff</item>
+        <item name="colorBackground">#5c7299</item>
+    </style>
 
-
+    <style name="empty">
     </style>
 
 </resources>
