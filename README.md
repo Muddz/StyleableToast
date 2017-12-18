@@ -10,13 +10,16 @@ An Android library that takes the standard Android Toast to the next level with 
 - Style toasts in a styles.xml or from code.
 - Set background color of the toast.
 - Set the corner radius of the toast for different shapes.
-- Set the transparency of your toast.
+- Set full solid for the toast background.
 - Set a stroke color and width of your toast.
-- Style the toast text with a text color or bold effect.
+- Style the toast text with a text color, bold style or text size.
 - Set a custom font for the toast text.
-- Set a iconResLeft next to the toast text.
-- Set an spinning animation effect on your iconResLeft (see below example)
+- Set a icon next to the toast text on either the right or left side.
+- Set an spinning animation effect on your icon (see below example)
+- Supports RTL
 - Works from Api 16+
+
+## CURRENTLY WORKING ON UPDATE 2.0 - RELEASE THIS WEEK! 
 
 ## Update version: 1.0.9 |  03 June 2017
 - **IMPORTANT** Replaced constructor initialisation with builder pattern!
@@ -47,8 +50,8 @@ An Android library that takes the standard Android Toast to the next level with 
     <item name="android:strokeWidth"></item>   API 21+
     <item name="android:strokeColor"></item>   API 21+
     <item name="android:radius"></item>  radius for corners of the toast shape
-    <item name="android:backgroundAlpha"></item>   value between 0-255 where 255 is full solid
-    <item name="android:iconResLeft">/</item>  drawable id of the iconResLeft. R.drawable.xx
+    <item name="android:alpha"></item>   value between 0-255 where 255 is full solid
+    <item name="android:icon">/</item>  drawable id of the icon. R.drawable.xx
     </style>
 ```
 
