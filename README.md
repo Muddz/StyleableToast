@@ -22,7 +22,7 @@ An Android library that takes the standard Android Toast to the next level with 
 
 ## Update version: 2.0.0  **IMPORTANT** |  18 December 2017
 
-!! READ THE CHANGES FROM 1.0.9 TO 2.0.0 BEFORE UPDATING
+!! READ THE CHANGES FROM `1.0.9` TO `2.0.0` BEFORE UPDATING
 
 - Support for RTL phones
 - added setIconLeft() & setIconRight()
@@ -45,7 +45,6 @@ An Android library that takes the standard Android Toast to the next level with 
 
 
 ## Usage with a style from styles.xml:
-
 
 **1) Style your toast in styles.xml. All available attributes:**
 ```xml
