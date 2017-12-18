@@ -37,7 +37,7 @@ An Android library that takes the standard Android Toast to the next level with 
 - Over all refactoring
 
 ## Cases:
-![alt tag](https://github.com/Muddz/StyleableToast/blob/master/cases.jpg)
+![alt tag](https://github.com/Muddz/StyleableToast/blob/master/cases.png)
 
 ## Style a toast from styles.xml
 
