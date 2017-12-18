@@ -43,9 +43,9 @@ An Android library that takes the standard Android Toast to the next level with 
 ![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
 
 
-## Style a toast from Styles.xml
+## Style a toast from styles.xml
 
-**1) Style your toast in styles.xml. All available attributes:**
+**1) Define your styles. All available attributes:**
 ```xml
         <item name="textBold">true</item>
         <item name="textColor">#fff</item>
