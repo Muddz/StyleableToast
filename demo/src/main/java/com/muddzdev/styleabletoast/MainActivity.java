@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public void Toaster(View v) {
         switch (v.getId()) {
             case R.id.button1:
-                StyleableToast.makeText(this, "Uploading image", R.style.empty).show();
+                StyleableToast.makeText(this, "Uploading image", R.style.allStyles).show();
                 break;
 
             case R.id.button2:

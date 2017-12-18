@@ -21,7 +21,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':styleabletoast')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':styleabletoast')
     implementation 'com.android.support:appcompat-v7:27.0.2'
 }

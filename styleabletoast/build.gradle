@@ -25,13 +25,14 @@ android {
 
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.0.2'
 }
 
 
 def siteUrl = 'https://github.com/Muddz/StyleableToastListener'
 def gitUrl = 'https://github.com/Muddz/StyleableToastListener.git'
+def developerName = "muddz"
 group = "com.muddzdev"
 
 install {
@@ -52,7 +53,7 @@ install {
                 }
                 developers {
                     developer {
-                        id 'muddz'
+                        id developerName
                         name 'Muddii Walid'
                         email 'Aux-cc@hotmail.com'
                     }
@@ -98,11 +99,8 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-//    user = "muddz"
-//    key = "cd5bf822712334ccc336c04175625b0a46fae25b"
+    bintray.user = developerName
+    bintray.key = "cd5bf822712334ccc336c04175625b0a46fae25b"
 
     configurations = ['archives']
     pkg {
@@ -111,12 +109,9 @@ bintray {
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
-        publish = true
         version {
             gpg {
-                sign = false //Determines whether to GPG sign the files. The default is false
-//                passphrase = properties.getProperty("bintray.gpg.password")
-                //Optional. The passphrase for GPG signing'
+                name = '2.0.0'
             }
         }
     }
