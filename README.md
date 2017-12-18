@@ -54,11 +54,11 @@ An Android library that takes the standard Android Toast to the next level with 
         <item name="textSize">14sp</item>
         <item name="colorBackground">#fff</item>
         <item name="solidBackground">true</item>
-        <item name="strokeWidth">3dp</item> // API 21+
-        <item name="strokeColor">#fff</item> // API 21+
+        <item name="strokeWidth">3dp</item>     API 21+
+        <item name="strokeColor">#fff</item>    API 21+
         <item name="iconLeft">@drawable/ic</item>
         <item name="iconRight">@drawable/ic</item>
-        <item name="length">LONG</item> // ENUM: LONG | SHORT
+        <item name="length">LONG</item>         ENUM: LONG | SHORT
         <item name="cornerRadius">5dp</item>
 ```
 
