@@ -15,7 +15,7 @@ An Android library that takes the standard Android Toast to the next level with 
 - Style the toast text with a text color, bold style or text size.
 - Set a custom font for the toast text.
 - Set a icon next to the toast text on either the right or left side.
-- Set an spinning animation effect on your icon (see below example)
+- Set an spinning animation effect on your icon.
 - Supports RTL
 - Works from Api 16+
 
