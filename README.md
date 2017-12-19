@@ -19,67 +19,69 @@ An Android library that takes the standard Android Toast to the next level with 
 - Supports RTL
 - Works from Api 16+
 
-## CURRENTLY WORKING ON UPDATE 2.0 - RELEASE THIS WEEK! 
 
-## Update version: 1.0.9 |  03 June 2017
-- **IMPORTANT** Replaced constructor initialisation with builder pattern!
-- Support for RTL when icons is used.
-- Added a `getStyleableToast()` method.
-- Made default values so user don't have to type every value manually.
-- Improved synchronization when using both Styles.xml and code together to style a toast.
-- Refactoring of methods and comments and simplified codes.
+## Update version: 2.0.0  **IMPORTANT** |  18 December 2017
 
+!! READ THE CHANGES FROM `1.0.9` TO `2.0.0` BEFORE UPDATING
+- Support for RTL phones
+- added setIconLeft() & setIconRight()
+- added setTextSize()
+- added new custom styles.xml attribute. See below!
+- added new makeText() constructor without length
+- replaced setAlpha() with setSolidBackground()
+- replaced setStrokeWidth() and setStrokeColor() with setStroke(width,color)
+- Removed getToast() and build()
+- Removed 4 lines text limit
+- Adjusted the default paddings and values for the toast
+- Updated depedencies
+- Over all refactoring
 
-## CASES:
-![alt tag](https://github.com/Muddz/StyleableToast/blob/master/showcase.png)
+## Cases:
+![alt tag](https://github.com/Muddz/StyleableToast/blob/master/showcases.png)
 
-## With spinIcon(); method:
-![alt tag](https://media.giphy.com/media/hoq66naJQkECI/giphy.gif)
+## Style a toast from styles.xml
 
-
-## Usage with a style from styles.xml:
-
-
-**1) Style your toast in styles.xml. All available attributes:**
+**1) Define your styles. All available attributes:**
 ```xml
-    <style name="MyToast">
-    <item name="android:textColor"></item>
-    <item name="android:textStyle"></item> only bold!
-    <item name="android:fontFamily"></item> For custom fonts just add the path -> fonts/myfont.ttf
-    <item name="android:colorBackground"></item>
-    <item name="android:strokeWidth"></item>   API 21+
-    <item name="android:strokeColor"></item>   API 21+
-    <item name="android:radius"></item>  radius for corners of the toast shape
-    <item name="android:alpha"></item>   value between 0-255 where 255 is full solid
-    <item name="android:icon">/</item>  drawable id of the icon. R.drawable.xx
-    </style>
+        <item name="textBold">true</item>
+        <item name="textColor">#fff</item>
+        <item name="textFont">fonts/dosis.otf</item>
+        <item name="textSize">14sp</item>
+        <item name="colorBackground">#fff</item>
+        <item name="solidBackground">true</item>
+        <item name="strokeWidth">3dp</item>     API 21+
+        <item name="strokeColor">#fff</item>    API 21+
+        <item name="iconLeft">@drawable/ic</item>
+        <item name="iconRight">@drawable/ic</item>
+        <item name="length">LONG</item>         ENUM: LONG | SHORT
+        <item name="cornerRadius">5dp</item>
 ```
 
 **2) Pass your style in the static constructor and call show(); and you're done!**
 
 ```java
-    StyleableToast.makeText(context, "Hello World!", Toast.LENGTH_LONG, R.style.StyledToast).show();
+    StyleableToast.makeText(context, "Hello World!", R.style.StyledToast).show();
 ```
 
 ## With Builder pattern:
 ```java
-        st = new StyleableToast
-                .Builder(this)
+        new StyleableToast
+                .Builder(context)
                 .text("Hello world!")
                 .textColor(Color.WHITE)
                 .backgroundColor(Color.BLUE)
-                .build();
+                .show();
 ```
 
 -----
     
 ## Installation
 
-Add the depedency in your build.gradle. The library is distributed via jCenter
+Add the depedency in your `build.gradle.` The library is distributed via jCenter
 
 ```groovy
 dependencies {
-    compile 'com.muddzdev:styleabletoast:1.0.9'   
+    implementation 'com.muddzdev:styleabletoast:2.0.0'   
 }
 ```
  ----
