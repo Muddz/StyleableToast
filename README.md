@@ -75,7 +75,6 @@ An Android library that takes the standard Android Toast to the next level with 
                 .show();
 ```
 
------
     
 ## Installation
 
@@ -86,7 +85,6 @@ dependencies {
     implementation 'com.muddzdev:styleabletoast:2.0.0'   
 }
 ```
- ----
 
 ## License
 
