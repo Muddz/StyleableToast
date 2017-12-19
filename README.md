@@ -43,7 +43,7 @@ An Android library that takes the standard Android Toast to the next level with 
 
 ## Style a toast from styles.xml
 
-**1) Define your styles. All available attributes:**
+1) Define your styles. All available attributes:
 ```xml
         <item name="textBold">true</item>
         <item name="textColor">#fff</item>
@@ -59,7 +59,7 @@ An Android library that takes the standard Android Toast to the next level with 
         <item name="cornerRadius">5dp</item>
 ```
 
-**2) Pass your style in the static constructor and call show(); and you're done!**
+2) Pass your style in the static constructor and call show(); and you're done!
 
 ```java
     StyleableToast.makeText(context, "Hello World!", R.style.StyledToast).show();
@@ -78,7 +78,7 @@ An Android library that takes the standard Android Toast to the next level with 
     
 ## Installation
 
-Add the depedency in your `build.gradle.` The library is distributed via jCenter
+Add the depedency in your `build.gradle` The library is distributed via jCenter
 
 ```groovy
 dependencies {
