@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.muddzdev.styleabletoastlibrary.StyleableToast;
 
+import java.lang.reflect.Type;
+
 import static android.util.TypedValue.COMPLEX_UNIT_SP;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,25 +40,21 @@ public class MainActivity extends AppCompatActivity {
 
                 new StyleableToast
                         .Builder(this)
-                        .text("Shopping cart updated")
-                        .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#ff4d79"))
+                        .text("Turn off flight mode")
+                        .iconResLeft(R.drawable.ic_airplanemode_inactive_black_24dp)
+                        .backgroundColor(Color.parseColor("#865aff"))
                         .show();
 
                 break;
 
             case R.id.button4:
 
-                int strokeWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3f, getResources().getDisplayMetrics());
-
                 new StyleableToast
                         .Builder(this)
-                        .text("5 Tasks completed")
+                        .text("Updating profile")
                         .textColor(Color.WHITE)
-                        .solidBackground()
-                        .stroke(strokeWidth, Color.parseColor("#50627c"))
-                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/arvo.ttf"))
-                        .backgroundColor(Color.parseColor("#586d8b"))
+                        .backgroundColor(Color.parseColor("#ff5a5f"))
+                        .iconResLeft(R.drawable.ic_autorenew_black_24dp)
                         .show();
 
 
@@ -66,21 +64,24 @@ public class MainActivity extends AppCompatActivity {
                 int strokeWidth2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1f, getResources().getDisplayMetrics());
                 new StyleableToast
                         .Builder(this)
-                        .text("Donation sent")
-                        .stroke(strokeWidth2, Color.parseColor("#6441a4"))
-                        .textColor(Color.parseColor("#6441a4"))
-                        .backgroundColor(Color.parseColor("#e8e8e8"))
+                        .text("Milk added to list")
+                        .backgroundColor(Color.parseColor("#74ba82"))
                         .show();
                 break;
 
             case R.id.button6:
 
+                int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics());
+                int color = Color.parseColor("#c9c9c9");
+
                 new StyleableToast
                         .Builder(this)
-                        .iconResLeft(R.drawable.ic_cloud_upload_black_24dp)
-                        .text("Uploading")
-                        .textColor(Color.WHITE)
-                        .backgroundColor(Color.parseColor("#6441a4"))
+                        .text("Picture saved to gallery")
+                        .textColor(Color.parseColor("#fc2d3e"))
+                        .textBold()
+                        .stroke(width,color)
+                        .typeface(Typeface.createFromAsset(getAssets(), "fonts/dosis.otf"))
+                            .backgroundColor(Color.parseColor("#dddddd"))
                         .show();
                 break;
         }

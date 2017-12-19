@@ -13,10 +13,10 @@
         <item name="textColor">#ff003b</item>
         <item name="textFont">fonts/dosis.otf</item>
         <item name="textSize">16sp</item>
-        <item name="colorBackground">#b9b5b5</item>
+        <item name="colorBackground">#d1cece</item>
         <item name="solidBackground">true</item>
         <item name="strokeWidth">2dp</item>
-        <item name="strokeColor">#a7a5a5</item>
+        <item name="strokeColor">#bfbcbc</item>
         <item name="iconLeft">@drawable/ic_cloud_upload_black_24dp</item>
         <item name="length">LONG</item>
         <item name="cornerRadius">14dp</item>
