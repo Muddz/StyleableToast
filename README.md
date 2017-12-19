@@ -38,7 +38,7 @@ An Android library that takes the standard Android Toast to the next level with 
 
 ## Cases:
 
-<img src="https://github.com/Muddz/StyleableToast/blob/master/showcases.png" width="90%">
+<img src="https://github.com/Muddz/StyleableToast/blob/master/cases.png" width="90%">
 
 
 ## Style a toast from styles.xml
