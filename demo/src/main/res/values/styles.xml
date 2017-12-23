@@ -11,7 +11,7 @@
     <style name="allStyles">
         <item name="textBold">true</item>
         <item name="textColor">#ff003b</item>
-        <item name="textFont">fonts/dosis.otf</item>
+        <item name="textFont">@font/inconsolata</item>
         <item name="textSize">16sp</item>
         <item name="colorBackground">#d1cece</item>
         <item name="solidBackground">true</item>
