@@ -3,6 +3,7 @@ package com.muddzdev.styleabletoastlibrary;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -13,6 +14,7 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Animation;
@@ -322,10 +324,11 @@ public class StyleableToast extends RelativeLayout implements OnToastFinishedLis
         textSize = typedArray.getDimension(R.styleable.StyleableToast_textSize, 0);
         isTextSizeFromStyle = textSize > 0;
 
-        String textFontPath = typedArray.getString(R.styleable.StyleableToast_textFont);
-        if (textFontPath != null) {
-            if (textFontPath.contains("fonts/") && (textFontPath.contains(".otf") || textFontPath.contains(".ttf"))) {
-                typeface = Typeface.createFromAsset(context.getAssets(), textFontPath);
+        int fontId = typedArray.getResourceId(R.styleable.StyleableToast_textFont, 0);
+        if (fontId != 0) {
+            try {
+                typeface = ResourcesCompat.getFont(context, fontId);
+            } catch (Resources.NotFoundException e){
             }
         }
     }
