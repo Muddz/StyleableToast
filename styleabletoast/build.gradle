@@ -92,7 +92,7 @@ InputStream inputStream = project.rootProject.file('local.properties').newDataIn
 properties.load(inputStream)
 
 bintray {
-    bintray.user = properties.getProperty("bintrayUser")
+    bintray.user = properties.getProperty('bintrayUser')
     bintray.key = properties.getProperty('bintrayKey')
     configurations = ['archives']
     pkg {
