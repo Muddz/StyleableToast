@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="StyleableToast">
+        <attr name="textBold" format="boolean" />
+        <attr name="textColor" format="color" />
+        <attr name="font" format="reference" />
+        <attr name="textSize" format="dimension" />
+        <attr name="colorBackground" format="color" />
+        <attr name="solidBackground" format="boolean" />
+        <attr name="radius" format="dimension" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="strokeColor" format="color" />
+        <attr name="iconStart" format="reference" />
+        <attr name="iconEnd" format="reference" />
+        <attr name="length" format="integer">
+            <enum name="LONG" value="1" />
+            <enum name="SHORT" value="0" />
+        </attr>
+        <attr name="gravity" format="integer">
+            <enum name="center" value="1" />
+            <enum name="top" value="2" />
+        </attr>
+
+    </declare-styleable>
+</resources>

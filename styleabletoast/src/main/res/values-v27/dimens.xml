@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="default_text_size">14sp</dimen>
+    <dimen name="default_corner_radius">22dp</dimen>
+
+    <!--These two are only used when an Icon is applied to the StyleableToast-->
+    <dimen name="toast_horizontal_padding_icon_side">21dp</dimen>
+    <dimen name="toast_horizontal_padding_empty_side">21dp</dimen>
+
+    <dimen name="toast_horizontal_padding">24dp</dimen>
+    <dimen name="toast_vertical_padding">15dp</dimen>
+
+</resources>

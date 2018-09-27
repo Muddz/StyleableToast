@@ -1,0 +1,83 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="DemoButton" parent="Base.Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">#646f7c</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="AllStyles">
+        <item name="strokeWidth">2dp</item>
+        <item name="strokeColor">#00FFFF</item>
+        <item name="colorBackground">#000</item>
+        <item name="radius">12dp</item>
+
+        <item name="font">@font/dosis</item>
+        <item name="textSize">18sp</item>
+        <item name="textColor">#ff0</item>
+        <item name="textBold">true</item>
+
+        <item name="solidBackground">true</item>
+        <item name="iconStart">@drawable/ic_airplanemode_inactive_black_24dp</item>
+        <item name="iconEnd">@drawable/ic_airplanemode_inactive_black_24dp</item>
+        <item name="length">SHORT</item>
+    </style>
+
+
+    <style name="BaseStyleableToast">
+        <item name="length">SHORT</item>
+    </style>
+
+    <style name="coloredBackground" parent="BaseStyleableToast">
+        <item name="colorBackground">#FF5A5F</item>
+    </style>
+
+    <style name="coloredText" parent="BaseStyleableToast">
+        <item name="textColor">#FF5A5F</item>
+    </style>
+
+    <style name="coloredBoldText" parent="BaseStyleableToast">
+        <item name="textColor">#FF5A5F</item>
+        <item name="textBold">true</item>
+    </style>
+
+    <style name="customFont" parent="BaseStyleableToast">
+        <item name="font">@font/dosis</item>
+    </style>
+
+    <style name="cornerRadius5Dp" parent="BaseStyleableToast">
+        <item name="radius">5dp</item>
+    </style>
+
+    <style name="iconStart" parent="BaseStyleableToast">
+        <item name="iconStart">@drawable/ic_airplanemode_inactive_black_24dp</item>
+    </style>
+
+    <style name="iconEnd" parent="BaseStyleableToast">
+        <item name="iconEnd">@drawable/ic_airplanemode_inactive_black_24dp</item>
+    </style>
+
+    <style name="iconStartEnd" parent="BaseStyleableToast">
+        <item name="iconStart">@drawable/ic_airplanemode_inactive_black_24dp</item>
+        <item name="iconEnd">@drawable/ic_airplanemode_inactive_black_24dp</item>
+    </style>
+
+    <style name="coloredStroke" parent="BaseStyleableToast">
+        <item name="strokeWidth">2dp</item>
+        <item name="strokeColor">#ff00</item>
+    </style>
+
+    <style name="emptyStyle" />
+
+
+</resources>
