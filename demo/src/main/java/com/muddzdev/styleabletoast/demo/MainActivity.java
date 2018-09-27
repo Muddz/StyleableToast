@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnLongClick(R.id.b1)
     public boolean coloredBackgroundStyle() {
-        StyleableToast.makeText(this, toastMsg, R.style.coloredBackground).show();
+        StyleableToast.makeText(this, toastMsg, R.style.ColoredBackground).show();
         return true;
     }
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnLongClick(R.id.b2)
     public boolean coloredTextStyle() {
-        StyleableToast.makeText(this, toastMsg, R.style.coloredText).show();
+        StyleableToast.makeText(this, toastMsg, R.style.ColoredText).show();
         return true;
     }
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnLongClick(R.id.b3)
     public boolean coloredBoldTextStyle() {
-        StyleableToast.makeText(this, toastMsg, R.style.coloredBoldText).show();
+        StyleableToast.makeText(this, toastMsg, R.style.ColoredBoldText).show();
         return true;
     }
 
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnLongClick(R.id.b4)
     public boolean customFontStyle() {
-        StyleableToast.makeText(this, toastMsg, R.style.customFont).show();
+        StyleableToast.makeText(this, toastMsg, R.style.CustomFont).show();
         return true;
     }
 
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnLongClick(R.id.b5)
     public boolean cornerRadius5dpStyle() {
-        StyleableToast.makeText(this, toastMsg, R.style.cornerRadius5Dp).show();
+        StyleableToast.makeText(this, toastMsg, R.style.CornerRadius5Dp).show();
         return true;
     }
 
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnLongClick(R.id.b6)
     public boolean iconStartStyle() {
-        StyleableToast.makeText(this, toastMsg, R.style.iconStart).show();
+        StyleableToast.makeText(this, toastMsg, R.style.IconStart).show();
         return true;
     }
 
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnLongClick(R.id.b7)
     public boolean iconEndStyle() {
-        StyleableToast.makeText(this, toastMsg, R.style.iconEnd).show();
+        StyleableToast.makeText(this, toastMsg, R.style.IconEnd).show();
         return true;
     }
 
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnLongClick(R.id.b8)
     public boolean iconStartEndStyle() {
-        StyleableToast.makeText(this, toastMsg, R.style.iconStartEnd).show();
+        StyleableToast.makeText(this, toastMsg, R.style.IconStartEnd).show();
         return true;
     }
 
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnLongClick(R.id.b9)
     public boolean coloredStrokeStyle() {
-        StyleableToast.makeText(this, toastMsg, R.style.coloredStroke).show();
+        StyleableToast.makeText(this, toastMsg, R.style.ColoredStroke).show();
         return true;
     }
 

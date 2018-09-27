@@ -1,79 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp">
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fillViewport="true">
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            <Button
+                android:id="@+id/b1"
+                style="@style/DemoButton"
+                android:text="Colored background" />
 
-                <Button
-                    android:id="@+id/b1"
-                    style="@style/DemoButton"
-                    android:text="Colored background" />
-
-                <Button
-                    android:id="@+id/b2"
-                    style="@style/DemoButton"
-                    android:text="Colored text" />
+            <Button
+                android:id="@+id/b2"
+                style="@style/DemoButton"
+                android:text="Colored text" />
 
 
-                <Button
-                    android:id="@+id/b3"
-                    style="@style/DemoButton"
-                    android:text="Colored bold text" />
+            <Button
+                android:id="@+id/b3"
+                style="@style/DemoButton"
+                android:text="Colored bold text" />
 
-                <Button
-                    android:id="@+id/b4"
-                    style="@style/DemoButton"
-                    android:text="Custom font" />
+            <Button
+                android:id="@+id/b4"
+                style="@style/DemoButton"
+                android:text="Custom font" />
 
-                <Button
-                    android:id="@+id/b5"
-                    style="@style/DemoButton"
-                    android:text="Corner radius: 5dp" />
+            <Button
+                android:id="@+id/b5"
+                style="@style/DemoButton"
+                android:text="Corner radius: 5dp" />
 
-                <Button
-                    android:id="@+id/b6"
-                    style="@style/DemoButton"
-                    android:text="Icon start" />
+            <Button
+                android:id="@+id/b6"
+                style="@style/DemoButton"
+                android:text="Icon start" />
 
-                <Button
-                    android:id="@+id/b7"
-                    style="@style/DemoButton"
-                    android:text="Icon end" />
+            <Button
+                android:id="@+id/b7"
+                style="@style/DemoButton"
+                android:text="Icon end" />
 
-                <Button
-                    android:id="@+id/b8"
-                    style="@style/DemoButton"
-                    android:text="Icon start + end " />
+            <Button
+                android:id="@+id/b8"
+                style="@style/DemoButton"
+                android:text="Icon start + end " />
 
-                <Button
-                    android:id="@+id/b9"
-                    style="@style/DemoButton"
-                    android:text="Colored stroke" />
+            <Button
+                android:id="@+id/b9"
+                style="@style/DemoButton"
+                android:text="Colored stroke" />
 
-                <Button
-                    android:id="@+id/b10"
-                    style="@style/DemoButton"
-                    android:text="All styles" />
-            </LinearLayout>
+            <Button
+                android:id="@+id/b10"
+                style="@style/DemoButton"
+                android:text="All styles" />
         </LinearLayout>
-    </ScrollView>
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

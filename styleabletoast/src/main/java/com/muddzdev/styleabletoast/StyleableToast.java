@@ -94,7 +94,7 @@ public class StyleableToast extends LinearLayout {
         this.length = builder.length;
     }
 
-    private void initStyleableToast() {
+    private void inflateToastLayout() {
         View v = inflate(getContext(), R.layout.styleable_layout, null);
         rootLayout = (LinearLayout) v.getRootView();
         textView = v.findViewById(R.id.textview);
@@ -112,13 +112,17 @@ public class StyleableToast extends LinearLayout {
         }
     }
 
-    public void show() {
-        initStyleableToast();
+    private void createAndShowToast() {
         toast = new Toast(getContext());
         toast.setGravity(gravity, 0, gravity == Gravity.CENTER ? 0 : toast.getYOffset());
         toast.setDuration(length == Toast.LENGTH_LONG ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT);
         toast.setView(rootLayout);
         toast.show();
+    }
+
+    public void show() {
+        inflateToastLayout();
+        createAndShowToast();
     }
 
 
