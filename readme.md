@@ -2,18 +2,15 @@
 [![](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16#l16)
 [![APK](https://img.shields.io/badge/Download-Demo-brightgreen.svg)](https://github.com/Muddz/StyleableToast/raw/master/demo.apk)
 
-An Android library that takes the standard toast to the next level with many styling options. Style your toasts either by code or with a style in `styles.xml`. See examples below or try the demo app.
-
-
-
+An Android library that takes the standard toast to the next level with many styling options. Style your toasts either by code or with a style in `styles.xml`.
 ## Cases:
 
 <img src="https://github.com/Muddz/StyleableToast/blob/master/cases.png" width="75%">
 
 
-## Example with a style from styles.xml
+## Example with a style
 
-1) Define a style. All available attributes:
+1) Define a style in `styles.xml`. All available attributes:
 ```xml
     <style name="mytoast">
         <item name="textBold">true</item>
@@ -33,7 +30,7 @@ An Android library that takes the standard toast to the next level with many sty
 
 ```
 
-2) Pass your style in the static constructor and call `show();` and you're done!
+2) Pass your style in the static constructor and call `show();`
 
 ```java
     StyleableToast.makeText(context, "Hello World!", Toast.LENGTH_LONG, R.style.mytoast).show();
