@@ -36,7 +36,7 @@ An Android library that takes the standard toast to the next level with many sty
     StyleableToast.makeText(context, "Hello World!", Toast.LENGTH_LONG, R.style.mytoast).show();
 ```
 
-## Example with builder pattern:
+## Example with builder pattern
 ```java
         new StyleableToast
                 .Builder(context)
