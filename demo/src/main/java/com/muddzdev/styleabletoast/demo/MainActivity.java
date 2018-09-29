@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
     public void iconStart() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
-                .iconStart(R.drawable.ic_airplanemode_inactive_black_24dp)
+                .iconStart(R.drawable.ic_autorenew_black_24dp)
                 .show();
     }
 
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     public void iconEnd() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
-                .iconEnd(R.drawable.ic_airplanemode_inactive_black_24dp)
+                .iconEnd(R.drawable.ic_autorenew_black_24dp)
                 .show();
     }
 
@@ -148,8 +148,8 @@ public class MainActivity extends AppCompatActivity {
     public void iconStartEnd() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
-                .iconStart(R.drawable.ic_airplanemode_inactive_black_24dp)
-                .iconEnd(R.drawable.ic_airplanemode_inactive_black_24dp)
+                .iconStart(R.drawable.ic_autorenew_black_24dp)
+                .iconEnd(R.drawable.ic_autorenew_black_24dp)
                 .show();
     }
 
@@ -190,8 +190,8 @@ public class MainActivity extends AppCompatActivity {
                 .textColor(Color.YELLOW)
                 .textBold()
                 .font(R.font.dosis)
-                .iconStart(R.drawable.ic_airplanemode_inactive_black_24dp)
-                .iconEnd(R.drawable.ic_airplanemode_inactive_black_24dp)
+                .iconStart(R.drawable.ic_autorenew_black_24dp)
+                .iconEnd(R.drawable.ic_autorenew_black_24dp)
                 .cornerRadius(12)
                 .textSize(18)
                 .show();

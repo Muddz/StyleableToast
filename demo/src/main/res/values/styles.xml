@@ -25,8 +25,8 @@
         <item name="textColor">#ff0</item>
         <item name="textBold">true</item>
         <item name="solidBackground">true</item>
-        <item name="iconStart">@drawable/ic_airplanemode_inactive_black_24dp</item>
-        <item name="iconEnd">@drawable/ic_airplanemode_inactive_black_24dp</item>
+        <item name="iconStart">@drawable/ic_autorenew_black_24dp</item>
+        <item name="iconEnd">@drawable/ic_autorenew_black_24dp</item>
         <item name="length">SHORT</item>
     </style>
 
@@ -62,16 +62,16 @@
     </style>
 
     <style name="IconStart" parent="BaseStyleableToast">
-        <item name="iconStart">@drawable/ic_airplanemode_inactive_black_24dp</item>
+        <item name="iconStart">@drawable/ic_autorenew_black_24dp</item>
     </style>
 
     <style name="IconEnd" parent="BaseStyleableToast">
-        <item name="iconEnd">@drawable/ic_airplanemode_inactive_black_24dp</item>
+        <item name="iconEnd">@drawable/ic_autorenew_black_24dp</item>
     </style>
 
     <style name="IconStartEnd" parent="BaseStyleableToast">
-        <item name="iconStart">@drawable/ic_airplanemode_inactive_black_24dp</item>
-        <item name="iconEnd">@drawable/ic_airplanemode_inactive_black_24dp</item>
+        <item name="iconStart">@drawable/ic_autorenew_black_24dp</item>
+        <item name="iconEnd">@drawable/ic_autorenew_black_24dp</item>
     </style>
 
 
