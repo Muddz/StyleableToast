@@ -13,19 +13,19 @@ An Android library that takes the standard toast to the next level with many sty
 1) Define a style in `styles.xml`. All available attributes:
 ```xml
     <style name="mytoast">
-        <item name="textBold">true</item>
-        <item name="textColor">#fff</item>
-        <item name="font">@font/retrofont</item>
-        <item name="textSize">14sp</item>
-        <item name="colorBackground">#fff</item>
-        <item name="solidBackground">true</item>
-        <item name="strokeWidth">3dp</item>
-        <item name="strokeColor">#fff</item>
-        <item name="iconStart">@drawable/ic</item>
-        <item name="iconEnd">@drawable/ic</item>
-        <item name="length">LONG</item> LONG or SHORT
-        <item name="gravity">top</item> top or center
-        <item name="radius">5dp</item>
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">#fff</item>
+        <item name="stFont">@font/retrofont</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stColorBackground">#fff</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">#fff</item>
+        <item name="stIconStart">@drawable/ic</item>
+        <item name="stIconEnd">@drawable/ic</item>
+        <item name="stLength">LONG</item> LONG or SHORT
+        <item name="stGravity">top</item> top or center
+        <item name="stRadius">5dp</item>
     </style>
 
 ```
@@ -52,7 +52,7 @@ An Android library that takes the standard toast to the next level with many sty
 Add the dependency in your `build.gradle`
 ```groovy
 dependencies {
-    implementation 'com.muddzdev:styleabletoast:2.1.3'   
+    implementation 'com.muddzdev:styleabletoast:2.2.0'   
 }
 ```
 
