@@ -229,11 +229,11 @@ public class StyleableToast extends LinearLayout {
         int defaultBackgroundColor = ContextCompat.getColor(getContext(), R.color.default_background_color);
         int defaultCornerRadius = (int) getResources().getDimension(R.dimen.default_corner_radius);
 
-        solidBackground = typedArray.getBoolean(R.styleable.StyleableToast_solidBackground, false);
-        backgroundColor = typedArray.getColor(R.styleable.StyleableToast_colorBackground, defaultBackgroundColor);
-        cornerRadius = (int) typedArray.getDimension(R.styleable.StyleableToast_radius, defaultCornerRadius);
-        length = typedArray.getInt(R.styleable.StyleableToast_length, 0);
-        gravity = typedArray.getInt(R.styleable.StyleableToast_gravity, Gravity.BOTTOM);
+        solidBackground = typedArray.getBoolean(R.styleable.StyleableToast_stSolidBackground, false);
+        backgroundColor = typedArray.getColor(R.styleable.StyleableToast_stColorBackground, defaultBackgroundColor);
+        cornerRadius = (int) typedArray.getDimension(R.styleable.StyleableToast_stRadius, defaultCornerRadius);
+        length = typedArray.getInt(R.styleable.StyleableToast_stLength, 0);
+        gravity = typedArray.getInt(R.styleable.StyleableToast_stGravity, Gravity.BOTTOM);
 
         if (gravity == 1) {
             gravity = Gravity.CENTER;
@@ -241,9 +241,9 @@ public class StyleableToast extends LinearLayout {
             gravity = Gravity.TOP;
         }
 
-        if (typedArray.hasValue(R.styleable.StyleableToast_strokeColor) && typedArray.hasValue(R.styleable.StyleableToast_strokeWidth)) {
-            strokeWidth = (int) typedArray.getDimension(R.styleable.StyleableToast_strokeWidth, 0);
-            strokeColor = typedArray.getColor(R.styleable.StyleableToast_strokeColor, Color.TRANSPARENT);
+        if (typedArray.hasValue(R.styleable.StyleableToast_strokeColor) && typedArray.hasValue(R.styleable.StyleableToast_stStrokeWidth)) {
+            strokeWidth = (int) typedArray.getDimension(R.styleable.StyleableToast_stStrokeWidth, 0);
+            strokeColor = typedArray.getColor(R.styleable.StyleableToast_stStrokeColor, Color.TRANSPARENT);
         }
     }
 
@@ -253,9 +253,9 @@ public class StyleableToast extends LinearLayout {
         }
 
         textColor = typedArray.getColor(R.styleable.StyleableToast_textColor, textView.getCurrentTextColor());
-        textBold = typedArray.getBoolean(R.styleable.StyleableToast_textBold, false);
-        textSize = typedArray.getDimension(R.styleable.StyleableToast_textSize, 0);
-        font = typedArray.getResourceId(R.styleable.StyleableToast_font, 0);
+        textBold = typedArray.getBoolean(R.styleable.StyleableToast_stTextBold, false);
+        textSize = typedArray.getDimension(R.styleable.StyleableToast_stTextSize, 0);
+        font = typedArray.getResourceId(R.styleable.StyleableToast_stFont, 0);
         isTextSizeFromStyleXml = textSize > 0;
     }
 
@@ -264,8 +264,8 @@ public class StyleableToast extends LinearLayout {
         if (style == 0) {
             return;
         }
-        iconStart = typedArray.getResourceId(R.styleable.StyleableToast_iconStart, 0);
-        iconEnd = typedArray.getResourceId(R.styleable.StyleableToast_iconEnd, 0);
+        iconStart = typedArray.getResourceId(R.styleable.StyleableToast_stIconStart, 0);
+        iconEnd = typedArray.getResourceId(R.styleable.StyleableToast_stIconEnd, 0);
     }
 
     public static class Builder {
