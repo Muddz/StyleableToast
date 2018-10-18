@@ -113,6 +113,7 @@ public class StyleableToast extends LinearLayout {
     }
 
     private void createAndShowToast() {
+        inflateToastLayout();
         toast = new Toast(getContext());
         toast.setGravity(gravity, 0, gravity == Gravity.CENTER ? 0 : toast.getYOffset());
         toast.setDuration(length == Toast.LENGTH_LONG ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT);
@@ -121,7 +122,6 @@ public class StyleableToast extends LinearLayout {
     }
 
     public void show() {
-        inflateToastLayout();
         createAndShowToast();
     }
 
@@ -241,7 +241,7 @@ public class StyleableToast extends LinearLayout {
             gravity = Gravity.TOP;
         }
 
-        if (typedArray.hasValue(R.styleable.StyleableToast_strokeColor) && typedArray.hasValue(R.styleable.StyleableToast_stStrokeWidth)) {
+        if (typedArray.hasValue(R.styleable.StyleableToast_stStrokeColor) && typedArray.hasValue(R.styleable.StyleableToast_stStrokeWidth)) {
             strokeWidth = (int) typedArray.getDimension(R.styleable.StyleableToast_stStrokeWidth, 0);
             strokeColor = typedArray.getColor(R.styleable.StyleableToast_stStrokeColor, Color.TRANSPARENT);
         }
@@ -252,7 +252,7 @@ public class StyleableToast extends LinearLayout {
             return;
         }
 
-        textColor = typedArray.getColor(R.styleable.StyleableToast_textColor, textView.getCurrentTextColor());
+        textColor = typedArray.getColor(R.styleable.StyleableToast_stTextColor, textView.getCurrentTextColor());
         textBold = typedArray.getBoolean(R.styleable.StyleableToast_stTextBold, false);
         textSize = typedArray.getDimension(R.styleable.StyleableToast_stTextSize, 0);
         font = typedArray.getResourceId(R.styleable.StyleableToast_stFont, 0);

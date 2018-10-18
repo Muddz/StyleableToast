@@ -16,66 +16,66 @@
     </style>
 
     <style name="AllStyles">
-        <item name="strokeWidth">2dp</item>
-        <item name="strokeColor">#00FFFF</item>
-        <item name="colorBackground">#000</item>
-        <item name="radius">12dp</item>
-        <item name="font">@font/dosis</item>
-        <item name="textSize">18sp</item>
-        <item name="textColor">#ff0</item>
-        <item name="textBold">true</item>
-        <item name="solidBackground">true</item>
-        <item name="iconStart">@drawable/ic_autorenew_black_24dp</item>
-        <item name="iconEnd">@drawable/ic_autorenew_black_24dp</item>
-        <item name="length">SHORT</item>
+        <item name="stStrokeWidth">2dp</item>
+        <item name="stStrokeColor">#00FFFF</item>
+        <item name="stColorBackground">#000</item>
+        <item name="stRadius">12dp</item>
+        <item name="stFont">@font/dosis</item>
+        <item name="stTextSize">18sp</item>
+        <item name="stTextColor">#ff0</item>
+        <item name="stTextBold">true</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stIconStart">@drawable/ic_autorenew_black_24dp</item>
+        <item name="stIconEnd">@drawable/ic_autorenew_black_24dp</item>
+        <item name="stLength">SHORT</item>
     </style>
 
 
     <style name="BaseStyleableToast">
-        <item name="length">SHORT</item>
+        <item name="stLength">SHORT</item>
     </style>
 
     <style name="ColoredStroke" parent="BaseStyleableToast">
-        <item name="strokeWidth">2dp</item>
-        <item name="strokeColor">#ff00</item>
+        <item name="stStrokeWidth">2dp</item>
+        <item name="stStrokeColor">#ff00</item>
     </style>
 
     <style name="ColoredBackground" parent="BaseStyleableToast">
-        <item name="colorBackground">#FF5A5F</item>
+        <item name="stColorBackground">#FF5A5F</item>
     </style>
 
     <style name="ColoredText" parent="BaseStyleableToast">
-        <item name="textColor">#FF5A5F</item>
+        <item name="stTextColor">#FF5A5F</item>
     </style>
 
     <style name="ColoredBoldText" parent="BaseStyleableToast">
-        <item name="textColor">#FF5A5F</item>
-        <item name="textBold">true</item>
+        <item name="stTextColor">#FF5A5F</item>
+        <item name="stTextBold">true</item>
     </style>
 
     <style name="CustomFont" parent="BaseStyleableToast">
-        <item name="font">@font/dosis</item>
+        <item name="stFont">@font/dosis</item>
     </style>
 
     <style name="CornerRadius5Dp" parent="BaseStyleableToast">
-        <item name="radius">5dp</item>
+        <item name="stRadius">5dp</item>
     </style>
 
     <style name="IconStart" parent="BaseStyleableToast">
-        <item name="iconStart">@drawable/ic_autorenew_black_24dp</item>
+        <item name="stIconStart">@drawable/ic_autorenew_black_24dp</item>
     </style>
 
     <style name="IconEnd" parent="BaseStyleableToast">
-        <item name="iconEnd">@drawable/ic_autorenew_black_24dp</item>
+        <item name="stIconEnd">@drawable/ic_autorenew_black_24dp</item>
     </style>
 
     <style name="IconStartEnd" parent="BaseStyleableToast">
-        <item name="iconStart">@drawable/ic_autorenew_black_24dp</item>
-        <item name="iconEnd">@drawable/ic_autorenew_black_24dp</item>
+        <item name="stIconStart">@drawable/ic_autorenew_black_24dp</item>
+        <item name="stIconEnd">@drawable/ic_autorenew_black_24dp</item>
     </style>
 
 
-    <style name="EmptyStyle" />
+    <style name="defaultStyle" />
 
 
 </resources>
