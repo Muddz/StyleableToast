@@ -3,7 +3,7 @@
 [![APK](https://img.shields.io/badge/Download-Demo-brightgreen.svg)](https://github.com/Muddz/StyleableToast/raw/master/demo.apk)
 
 An Android library that takes the standard toast to the next level with many styling options. Style your toasts either by code or with a style in `styles.xml`.
-## Cases:
+## Cases
 
 <img src="https://github.com/Muddz/StyleableToast/blob/master/cases.png" width="75%">
 
