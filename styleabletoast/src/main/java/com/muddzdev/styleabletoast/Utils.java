@@ -1,13 +1,12 @@
 package com.muddzdev.styleabletoast;
 
 import android.content.Context;
-import android.os.Build;
-import android.support.annotation.RestrictTo;
-import android.support.v4.text.TextUtilsCompat;
-import android.support.v4.view.ViewCompat;
 import android.util.TypedValue;
 
 import java.util.Locale;
+
+import androidx.core.text.TextUtilsCompat;
+import androidx.core.view.ViewCompat;
 
 /**
  * Created by Muddz on 07-03-2018.

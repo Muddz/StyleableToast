@@ -2,10 +2,10 @@ package com.muddzdev.styleabletoast.demo;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.muddzdev.styleabletoast.StyleableToast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
