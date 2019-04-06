@@ -28,13 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.b1)
     public void coloredBackground() {
-//        new StyleableToast.Builder(this)
-//                .text(toastMsg)
-//                .backgroundColor(redColor)
-//                .show();
-
-
-        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+        new StyleableToast.Builder(this)
+                .text(toastMsg)
+                .backgroundColor(redColor)
+                .show();
     }
 
     @OnLongClick(R.id.b1)
