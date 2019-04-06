@@ -2,6 +2,7 @@ package com.muddzdev.styleabletoast.demo;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.muddzdev.styleabletoast.StyleableToast;
 
@@ -27,10 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.b1)
     public void coloredBackground() {
-        new StyleableToast.Builder(this)
-                .text(toastMsg)
-                .backgroundColor(redColor)
-                .show();
+//        new StyleableToast.Builder(this)
+//                .text(toastMsg)
+//                .backgroundColor(redColor)
+//                .show();
+
+
+        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
     }
 
     @OnLongClick(R.id.b1)
