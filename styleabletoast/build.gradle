@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: "com.jfrog.bintray"
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: "com.jfrog.bintray"
 
 android {
     compileSdkVersion 28
@@ -27,6 +27,7 @@ dependencies {
 def siteUrl = 'https://github.com/Muddz/StyleableToast'
 def gitUrl = 'https://github.com/Muddz/StyleableToast.git'
 def developerName = "muddz"
+group = "com.muddzdev"
 version = "2.2.2"
 
 install {
@@ -35,7 +36,7 @@ install {
         pom {
             project {
                 packaging 'aar'
-                name 'com.muddzdev:StyleableToast'
+                name 'com.muddzdev:styleableToast'
                 description = 'An Android library that takes the standard toast to the next level with many styling options'
                 url siteUrl
 

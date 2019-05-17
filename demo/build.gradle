@@ -26,6 +26,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.jakewharton:butterknife:10.1.0'
+//    implementation 'com.muddzdev:styleabletoast:2.2.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     implementation project(':styleabletoast')
 }
