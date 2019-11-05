@@ -3,10 +3,10 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: "com.jfrog.bintray"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -20,7 +20,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
 }
 
 
@@ -28,7 +28,7 @@ def siteUrl = 'https://github.com/Muddz/StyleableToast'
 def gitUrl = 'https://github.com/Muddz/StyleableToast.git'
 def developerName = "muddz"
 group = "com.muddzdev"
-version = "2.2.2"
+version = "2.2.3"
 
 install {
     repositories.mavenInstaller {
@@ -102,7 +102,7 @@ bintray {
         websiteUrl = siteUrl
         licenses = ["Apache-2.0"]
         version {
-            name = "2.2.2"
+            name = "2.2.3"
         }
     }
 }

@@ -2,11 +2,11 @@ package com.muddzdev.styleabletoast.demo;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.muddzdev.styleabletoast.StyleableToast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     public void iconStart() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
-                .iconStart(R.drawable.ic_autorenew_black_24dp)
+                .iconStart(getIcon())
                 .show();
     }
 
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
     public void iconEnd() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
-                .iconEnd(R.drawable.ic_autorenew_black_24dp)
+                .iconEnd(getIcon())
                 .show();
     }
 
@@ -149,8 +149,8 @@ public class MainActivity extends AppCompatActivity {
     public void iconStartEnd() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
-                .iconStart(R.drawable.ic_autorenew_black_24dp)
-                .iconEnd(R.drawable.ic_autorenew_black_24dp)
+                .iconStart(getIcon())
+                .iconEnd(getIcon())
                 .show();
     }
 
@@ -185,14 +185,14 @@ public class MainActivity extends AppCompatActivity {
     public void allStyles() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
-                .stroke(2, Color.CYAN)
-                .backgroundColor(Color.BLACK)
+                .stroke(2, Color.BLACK)
+                .backgroundColor(Color.WHITE)
                 .solidBackground()
-                .textColor(Color.YELLOW)
+                .textColor(Color.RED)
                 .textBold()
                 .font(R.font.dosis)
-                .iconStart(R.drawable.ic_autorenew_black_24dp)
-                .iconEnd(R.drawable.ic_autorenew_black_24dp)
+                .iconStart(getIcon())
+                .iconEnd(getIcon())
                 .cornerRadius(12)
                 .textSize(18)
                 .show();
@@ -204,4 +204,13 @@ public class MainActivity extends AppCompatActivity {
         StyleableToast.makeText(this, toastMsg, R.style.AllStyles).show();
         return true;
     }
+
+    public int getIcon() {
+        if (android.os.Build.VERSION.SDK_INT >= 27) {
+            return R.drawable.ic_autorenew_black_24dp;
+        } else {
+            return R.drawable.ic_autorenew_white_24dp;
+        }
+    }
+
 }

@@ -17,16 +17,16 @@
 
     <style name="AllStyles">
         <item name="stStrokeWidth">2dp</item>
-        <item name="stStrokeColor">#00FFFF</item>
-        <item name="stColorBackground">#000</item>
+        <item name="stStrokeColor">#000000</item>
+        <item name="stColorBackground">#FFFFFF</item>
         <item name="stRadius">12dp</item>
         <item name="stFont">@font/dosis</item>
         <item name="stTextSize">18sp</item>
-        <item name="stTextColor">#ff0</item>
+        <item name="stTextColor">#E93737</item>
         <item name="stTextBold">true</item>
         <item name="stSolidBackground">true</item>
-        <item name="stIconStart">@drawable/ic_autorenew_white_24dp</item>
-        <item name="stIconEnd">@drawable/ic_autorenew_white_24dp</item>
+        <item name="stIconStart">@drawable/ic_autorenew_black_24dp</item>
+        <item name="stIconEnd">@drawable/ic_autorenew_black_24dp</item>
         <item name="stLength">SHORT</item>
     </style>
 
@@ -62,16 +62,16 @@
     </style>
 
     <style name="IconStart" parent="BaseStyleableToast">
-        <item name="stIconStart">@drawable/ic_autorenew_white_24dp</item>
+        <item name="stIconStart">@drawable/ic_autorenew_black_24dp</item>
     </style>
 
     <style name="IconEnd" parent="BaseStyleableToast">
-        <item name="stIconEnd">@drawable/ic_autorenew_white_24dp</item>
+        <item name="stIconEnd">@drawable/ic_autorenew_black_24dp</item>
     </style>
 
     <style name="IconStartEnd" parent="BaseStyleableToast">
-        <item name="stIconStart">@drawable/ic_autorenew_white_24dp</item>
-        <item name="stIconEnd">@drawable/ic_autorenew_white_24dp</item>
+        <item name="stIconStart">@drawable/ic_autorenew_black_24dp</item>
+        <item name="stIconEnd">@drawable/ic_autorenew_black_24dp</item>
     </style>
 
 </resources>
