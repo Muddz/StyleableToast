@@ -20,15 +20,16 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
 }
 
 
 def siteUrl = 'https://github.com/Muddz/StyleableToast'
 def gitUrl = 'https://github.com/Muddz/StyleableToast.git'
 def developerName = "muddz"
+def libraryVersion = "2.2.4"
+version = libraryVersion
 group = "com.muddzdev"
-version = "2.2.3"
 
 install {
     repositories.mavenInstaller {
@@ -102,7 +103,7 @@ bintray {
         websiteUrl = siteUrl
         licenses = ["Apache-2.0"]
         version {
-            name = "2.2.3"
+            name = libraryVersion
         }
     }
 }
