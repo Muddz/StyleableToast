@@ -27,7 +27,7 @@ dependencies {
 def siteUrl = 'https://github.com/Muddz/StyleableToast'
 def gitUrl = 'https://github.com/Muddz/StyleableToast.git'
 def developerName = "muddz"
-def libraryVersion = "2.2.4"
+def libraryVersion = "2.3.0"
 version = libraryVersion
 group = "com.muddzdev"
 

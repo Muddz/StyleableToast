@@ -1,81 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="main"
+            type="com.muddzdev.styleabletoast.demo.MainActivity" />
+    </data>
 
-    <LinearLayout
-
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingTop="16dp"
-        android:paddingRight="16dp">
+        android:layout_height="match_parent"
+        android:background="#3C3C3C"
+        android:fillViewport="true">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:alpha="0.8"
-                android:text="Long press to use the equivalent XML style"
-                android:textSize="13sp" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/b1"
-                style="@style/DemoButton"
-                android:text="Colored background" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.8"
+                    android:gravity="center"
+                    android:text="Long press to use the equivalent XML style"
+                    android:textColor="#fff"
+                    android:textSize="13sp" />
 
-            <Button
-                android:id="@+id/b2"
-                style="@style/DemoButton"
-                android:text="Colored text" />
+                <Button
+                    android:id="@+id/b1"
+                    style="@style/DemoButton"
+                    android:onClick="@{() -> main.coloredBackground()}"
+                    android:onLongClick="@{()->main.coloredBackgroundXML()}"
+                    android:text="Colored background" />
+
+                <Button
+                    android:id="@+id/b2"
+                    style="@style/DemoButton"
+                    android:onClick="@{() -> main.coloredText()}"
+                    android:onLongClick="@{()->main.coloredTextXML()}"
+                    android:text="Colored text" />
 
 
-            <Button
-                android:id="@+id/b3"
-                style="@style/DemoButton"
-                android:text="Colored bold text" />
+                <Button
+                    android:id="@+id/b3"
+                    style="@style/DemoButton"
+                    android:onClick="@{() -> main.coloredBoldText()}"
+                    android:onLongClick="@{()->main.coloredBoldTextXML()}"
+                    android:text="Colored bold text" />
 
-            <Button
-                android:id="@+id/b4"
-                style="@style/DemoButton"
-                android:text="Custom font" />
+                <Button
+                    android:id="@+id/b4"
+                    style="@style/DemoButton"
+                    android:onClick="@{() -> main.customFont()}"
+                    android:onLongClick="@{()->main.customFontXML()}"
+                    android:text="Custom font" />
 
-            <Button
-                android:id="@+id/b5"
-                style="@style/DemoButton"
-                android:text="Corner radius: 5dp" />
+                <Button
+                    android:id="@+id/b5"
+                    style="@style/DemoButton"
+                    android:onClick="@{() -> main.cornerRadius()}"
+                    android:onLongClick="@{()->main.cornerRadiusXML()}"
+                    android:text="Corner radius: 5dp" />
 
-            <Button
-                android:id="@+id/b6"
-                style="@style/DemoButton"
-                android:text="Icon start" />
+                <Button
+                    android:id="@+id/b6"
+                    style="@style/DemoButton"
+                    android:onClick="@{() -> main.iconStart()}"
+                    android:onLongClick="@{()->main.iconEndXML()}"
+                    android:text="Icon start" />
 
-            <Button
-                android:id="@+id/b7"
-                style="@style/DemoButton"
-                android:text="Icon end" />
+                <Button
+                    android:id="@+id/b7"
+                    style="@style/DemoButton"
+                    android:onClick="@{() -> main.iconEnd()}"
+                    android:onLongClick="@{()->main.iconEndXML()}"
+                    android:text="Icon end" />
 
-            <Button
-                android:id="@+id/b8"
-                style="@style/DemoButton"
-                android:text="Icon start + end " />
+                <Button
+                    android:id="@+id/b8"
+                    style="@style/DemoButton"
+                    android:onClick="@{() -> main.iconStartEnd()}"
+                    android:onLongClick="@{()->main.iconStartEndXML()}"
+                    android:text="Icon start + end " />
 
-            <Button
-                android:id="@+id/b9"
-                style="@style/DemoButton"
-                android:text="Colored stroke" />
+                <Button
+                    android:id="@+id/b9"
+                    style="@style/DemoButton"
+                    android:onClick="@{() -> main.coloredStroke()}"
+                    android:onLongClick="@{()->main.coloredStrokeXML()}"
+                    android:text="Colored stroke" />
 
-            <Button
-                android:id="@+id/b10"
-                style="@style/DemoButton"
-                android:text="All styles" />
+                <Button
+                    android:id="@+id/b10"
+                    style="@style/DemoButton"
+                    android:onClick="@{() -> main.allStyles()}"
+                    android:onLongClick="@{()->main.allStylesXML()}"
+                    android:text="All styles" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</layout>

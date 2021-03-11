@@ -4,12 +4,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.muddzdev.styleabletoast.StyleableToast;
-
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.OnLongClick;
+import com.muddzdev.styleabletoast.demo.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,29 +18,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setMain(this);
+
     }
 
-    //--------------------------------------------------
-
-    @OnClick(R.id.b1)
     public void coloredBackground() {
-        new StyleableToast.Builder(this)
+        StyleableToast.Builder st = new StyleableToast.Builder(this)
                 .text(toastMsg)
                 .backgroundColor(redColor)
-                .show();
+                .build();
+
+        st.show();
     }
 
-    @OnLongClick(R.id.b1)
-    public boolean coloredBackgroundStyle() {
+    public boolean coloredBackgroundXML() {
         StyleableToast.makeText(this, toastMsg, R.style.ColoredBackground).show();
         return true;
     }
 
-    //--------------------------------------------------
 
-    @OnClick(R.id.b2)
     public void coloredText() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
@@ -50,15 +45,12 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    @OnLongClick(R.id.b2)
-    public boolean coloredTextStyle() {
+    public boolean coloredTextXML() {
         StyleableToast.makeText(this, toastMsg, R.style.ColoredText).show();
         return true;
     }
 
-    //--------------------------------------------------
 
-    @OnClick(R.id.b3)
     public void coloredBoldText() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
@@ -67,16 +59,12 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    @OnLongClick(R.id.b3)
-    public boolean coloredBoldTextStyle() {
+    public boolean coloredBoldTextXML() {
         StyleableToast.makeText(this, toastMsg, R.style.ColoredBoldText).show();
         return true;
     }
 
 
-    //--------------------------------------------------
-
-    @OnClick(R.id.b4)
     public void customFont() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
@@ -84,34 +72,23 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-
-    @OnLongClick(R.id.b4)
-    public boolean customFontStyle() {
+    public boolean customFontXML() {
         StyleableToast.makeText(this, toastMsg, R.style.CustomFont).show();
         return true;
     }
 
-    //--------------------------------------------------
-
-    @OnClick(R.id.b5)
-    public void cornerRadius5dp() {
+    public void cornerRadius() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
                 .cornerRadius(5)
                 .show();
     }
 
-
-    @OnLongClick(R.id.b5)
-    public boolean cornerRadius5dpStyle() {
+    public boolean cornerRadiusXML() {
         StyleableToast.makeText(this, toastMsg, R.style.CornerRadius5Dp).show();
         return true;
     }
 
-    //--------------------------------------------------
-
-
-    @OnClick(R.id.b6)
     public void iconStart() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
@@ -119,15 +96,12 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    @OnLongClick(R.id.b6)
-    public boolean iconStartStyle() {
+    public boolean iconStartXML() {
         StyleableToast.makeText(this, toastMsg, R.style.IconStart).show();
         return true;
     }
 
-    //--------------------------------------------------
 
-    @OnClick(R.id.b7)
     public void iconEnd() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
@@ -135,17 +109,12 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-
-    @OnLongClick(R.id.b7)
-    public boolean iconEndStyle() {
+    public boolean iconEndXML() {
         StyleableToast.makeText(this, toastMsg, R.style.IconEnd).show();
         return true;
     }
 
 
-    //--------------------------------------------------
-
-    @OnClick(R.id.b8)
     public void iconStartEnd() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
@@ -154,17 +123,11 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-
-    @OnLongClick(R.id.b8)
-    public boolean iconStartEndStyle() {
+    public boolean iconStartEndXML() {
         StyleableToast.makeText(this, toastMsg, R.style.IconStartEnd).show();
         return true;
     }
 
-    //--------------------------------------------------
-
-
-    @OnClick(R.id.b9)
     public void coloredStroke() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
@@ -172,16 +135,11 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-    @OnLongClick(R.id.b9)
-    public boolean coloredStrokeStyle() {
+    public boolean coloredStrokeXML() {
         StyleableToast.makeText(this, toastMsg, R.style.ColoredStroke).show();
         return true;
     }
 
-
-    //--------------------------------------------------
-
-    @OnClick(R.id.b10)
     public void allStyles() {
         new StyleableToast.Builder(this)
                 .text(toastMsg)
@@ -198,9 +156,7 @@ public class MainActivity extends AppCompatActivity {
                 .show();
     }
 
-
-    @OnLongClick(R.id.b10)
-    public boolean allStylesStyles() {
+    public boolean allStylesXML() {
         StyleableToast.makeText(this, toastMsg, R.style.AllStyles).show();
         return true;
     }

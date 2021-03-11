@@ -284,6 +284,7 @@ public class StyleableToast extends LinearLayout {
         private boolean textBold;
         private String text;
         private int gravity = Gravity.BOTTOM;
+        private StyleableToast toast;
         private final Context context;
 
         public Builder(@NonNull Context context) {
@@ -371,9 +372,23 @@ public class StyleableToast extends LinearLayout {
             return this;
         }
 
+        /**
+         *
+         * @return an mutable instance of the build
+         */
+        public Builder build() {
+            return this;
+        }
+
         public void show() {
-            StyleableToast toast = new StyleableToast(this);
+            toast = new StyleableToast(this);
             toast.show();
+        }
+
+        public void cancel() {
+            if (toast != null) {
+                toast.cancel();
+            }
         }
     }
 }
