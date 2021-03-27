@@ -75,7 +75,7 @@
                     android:id="@+id/b6"
                     style="@style/DemoButton"
                     android:onClick="@{() -> main.iconStart()}"
-                    android:onLongClick="@{()->main.iconEndXML()}"
+                    android:onLongClick="@{()->main.iconStartXML()}"
                     android:text="Icon start" />
 
                 <Button
