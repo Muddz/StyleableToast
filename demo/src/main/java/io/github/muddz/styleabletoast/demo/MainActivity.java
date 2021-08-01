@@ -6,8 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.muddzdev.styleabletoast.StyleableToast;
-
+import io.github.muddz.styleabletoast.StyleableToast;
 import io.github.muddz.styleabletoast.demo.databinding.ActivityMainBinding;
 
 
