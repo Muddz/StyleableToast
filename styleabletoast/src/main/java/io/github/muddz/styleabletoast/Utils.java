@@ -1,4 +1,4 @@
-package com.muddzdev.styleabletoast;
+package io.github.muddz.styleabletoast;
 
 import android.content.Context;
 import android.util.TypedValue;

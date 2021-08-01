@@ -1,4 +1,4 @@
-package com.muddzdev.styleabletoast;
+package io.github.muddz.styleabletoast;
 
 
 import android.annotation.SuppressLint;
@@ -373,7 +373,6 @@ public class StyleableToast extends LinearLayout {
         }
 
         /**
-         *
          * @return an mutable instance of the build
          */
         public Builder build() {

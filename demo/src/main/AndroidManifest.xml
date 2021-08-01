@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.muddzdev.styleabletoast.demo">
+    package="io.github.muddz.styleabletoast.demo">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,MissingApplicationIcon">
 
         <activity
-            android:name="com.muddzdev.styleabletoast.demo.MainActivity"
+            android:name="io.github.muddz.styleabletoast.demo.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

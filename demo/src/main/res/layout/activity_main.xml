@@ -3,7 +3,7 @@
     <data>
         <variable
             name="main"
-            type="com.muddzdev.styleabletoast.demo.MainActivity" />
+            type="io.github.muddz.styleabletoast.demo.MainActivity" />
     </data>
 
     <ScrollView

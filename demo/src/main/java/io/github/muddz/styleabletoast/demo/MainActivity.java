@@ -1,4 +1,4 @@
-package com.muddzdev.styleabletoast.demo;
+package io.github.muddz.styleabletoast.demo;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,7 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.muddzdev.styleabletoast.StyleableToast;
-import com.muddzdev.styleabletoast.demo.databinding.ActivityMainBinding;
+
+import io.github.muddz.styleabletoast.demo.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
